@@ -32,7 +32,7 @@ def deps_install(c):
             ["which sed make binutils build-essential diffutils",
              "gcc g++ bash patch gzip bzip2 perl tar cpio",
              "unzip rsync file bc findutils gawk curl",
-             "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",            
+             "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",      
              C_FORMATER, C_LINTER]
         ))
 
