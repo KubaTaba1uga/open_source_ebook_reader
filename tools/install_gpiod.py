@@ -7,8 +7,6 @@ def install_libgpiod(c):
     if r.ok and "1.6.5" in r.stdout.strip():
         return
 
-    _pr_info(f"Installing libgpiod dependency...")
-
     try:
         c.run(
             "curl https://mirrors.edge.kernel.org/pub/software/libs/libgpiod/libgpiod-1.6.5.tar.xz -o /tmp/libpiod.tar.xz"
@@ -20,10 +18,7 @@ def install_libgpiod(c):
             c.run("sudo make install")
 
     except Exception:
-        _pr_error("Installing failed")
         raise
-
-    _pr_info(f"Installing libgpiod completed")
 
 if __name__ == "__main__":
     c = Context()
