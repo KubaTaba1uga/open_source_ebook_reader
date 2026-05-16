@@ -32,7 +32,7 @@ def deps_install(c):
 
         c.run("virtualenv .venv")
         c.run(
-            "pip install invoke sphinx==8.2.3 breathe==4.36.0 sphinx_rtd_theme==3.0.2 sphinx-autobuild==2025.08.25"
+            "pip install invoke sphinx==8.2.3 breathe==4.36.0 sphinx_rtd_theme==3.0.2 sphinx-autobuild==2025.08.25 myst-parser==5.0.0"
         )
 
     except Exception:
