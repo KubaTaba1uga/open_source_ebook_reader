@@ -51,3 +51,22 @@ Before executing `dd` command adjust EBK_SD_CARD variable accordingly to your SD
 
 Once flashing is done insert sd card into the device and press power ON button, the device should turn on with newly build image.
 
+
+## Debug build
+
+We usually have two builds per board, debug build and prod build.
+
+Debug build is meant for fast development cycle, it have enabled DFU, NFS root in linux etc.
+
+To use debug build you need to configure your PC first. To configure your developemnt machine perform following tutorials:
+- [Set up USB NIC](debug/usb_net.md)
+- [Set up NFS server](debug/nfs.md)
+
+### DFU
+
+Enabling DFU varies between boards. For stm32mp135d odyssey you need to short boot pins in row 0 and 2.
+
+Once you build the sdcard you can flash it with DFU using following command:
+```bash
+python tools/dfu/flash.py
+```
