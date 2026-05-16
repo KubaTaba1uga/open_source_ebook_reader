@@ -108,7 +108,7 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
 
                 c.run(f"git clone {rdata['url']} {repo}")
                 with c.cd(repo):
-                    c.run(f"git checkout {rdata['tag']}")
+                    c.run(f"git checkout {rdata['version']}")
 
                     patches_dir = os.path.join(
                         ROOT_PATH,
@@ -117,10 +117,12 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
                         ),
                         repo,
                     )
-                    if os.path.exists(patches_dir):
-                        c.run(
-                            f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
-                        )
+                    if not os.path.exists(patches_dir):
+                        continue
+
+                    c.run(
+                        f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
+                    )
 
     if config:
         image_configure(c, config)
@@ -161,8 +163,31 @@ def gdb_run(c, config, phase="linux", in_runetime=False):
         _pr_error(f"Cannot run gdb for {config}...")
         return -1
 
-    
     c.run(f"python {run_gdb_script} {phase} {int(in_runetime)}", pty=True)
+@task
+def openocd(c, config, command="run"):
+    commands = {
+        "run": None,
+        "reboot": None,    
+    }
+    
+    _pr_info(f"Starting openocd...")
+
+    config_path = os.path.join(ROOT_PATH, "configs", config)
+    config_dict = _parse_config(config_path)
+
+    for cmd in commands:
+        script = config_dict.get(f"BR2_PACKAGE_HOST_OPENOCD_{cmd.upper()}_SCRIPT", "").replace(
+        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
+        )
+        commands[cmd] = script
+
+    openocd_script = commands.get(command)
+    if not openocd_script:
+        _pr_error(f"Cannot {command} openocd for {config}...")
+        return -1
+
+    c.run(f"python {openocd_script}", pty=True)
 
 
 ###############################################
@@ -207,7 +232,7 @@ def _parse_config(config_path: str) -> dict:
 
 def _find_repos_in_br_config(config_dict: dict):
     repo_version_map = {
-        "tf-a": {
+        "arm-trusted-firmware": {
             "url": "BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_URL",
             "version": "BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_VERSION",
         },
@@ -253,11 +278,12 @@ def _setup_image_configure():
     image_configure.__doc__ = f"""Available configs: \n{"\n".join(f"- {path}" for path in _get_config_paths())}
     """
 
+
 def _setup_gdb_run():
     # We need this for dynamic docstring in `inv gdb-run -h`
     gdb_run.__doc__ = f"""Available configs: \n{"\n".join(f"- {path}" for path in _get_config_paths() if "debug" in os.path.basename(path))}
     """
-    
+
 
 def _get_config_paths():
     configs_paths = []
