@@ -53,3 +53,16 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# ebook reader files
+build/
+*~
+*#
+.cache
+packagecache
+compile_commands.json
+old*
+third_party
+*.db
+trash
+.venv

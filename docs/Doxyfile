@@ -1,0 +1,10 @@
+PROJECT_NAME           = "Open Source eBook Reader"
+OUTPUT_DIRECTORY       = build/doxygen
+XML_OUTPUT             = xml
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES
+EXTRACT_ALL            = YES
+# Generate XML for Breathe
+GENERATE_XML           = YES
+# Optimize generation time
+EXCLUDE_PATTERNS       = */third_party/* */build/*
