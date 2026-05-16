@@ -27,15 +27,16 @@ Building the image is done with `inv build` command, but to generate proper imag
 
 % TO-DO: insert normal board here
 
-| Board   | Config   |
-|---------|----------|
-| Dummy   | Dummy    |
+| Board                 | Config                              | Link                                                        |
+|-----------------------|-------------------------------------|-------------------------------------------------------------|
+| STM32MP135D Odyssey   | stm32mp135d_odyssey_defconfig       | https://www.seeedstudio.com/Odyssey-MP135D-eMMC-p-5728.html |
+| STM32MP135D Odyssey   | stm32mp135d_odyssey_debug_defconfig | https://www.seeedstudio.com/Odyssey-MP135D-eMMC-p-5728.html |
 
 ```bash
-inv build -c dummy
+inv build -c stm32mp135d_odyssey_defconfig
 ```
 
-Building will take some time so feel free to take a brake, make a coffe etc.
+Build will take some time so feel free to take a brake, make a coffe etc.
 
 Once build is done, you should have sdcard image in `build/buildroot/images/sdcard.img`.
 Flash it onto the SD card with following command:
