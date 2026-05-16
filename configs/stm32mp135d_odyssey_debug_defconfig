@@ -1,0 +1,122 @@
+##############################################
+#                  Buildroot                 #
+##############################################
+BR2_arm=y
+BR2_cortex_a7=y
+BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/patches/"
+BR2_CCACHE=y
+
+
+##############################################
+#                  Toolchain                 #
+##############################################
+BR2_TOOLCHAIN_EXTERNAL=y
+BR2_TOOLCHAIN_EXTERNAL_BOOTLIN=y
+BR2_TOOLCHAIN_EXTERNAL_BOOTLIN_ARMV7_EABIHF_GLIBC_STABLE=y
+
+
+##############################################
+#                  TF-A                      #
+##############################################
+BR2_TARGET_ARM_TRUSTED_FIRMWARE=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_GIT=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_URL="https://github.com/STMicroelectronics/arm-trusted-firmware.git"
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_VERSION="v2.10-stm32mp-r2"
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_PLATFORM="stm32mp1"
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_FIP=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_BL32_OPTEE=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_UBOOT_AS_BL33=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_UBOOT_BL33_IMAGE="u-boot-nodtb.bin"
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_ADDITIONAL_VARIABLES="STM32MP_SDMMC=1 AARCH32_SP=optee DTB_FILE_NAME=stm32mp135d-odyssey-ebook-reader.dtb BL33_CFG=$(BINARIES_DIR)/u-boot.dtb OPENSSL_DIR=$(BR2_HOST_DIR) STM32MP_USB_PROGRAMMER=1 DEBUG=1 STM32MP_EARLY_CONSOLE=1 LOG_LEVEL=30"  # Enable debug: LOG_LEVEL=50
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_DEBUG=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_IMAGES="*.stm32 fip.bin"
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_NEEDS_DTC=y
+BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_DTS_PATH="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/tf-a/stm32mp13*dt*"
+
+
+##############################################
+#                  Optee OS                  #
+##############################################
+BR2_TARGET_OPTEE_OS=y
+BR2_TARGET_OPTEE_OS_CUSTOM_GIT=y
+BR2_TARGET_OPTEE_OS_CUSTOM_REPO_URL="https://github.com/STMicroelectronics/optee_os.git"
+BR2_TARGET_OPTEE_OS_CUSTOM_REPO_VERSION="4.0.0-stm32mp-r2"
+BR2_TARGET_OPTEE_OS_NEEDS_DTC=y
+BR2_TARGET_OPTEE_OS_NEEDS_PYTHON_CRYPTOGRAPHY=y
+BR2_TARGET_OPTEE_OS_PLATFORM="stm32mp1"
+BR2_TARGET_OPTEE_OS_PLATFORM_FLAVOR="135F_DK"
+BR2_TARGET_OPTEE_OS_CUSTOM_DTS_PATH="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/optee-os/stm32mp13*dt*"
+BR2_TARGET_OPTEE_OS_ADDITIONAL_VARIABLES="CFG_EMBED_DTB_SOURCE_FILE=stm32mp135d-odyssey-ebook-reader.dts CFG_STM32MP13=y CFG_WITH_TUI=n CFG_DRAM_SIZE=0x20000000 CFG_DT=y CFG_EMBED_DTB=y DEBUG=1 CFG_TEE_CORE_LOG_LEVEL=2" # Enable debug: CFG_TEE_CORE_LOG_LEVEL=3
+
+
+##############################################
+#                  U-boot                    #
+##############################################
+BR2_TARGET_UBOOT=y
+BR2_TARGET_UBOOT_BUILD_SYSTEM_KCONFIG=y
+BR2_TARGET_UBOOT_CUSTOM_GIT=y
+BR2_TARGET_UBOOT_CUSTOM_REPO_URL="https://github.com/STMicroelectronics/u-boot.git"
+BR2_TARGET_UBOOT_CUSTOM_REPO_VERSION="v2023.10-stm32mp-r2"
+BR2_TARGET_UBOOT_BOARD_DEFCONFIG="stm32mp13"
+BR2_TARGET_UBOOT_NEEDS_PYLIBFDT=y
+BR2_TARGET_UBOOT_NEEDS_OPENSSL=y
+# BR2_TARGET_UBOOT_FORMAT_BIN is not set
+BR2_TARGET_UBOOT_FORMAT_CUSTOM=y
+BR2_TARGET_UBOOT_FORMAT_CUSTOM_NAME="u-boot-nodtb.bin u-boot.dtb"
+BR2_TARGET_UBOOT_CONFIG_FRAGMENT_FILES="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/u-boot/default.config $(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/u-boot/debug.config"
+BR2_TARGET_UBOOT_CUSTOM_DTS_PATH="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/u-boot/*"
+BR2_TARGET_UBOOT_CUSTOM_MAKEOPTS="dtb-y=stm32mp135d-odyssey-ebook-reader.dtb DEVICE_TREE=stm32mp135d-odyssey-ebook-reader"
+BR2_TARGET_UBOOT_RUN_POST_RSYNC_HOOK_SCRIPT="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/u-boot/uboot-post-rsync.sh"
+
+
+##############################################
+#                  Linux                     #
+##############################################
+BR2_LINUX_KERNEL=y
+BR2_LINUX_KERNEL_CUSTOM_GIT=y
+BR2_LINUX_KERNEL_CUSTOM_REPO_URL="https://github.com/STMicroelectronics/linux.git"
+BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="v6.6-stm32mp-r2"
+BR2_LINUX_KERNEL_DEFCONFIG="multi_v7"
+BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="$(LINUX_DIR)/arch/arm/configs/fragment-01-multiv7_cleanup.config $(LINUX_DIR)/arch/arm/configs/fragment-02-multiv7_addons.config $(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/linux/default.config $(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/linux/enable_usb_net.config $(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/linux/debug.config"
+BR2_LINUX_KERNEL_DTS_SUPPORT=y
+BR2_LINUX_KERNEL_INTREE_DTS_NAME="st/stm32mp135d-odyssey-ebook-reader"
+BR2_LINUX_KERNEL_CUSTOM_DTS_PATH="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/linux/st"
+BR2_LINUX_KERNEL_INSTALL_TARGET=y
+BR2_LINUX_KERNEL_NEEDS_HOST_OPENSSL=y
+
+
+##############################################
+#                  Rootfs                    #
+##############################################
+BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/rootfs_overlay"
+BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"
+BR2_ROOTFS_POST_SCRIPT_ARGS="-c $(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/dev/genimage_debug.cfg"
+BR2_TARGET_ROOTFS_EXT2=y
+BR2_TARGET_ROOTFS_EXT2_2=y
+BR2_TARGET_ROOTFS_EXT2_LABEL="rootfs"
+BR2_TARGET_ROOTFS_EXT2_SIZE="120M"
+BR2_TARGET_GENERIC_HOSTNAME="ebook_reader"
+BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV=y
+BR2_TARGET_ROOTFS_TAR=y
+BR2_ROOTFS_POST_BUILD_SCRIPT="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/dev/rootfs_postbuild_openocd.sh"
+BR2_PACKAGE_PYTHON3=y
+# BR2_PACKAGE_PYTHON3_PY_ONLY is not set
+BR2_PACKAGE_PYTHON3_PYC_ONLY=y
+# BR2_PACKAGE_PYTHON3_PY_PYC is not set
+BR2_PACKAGE_HOST_STM32WRAPPER4DBG=y
+BR2_PACKAGE_HOST_GENIMAGE=y
+BR2_PACKAGE_OPTEE_CLIENT=y
+BR2_PACKAGE_OPTEE_CLIENT_LATEST=y
+BR2_PACKAGE_OPTEE_CLIENT_VERSION="4.0.0"
+BR2_PACKAGE_OPTEE_CLIENT_TEE_FS_PATH="/var/tee"
+BR2_PACKAGE_OPTEE_CLIENT_RPMB_EMU=y
+BR2_PACKAGE_OPTEE_CLIENT_SUPP_PLUGINS=y
+# BR2_PACKAGE_OPTEE_CLIENT_TEEACL is not set
+BR2_PACKAGE_OPTEE_EXAMPLES=n
+BR2_PACKAGE_OPTEE_TEST=n
+
+##############################################
+#                  Debug                    #
+##############################################
+BR2_PACKAGE_OVERRIDE_FILE="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/dev/local.mk"
+BR2_PACKAGE_HOST_ENVIRONMENT_SETUP=y
