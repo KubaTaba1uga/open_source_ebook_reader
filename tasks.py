@@ -27,14 +27,18 @@ def deps_install(c):
 
     try:
         c.run(
-            "sudo apt-get install -y " +
-            " ".join(
-            ["which sed make binutils build-essential diffutils",
-             "gcc g++ bash patch gzip bzip2 perl tar cpio",
-             "unzip rsync file bc findutils gawk curl",
-             "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",      
-             C_FORMATER, C_LINTER]
-        ))
+            "sudo apt-get install -y "
+            + " ".join(
+                [
+                    "which sed make binutils build-essential diffutils",
+                    "gcc g++ bash patch gzip bzip2 perl tar cpio",
+                    "unzip rsync file bc findutils gawk curl",
+                    "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",
+                    C_FORMATER,
+                    C_LINTER,
+                ]
+            )
+        )
 
         c.run("virtualenv .venv")
         c.run(
@@ -109,7 +113,7 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
                     patches_dir = os.path.join(
                         ROOT_PATH,
                         config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
-                            "$(BR2_EXTERNAL_EBK_READER_PATH)", ""
+                            "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
                         ),
                         repo,
                     )
@@ -141,6 +145,24 @@ def image_configure(c, config="stm32mp135d_odyssey_defconfig"):
         c.run(f"make " + " ".join(flags))
 
     _pr_info(f"Configuring image completed")
+
+
+@task
+def gdb_run(c, config, phase="linux", in_runetime=False):
+    _pr_info(f"Starting gdb...")
+
+    config_path = os.path.join(ROOT_PATH, "configs", config)
+    config_dict = _parse_config(config_path)
+
+    run_gdb_script = config_dict.get("BR2_PACKAGE_HOST_GDB_RUN_SCRIPT", "").replace(
+        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
+    )
+    if not run_gdb_script:
+        _pr_error(f"Cannot run gdb for {config}...")
+        return -1
+
+    
+    c.run(f"python {run_gdb_script} {phase} {int(in_runetime)}", pty=True)
 
 
 ###############################################
@@ -231,21 +253,28 @@ def _setup_image_configure():
     image_configure.__doc__ = f"""Available configs: \n{"\n".join(f"- {path}" for path in _get_config_paths())}
     """
 
+def _setup_gdb_run():
+    # We need this for dynamic docstring in `inv gdb-run -h`
+    gdb_run.__doc__ = f"""Available configs: \n{"\n".join(f"- {path}" for path in _get_config_paths() if "debug" in os.path.basename(path))}
+    """
+    
 
 def _get_config_paths():
     configs_paths = []
     for path in os.listdir(CONFIG_PATH):
         if "~" in path or "#" in path:
             continue
-            
+
         if path in [".", "..", ".gitkeep"]:
             continue
-            
+
         configs_paths.append(path)
-        
+
     return configs_paths
 
 
 _setup_image_build()
 
 _setup_image_configure()
+
+_setup_gdb_run()
