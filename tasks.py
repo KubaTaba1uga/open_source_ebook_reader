@@ -40,6 +40,7 @@ def deps_install(c):
         c.run(
             "pip install invoke sphinx==8.2.3 breathe==4.36.0 sphinx_rtd_theme==3.0.2 sphinx-autobuild==2025.08.25 myst-parser==5.0.0"
         )
+        c.run(f"python {os.path.join(ROOT_PATH, 'tools', 'install_gpiod.py')}")
 
     except Exception:
         _pr_error("Installing failed")
