@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 #ifndef SETTINGS_H
 #define SETTINGS_H
 

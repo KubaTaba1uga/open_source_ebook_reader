@@ -9,6 +9,7 @@ IT8951_EPAPER_SITE = https://github.com/waveshareteam/IT8951-ePaper.git
 IT8951_EPAPER_SITE_METHOD = git
 IT8951_EPAPER_DEPENDENCIES = host-pkgconf
 IT8951_EPAPER_INSTALL_STAGING = YES
+IT8951_EPAPER_INSTALL_TARGET = YES
 
 $(eval $(meson-package))
 

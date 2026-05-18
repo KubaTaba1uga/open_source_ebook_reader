@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 #ifndef EBOOK_READER_DISPLAY_H
 #define EBOOK_READER_DISPLAY_H
 

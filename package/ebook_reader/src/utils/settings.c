@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 
 /**
   Settings are specified at compilation time. Each setting has corresponding

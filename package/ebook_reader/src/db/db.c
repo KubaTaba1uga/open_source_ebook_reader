@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 #include <assert.h>
 #include <sqlite3.h>
 #include <stdio.h>

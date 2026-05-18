@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 #include <fontconfig/fontconfig.h>
 #include <signal.h>
 #include <stdbool.h>

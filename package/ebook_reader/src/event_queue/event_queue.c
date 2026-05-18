@@ -1,3 +1,8 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
+ */
 #include "event_queue/event_queue.h"
 #include "utils/log.h"
 #include "utils/mem.h"
