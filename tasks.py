@@ -27,19 +27,24 @@ def deps_install(c):
 
     try:
         c.run(
-            "sudo apt-get install -y " +
-            " ".join(
-            ["which sed make binutils build-essential diffutils",
-             "gcc g++ bash patch gzip bzip2 perl tar cpio",
-             "unzip rsync file bc findutils gawk curl",
-             "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",            
-             C_FORMATER, C_LINTER]
-        ))
+            "sudo apt-get install -y "
+            + " ".join(
+                [
+                    "which sed make binutils build-essential diffutils",
+                    "gcc g++ bash patch gzip bzip2 perl tar cpio",
+                    "unzip rsync file bc findutils gawk curl",
+                    "libncurses5-dev python3 libpoppler-glib-dev poppler-utils",
+                    C_FORMATER,
+                    C_LINTER,
+                ]
+            )
+        )
 
         c.run("virtualenv .venv")
         c.run(
             "pip install invoke sphinx==8.2.3 breathe==4.36.0 sphinx_rtd_theme==3.0.2 sphinx-autobuild==2025.08.25 myst-parser==5.0.0"
         )
+        c.run(f"python {os.path.join(ROOT_PATH, 'tools', 'install_gpiod.py')}")
 
     except Exception:
         _pr_error("Installing failed")
@@ -103,19 +108,21 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
 
                 c.run(f"git clone {rdata['url']} {repo}")
                 with c.cd(repo):
-                    c.run(f"git checkout {rdata['tag']}")
+                    c.run(f"git checkout {rdata['version']}")
 
                     patches_dir = os.path.join(
                         ROOT_PATH,
                         config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
-                            "$(BR2_EXTERNAL_EBK_READER_PATH)", ""
+                            "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
                         ),
                         repo,
                     )
-                    if os.path.exists(patches_dir):
-                        c.run(
-                            f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
-                        )
+                    if not os.path.exists(patches_dir):
+                        continue
+
+                    c.run(
+                        f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
+                    )
 
     if config:
         image_configure(c, config)
@@ -140,6 +147,49 @@ def image_configure(c, config="stm32mp135d_odyssey_defconfig"):
         c.run(f"make " + " ".join(flags))
 
     _pr_info(f"Configuring image completed")
+
+
+@task
+def gdb_run(c, config, phase="linux", in_runetime=False):
+    _pr_info(f"Starting gdb...")
+
+    config_path = os.path.join(ROOT_PATH, "configs", config)
+    config_dict = _parse_config(config_path)
+
+    run_gdb_script = config_dict.get("BR2_PACKAGE_HOST_GDB_RUN_SCRIPT", "").replace(
+        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
+    )
+    if not run_gdb_script:
+        _pr_error(f"Cannot run gdb for {config}...")
+        return -1
+
+    c.run(f"python {run_gdb_script} {phase} {int(in_runetime)}", pty=True)
+
+
+@task
+def openocd(c, config, command="run"):
+    commands = {
+        "run": None,
+        "reboot": None,    
+    }
+    
+    _pr_info(f"Starting openocd...")
+
+    config_path = os.path.join(ROOT_PATH, "configs", config)
+    config_dict = _parse_config(config_path)
+
+    for cmd in commands:
+        script = config_dict.get(f"BR2_PACKAGE_HOST_OPENOCD_{cmd.upper()}_SCRIPT", "").replace(
+        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
+        )
+        commands[cmd] = script
+
+    openocd_script = commands.get(command)
+    if not openocd_script:
+        _pr_error(f"Cannot {command} openocd for {config}...")
+        return -1
+
+    c.run(f"python {openocd_script}", pty=True)
 
 
 ###############################################
@@ -184,7 +234,7 @@ def _parse_config(config_path: str) -> dict:
 
 def _find_repos_in_br_config(config_dict: dict):
     repo_version_map = {
-        "tf-a": {
+        "arm-trusted-firmware": {
             "url": "BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_URL",
             "version": "BR2_TARGET_ARM_TRUSTED_FIRMWARE_CUSTOM_REPO_VERSION",
         },
@@ -231,20 +281,28 @@ def _setup_image_configure():
     """
 
 
+def _setup_gdb_run():
+    # We need this for dynamic docstring in `inv gdb-run -h`
+    gdb_run.__doc__ = f"""Available configs: \n{"\n".join(f"- {path}" for path in _get_config_paths() if "debug" in os.path.basename(path))}
+    """
+
+
 def _get_config_paths():
     configs_paths = []
     for path in os.listdir(CONFIG_PATH):
         if "~" in path or "#" in path:
             continue
-            
+
         if path in [".", "..", ".gitkeep"]:
             continue
-            
+
         configs_paths.append(path)
-        
+
     return configs_paths
 
 
 _setup_image_build()
 
 _setup_image_configure()
+
+_setup_gdb_run()

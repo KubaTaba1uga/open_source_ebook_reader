@@ -27,15 +27,16 @@ Building the image is done with `inv build` command, but to generate proper imag
 
 % TO-DO: insert normal board here
 
-| Board   | Config   |
-|---------|----------|
-| Dummy   | Dummy    |
+| Board                 | Config                              | Link                                                        |
+|-----------------------|-------------------------------------|-------------------------------------------------------------|
+| STM32MP135D Odyssey   | stm32mp135d_odyssey_defconfig       | https://www.seeedstudio.com/Odyssey-MP135D-eMMC-p-5728.html |
+| STM32MP135D Odyssey   | stm32mp135d_odyssey_debug_defconfig | https://www.seeedstudio.com/Odyssey-MP135D-eMMC-p-5728.html |
 
 ```bash
-inv build -c dummy
+inv build -c stm32mp135d_odyssey_defconfig
 ```
 
-Building will take some time so feel free to take a brake, make a coffe etc.
+Build will take some time so feel free to take a brake, make a coffe etc.
 
 Once build is done, you should have sdcard image in `build/buildroot/images/sdcard.img`.
 Flash it onto the SD card with following command:
@@ -50,3 +51,22 @@ Before executing `dd` command adjust EBK_SD_CARD variable accordingly to your SD
 
 Once flashing is done insert sd card into the device and press power ON button, the device should turn on with newly build image.
 
+
+## Debug build
+
+We usually have two builds per board, debug build and prod build.
+
+Debug build is meant for fast development cycle, it have enabled DFU, NFS root in linux etc.
+
+To use debug build you need to configure your PC first. To configure your developemnt machine perform following tutorials:
+- [Set up USB NIC](debug/usb_net.md)
+- [Set up NFS server](debug/nfs.md)
+
+### DFU
+
+Enabling DFU varies between boards. For stm32mp135d odyssey you need to short boot pins in row 0 and 2.
+
+Once you build the sdcard you can flash it with DFU using following command:
+```bash
+python tools/dfu/flash.py
+```
