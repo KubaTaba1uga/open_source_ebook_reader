@@ -164,6 +164,8 @@ def gdb_run(c, config, phase="linux", in_runetime=False):
         return -1
 
     c.run(f"python {run_gdb_script} {phase} {int(in_runetime)}", pty=True)
+
+
 @task
 def openocd(c, config, command="run"):
     commands = {
