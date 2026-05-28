@@ -103,7 +103,19 @@
 			label = "left";
 			linux,code = <KEY_LEFT>;
 			gpios = <&gpioe 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-		};		
+		};
+
+		button_power: button-power { // PIN 18
+			label = "power";
+			linux,code = <KEY_WAKEUP>;
+			interrupts-extended = <&optee 0>;
+		};
+		
+		/* button_power: button-power { // PIN 18 */
+		/* 	label = "power"; */
+		/* 	linux,code = <KEY_POWER>; */
+		/* 	gpios = <&gpiod 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; */
+		/* };				 */
 	};
 	
 	/* USER CODE END root */

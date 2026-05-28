@@ -114,7 +114,7 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
                         ROOT_PATH,
                         config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
                             "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
-                        ),
+                        ).replace('"', ""),
                         repo,
                     )
                     if not os.path.exists(patches_dir):

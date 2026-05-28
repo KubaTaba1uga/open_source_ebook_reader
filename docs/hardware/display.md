@@ -33,3 +33,9 @@ When the pin is pulled LOW, the data will be interpreted as a command.
 When the `BUSY` pin is pulled HIGH, the device is idle.
 When the pin is pulled LOW, the device is busy processing a command and should not be communicated with.
 ```
+
+## Display power
+
+The display even when in sleep draws around 50mA, which is problematic whyen the device is off, afterall powered off device shouldnt draw anu current, rigth?
+
+So we introduced screen power switch on PIN 22, GPIO F9.

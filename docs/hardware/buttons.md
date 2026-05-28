@@ -5,14 +5,15 @@ orphan: true
 
 Connect buttons according to the table below:
 
-| BTN   | GPIO | PIN | Is working |
-| ----- | ---- | --- | ---------- |
-| menu  | B1   | 7   |            |
-| enter | D4   | 11  |            |
-| down  | D13  | 13  |            |
-| left  | E14  | 16  |            |
-| right | D15  | 10  |            |
-| up    | C0   | 12  |            |
+| BTN           | GPIO | PIN | Is working |
+| ------------- | ---- | --- | ---------- |
+| menu          | B1   | 7   |            |
+| enter         | D4   | 11  |            |
+| down          | D13  | 13  |            |
+| left          | E14  | 16  |            |
+| right         | D15  | 10  |            |
+| up            | C0   | 12  |            |
+| power         | D5   | 18  |            |
 
 ```{note}
 If you are wondering why we choose pins in this weird pattern instead just next to each other,
