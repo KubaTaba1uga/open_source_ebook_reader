@@ -4059,7 +4059,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 105.41 111.252 90)
 			(hide yes)
 			(show_name no)
@@ -4782,7 +4782,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 43.18 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -4937,7 +4937,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 43.18 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -4997,7 +4997,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b97f7d17-715e-4a7f-9afa-06e29784e30b")
-		(property "Reference" "DisplayOnOffSwitch"
+		(property "Reference" "DisplayOnOffSwitch1"
 			(at 123.19 111.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5067,7 +5067,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "DisplayOnOffSwitch")
+					(reference "DisplayOnOffSwitch1")
 					(unit 1)
 				)
 			)
@@ -5179,7 +5179,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
 			(at 64.77 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -5277,7 +5277,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
 			(at 43.18 106.68 0)
 			(hide yes)
 			(show_name no)
