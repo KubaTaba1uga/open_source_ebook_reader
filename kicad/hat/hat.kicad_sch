@@ -2812,6 +2812,10 @@
 		(uuid "7d0adfda-efff-461e-aa01-97241b4c6278")
 	)
 	(no_connect
+		(at 48.26 151.13)
+		(uuid "81d4e3e4-2efe-4f39-91a7-f72c1690fb81")
+	)
+	(no_connect
 		(at 111.76 67.31)
 		(uuid "8f305f04-7863-4111-8aab-9259121677f6")
 	)
@@ -3867,6 +3871,16 @@
 		)
 		(uuid "b4fb5925-589a-4ae2-9502-06cadb150a11")
 	)
+	(label "PowerboostBat"
+		(at 48.26 148.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b98c2f2a-5f70-47ad-a8a0-af8bea441503")
+	)
 	(label "GPIO27"
 		(at 43.18 49.53 0)
 		(effects
@@ -4900,6 +4914,86 @@
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 43.18 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "95bfa978-28fc-4ebe-aac8-711573188f9d")
+		(property "Reference" "J7"
+			(at 43.815 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "BatteryLevel"
+			(at 43.815 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b3cff5ed-7c33-4a4f-933d-bf1a04c59e03")
+		)
+		(pin "1"
+			(uuid "2aa52cd8-d8eb-41b5-ba08-d8549a907e7e")
+		)
+		(instances
+			(project "hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "J7")
 					(unit 1)
 				)
 			)
