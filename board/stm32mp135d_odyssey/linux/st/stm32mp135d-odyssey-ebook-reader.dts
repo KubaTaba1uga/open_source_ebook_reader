@@ -2,10 +2,10 @@
 /*
  * Copyright (C) 2026, STMicroelectronics - All Rights Reserved
  * Author: STM32CubeMX code generation for STMicroelectronics.
- */
-
-/* For more information on Device Tree configuration, please refer to
- * https://wiki.st.com/stm32mpu/wiki/Category:Device_tree_configuration
+ *
+ * Copyright (C) 2026, Jakub Buczynski <KubaTaba1uga> - All Rights Reserved
+ * Author: Jakub Buczynski <KubaTaba1uga>.
+ *
  */
 
 /dts-v1/;
@@ -261,6 +261,18 @@
 		};
 	};
 
+
+	adc1_pins_mx: adc1_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('A', 5, ANALOG)>; /* ADC1_INP2 */
+		};
+	};
+
+	adc1_sleep_pins_mx: adc1_sleep_mx-0 {
+		pins {
+			pinmux = <STM32_PINMUX('A', 5, ANALOG)>; /* ADC1_INP2 */
+		};
+	};
 	
 	/* USER CODE BEGIN pinctrl */
 	usb_connector_a_pin_mx: usb_connector_a_pin_mx-0 {
@@ -382,6 +394,37 @@
            spi-max-frequency = <40000000>; // 40MHz
         };	
 	/* USER CODE END spi5 */
+};
+
+&bsec {
+	status = "okay";
+
+	/* USER CODE BEGIN bsec */
+	/* USER CODE END bsec */
+};
+
+&adc_1 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&adc1_pins_mx>;
+	pinctrl-1 = <&adc1_sleep_pins_mx>;
+	status = "okay";
+
+	/* USER CODE BEGIN adc_1 */
+	vdda-supply = <&scmi_vdd_adc>;
+	vref-supply = <&scmi_vdd_adc>;
+
+        adc1: adc@0 {
+	   status = "okay";	
+	   /delete-property/ dmas;
+           /delete-property/ dma-names;
+
+          channel@2 {
+            reg = <2>;
+            label = "battery";
+            st,min-sample-time-ns = <9000>;
+          };
+        };
+	/* USER CODE END adc_1 */
 };
 
 /* USER CODE BEGIN addons */
