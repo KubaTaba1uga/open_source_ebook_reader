@@ -4891,7 +4891,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 105.41 109.22 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5119,23 +5119,25 @@
 		(fields_autoplaced yes)
 		(uuid "42720c01-3be8-4c09-9429-47a1b134e4f7")
 		(property "Reference" "R2"
-			(at 196.85 106.68 90)
+			(at 193.04 105.4099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "R"
-			(at 194.31 106.68 90)
+		(property "Value" "47k"
+			(at 193.04 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
@@ -5922,23 +5924,25 @@
 		(fields_autoplaced yes)
 		(uuid "8e616379-38c6-4475-88e2-8845b795fde3")
 		(property "Reference" "R3"
-			(at 196.85 119.38 90)
+			(at 193.04 118.1099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "R"
-			(at 194.31 119.38 90)
+		(property "Value" "33k"
+			(at 193.04 120.6499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
@@ -6508,7 +6512,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.00mm:PinHeader_1x08_P2.00mm_Vertical"
 			(at 64.77 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -6764,10 +6768,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fccff582-41ba-4583-a997-fcac9eef6b66")
 		(property "Reference" "R4"
-			(at 176.53 127 90)
+			(at 176.53 128.778 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6776,8 +6779,8 @@
 				)
 			)
 		)
-		(property "Value" "R"
-			(at 176.53 129.54 90)
+		(property "Value" "10k"
+			(at 176.784 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
