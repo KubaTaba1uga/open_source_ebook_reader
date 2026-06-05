@@ -18,7 +18,7 @@ We tried Chipper displays, but the main problem was resolution. On resolutions l
 | 23            | G         | 10       | T                    | SPI5_SCK          | Output, Active high | CLK (SPI clock)                  |
 | 24            | H         | 11       | T                    | SPI5_NSS          | Output, Active low  | CS (SPI chip select; active low) |
 | 29            | B         | 10       | F                    | —                 | Output, Active low  | RST (reset)                      |
-| 31            | A         | 7        | F                    | —                 | Input, Active low   | BUSY (device ready/busy)         |
+| 26            | E         | 10       | F                    | —                 | Input, Active low   | BUSY (device ready/busy)         |
 
 ```{note}
 Connector pin stands for the pin number on the 40-pin hardware header.
