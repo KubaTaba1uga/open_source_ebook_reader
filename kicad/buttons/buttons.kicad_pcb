@@ -51,8 +51,8 @@
 		(capping no)
 		(filling no)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_5755f5ff)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
+			(layerselection 0x00000000_00000000_55555557_55555550)
+			(plot_on_all_layers_selection 0x00000000_00000000_0000000a_00000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
@@ -80,11 +80,11 @@
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 5)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 2)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "/home/taba1uga/Downloads/")
 		)
 	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
@@ -127,7 +127,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x08, script generated"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -138,22 +138,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "connector/pin_header_socket"
-			(at 0 0 270)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "449cf6e1-48fa-4ca6-b1be-121280f528bc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/fafb324d-8982-4b9a-94ab-a4e265126a34")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2" "3" "4" "5" "6" "7" "8")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -419,7 +413,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -445,7 +439,13 @@
 		(path "/e392ee84-d10b-401b-b32d-9e95a687e043")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -839,7 +839,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -850,22 +850,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "eb36e99f-7756-4227-b4e5-3b4c71330a78")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/c413604c-3983-4993-940f-c14881ef52ff")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1026,7 +1020,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1037,22 +1031,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "291473d8-ffa4-4040-9314-67b9611287e7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/53344da8-b923-4571-96c0-6206f6fe4c51")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1202,7 +1190,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1228,7 +1216,13 @@
 		(path "/0e18bc2d-8033-4276-ae86-01a0ce9ad4fc")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -1622,7 +1616,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1633,22 +1627,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "e7ee0f65-a53b-4574-8076-090d891204ab")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/6d00c41f-cee8-4d40-9e30-80105aedb289")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1798,7 +1786,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1824,7 +1812,13 @@
 		(path "/7a6d983b-a602-4252-b180-c4aa1fcc03b4")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -2218,7 +2212,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2229,22 +2223,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "51139894-6502-4911-99b2-25128ff0ed5d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/0fdcc2ab-0fa9-44a5-b890-27fce9acb8ac")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2491,7 +2479,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2517,7 +2505,13 @@
 		(path "/8c0b1b0c-45c1-4028-b702-4c18d43be966")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -2911,7 +2905,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -2922,22 +2916,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 180)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "3b05e1f6-4633-4013-b218-d661acd3161e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/7979094b-3815-4d23-be5d-984563c9943e")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3087,7 +3075,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3113,7 +3101,13 @@
 		(path "/490e1a10-4204-411d-9c58-81a45d56d551")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -3593,7 +3587,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "B3W-1000"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3619,7 +3613,13 @@
 		(path "/52ff23ef-933a-4e2d-ba0e-ff964648868f")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
-		(attr through_hole)
+		(units
+			(unit
+				(name "A")
+				(pins "1" "3" "2" "4")
+			)
+		)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0.122999 1.079756)
@@ -4207,7 +4207,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4218,22 +4218,16 @@
 				)
 			)
 		)
-		(property "KiLib_Generator" "resistor/THT"
-			(at 0 0 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "4366a7e7-0cde-4cbb-9e93-7aea6d6ee779")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/65ab9a8e-4fb8-4eb6-8718-15c3252f384f")
 		(sheetname "/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4874,20 +4868,20 @@
 		(uuid "f982dc45-08e5-440f-b2d5-8859b87c62b2")
 	)
 	(segment
-		(start 104.999998 107.5)
-		(end 106.749999 109.250001)
+		(start 92.66 100.5)
+		(end 104.999999 100.5)
 		(width 0.2)
 		(layer "F.Cu")
-		(net "Net-(R1-Pad2)")
-		(uuid "e9b48004-1022-4adf-9d0b-600ff3900ebb")
+		(net "Net-(R3-Pad2)")
+		(uuid "055d589f-0a88-47fa-940a-037bbfbe8674")
 	)
 	(segment
-		(start 92.66 107.5)
-		(end 104.999998 107.5)
+		(start 104.999999 100.5)
+		(end 106.75 102.250001)
 		(width 0.2)
 		(layer "F.Cu")
-		(net "Net-(R1-Pad2)")
-		(uuid "f6199533-3336-417f-98a4-043e72214e6a")
+		(net "Net-(R3-Pad2)")
+		(uuid "bc886e23-053b-45ce-8de7-e249ab48112e")
 	)
 	(segment
 		(start 92.66 97)
@@ -4954,6 +4948,22 @@
 		(uuid "faabf34b-57b8-4491-bb22-ed6e87b3cb90")
 	)
 	(segment
+		(start 121.349999 108)
+		(end 115.6 102.250001)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(R5-Pad2)")
+		(uuid "0bde6a7d-cfa7-4913-ac4b-b3f59e3d30a4")
+	)
+	(segment
+		(start 125.34 108)
+		(end 121.349999 108)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(R5-Pad2)")
+		(uuid "98197a40-6c4c-4e33-8a8a-939fd5a8aa7e")
+	)
+	(segment
 		(start 92.66 104)
 		(end 96.150001 104)
 		(width 0.2)
@@ -4970,36 +4980,20 @@
 		(uuid "fd9b9ffa-541b-4b0a-aa86-811b33894b84")
 	)
 	(segment
-		(start 92.66 100.5)
-		(end 104.999999 100.5)
+		(start 104.999998 107.5)
+		(end 106.749999 109.250001)
 		(width 0.2)
 		(layer "F.Cu")
-		(net "Net-(R3-Pad2)")
-		(uuid "055d589f-0a88-47fa-940a-037bbfbe8674")
+		(net "Net-(R1-Pad2)")
+		(uuid "e9b48004-1022-4adf-9d0b-600ff3900ebb")
 	)
 	(segment
-		(start 104.999999 100.5)
-		(end 106.75 102.250001)
+		(start 92.66 107.5)
+		(end 104.999998 107.5)
 		(width 0.2)
 		(layer "F.Cu")
-		(net "Net-(R3-Pad2)")
-		(uuid "bc886e23-053b-45ce-8de7-e249ab48112e")
-	)
-	(segment
-		(start 121.349999 108)
-		(end 115.6 102.250001)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "Net-(R5-Pad2)")
-		(uuid "0bde6a7d-cfa7-4913-ac4b-b3f59e3d30a4")
-	)
-	(segment
-		(start 125.34 108)
-		(end 121.349999 108)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "Net-(R5-Pad2)")
-		(uuid "98197a40-6c4c-4e33-8a8a-939fd5a8aa7e")
+		(net "Net-(R1-Pad2)")
+		(uuid "f6199533-3336-417f-98a4-043e72214e6a")
 	)
 	(embedded_fonts no)
 )
