@@ -978,12 +978,6 @@
 		(uuid "1a2c4b3b-377f-4a6f-a84b-5acfe9dc2624")
 	)
 	(junction
-		(at 46.99 25.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1e0c369d-9e7f-4700-9653-db4240f1c6ce")
-	)
-	(junction
 		(at 80.01 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1001,9 +995,19 @@
 		(color 0 0 0 0)
 		(uuid "e0448cba-53e8-454d-bc21-a548e424904f")
 	)
+	(junction
+		(at 46.99 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f6bd5f2a-70ae-434f-8a3a-8e2075a69537")
+	)
 	(no_connect
 		(at 113.03 77.47)
 		(uuid "0fe03f5c-7718-4844-b237-c3511bf61943")
+	)
+	(no_connect
+		(at 25.4 90.17)
+		(uuid "278818df-c96d-41fe-bfec-2a396ca20e83")
 	)
 	(no_connect
 		(at 49.53 36.83)
@@ -1044,10 +1048,6 @@
 	(no_connect
 		(at 212.09 77.47)
 		(uuid "ec4be0bb-9e8d-47f1-bff8-727dde69a740")
-	)
-	(no_connect
-		(at 27.94 27.94)
-		(uuid "ec773fe2-63af-42e7-a0b6-cb742ae3b249")
 	)
 	(no_connect
 		(at 82.55 36.83)
@@ -1145,7 +1145,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 25.4) (xy 46.99 25.4)
+			(xy 25.4 25.4) (xy 46.99 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1173,8 +1173,28 @@
 		)
 		(uuid "eadb2ff7-4cc1-4199-8872-fc7a38bcb46a")
 	)
+	(label "Btn1"
+		(at 25.4 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "00a8e755-36d4-4005-b4e9-8ab080d47d5b")
+	)
+	(label "3.3V"
+		(at 25.4 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31bdd399-08fc-4c2f-b96a-2a5e8576e745")
+	)
 	(label "Btn5"
-		(at 27.94 33.02 0)
+		(at 25.4 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1203,15 +1223,15 @@
 		)
 		(uuid "541669d0-2a44-45ee-9019-f18071850f1a")
 	)
-	(label "Btn1"
-		(at 27.94 43.18 0)
+	(label "3.3V"
+		(at 25.4 25.4 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "8497ec82-4184-4e02-a759-4c1e881ba7bc")
+		(uuid "59101c43-938c-483b-8af3-7faf0ee25ab1")
 	)
 	(label "Btn5"
 		(at 82.55 77.47 270)
@@ -1224,7 +1244,7 @@
 		(uuid "8dadb7eb-ea5c-4462-a5a4-ff1a8b9d03a4")
 	)
 	(label "Btn2"
-		(at 27.94 40.64 0)
+		(at 25.4 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1253,8 +1273,18 @@
 		)
 		(uuid "bf1f8208-2992-4cb5-b446-c6f5372ca848")
 	)
+	(label "Btn6"
+		(at 25.4 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c1a4d7ab-e6cc-4758-8359-555ff2de25f6")
+	)
 	(label "Btn4"
-		(at 27.94 35.56 0)
+		(at 25.4 82.55 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1264,7 +1294,7 @@
 		(uuid "d1c1fa9b-72fc-4cec-806a-54c8695c0924")
 	)
 	(label "Btn3"
-		(at 27.94 38.1 0)
+		(at 25.4 80.01 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1282,16 +1312,6 @@
 			(justify right bottom)
 		)
 		(uuid "e608e4bf-4ed6-4adc-b574-e1b80fa202e0")
-	)
-	(label "Btn6"
-		(at 27.94 30.48 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f7757df6-186e-4fc4-9d72-3df287a12c54")
 	)
 	(symbol
 		(lib_id "omron b3w:B3W-1000")
@@ -1327,7 +1347,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 82.55 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -1406,7 +1426,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 214.63 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1466,6 +1486,104 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x08_Pin")
+		(at 20.32 82.55 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "305ebd9f-1d97-4126-acb0-81d966c2314b")
+		(property "Reference" "J1"
+			(at 20.955 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08_Pin"
+			(at 20.955 72.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_S8B-XH-A_1x08_P2.50mm_Horizontal"
+			(at 20.32 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 20.32 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x08, script generated"
+			(at 20.32 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "8"
+			(uuid "119f1687-84cb-4f3e-b0df-7a9f380f0d0d")
+		)
+		(pin "2"
+			(uuid "e2c70b5f-e51e-495a-b385-7eb947d8d123")
+		)
+		(pin "1"
+			(uuid "b129aeaf-9162-4fbd-812c-1e766eea2ad7")
+		)
+		(pin "3"
+			(uuid "d27391df-4727-4a46-9892-90c9e1fa2bea")
+		)
+		(pin "6"
+			(uuid "098d4c3c-73b7-4eba-8ace-47984b0afedd")
+		)
+		(pin "5"
+			(uuid "25abd688-7041-460f-970e-83c34fc48c8d")
+		)
+		(pin "7"
+			(uuid "3fa6e7ee-442d-4e4b-9202-6781ed92cc39")
+		)
+		(pin "4"
+			(uuid "c87671f0-ed06-48c6-b46e-13a8acd46907")
+		)
+		(instances
+			(project "buttons"
+				(path "/0e67d20b-756b-4fda-b523-6b8b59b452f1"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "omron b3w:B3W-1000")
 		(at 49.53 36.83 270)
 		(unit 1)
@@ -1499,7 +1617,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 49.53 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -1589,7 +1707,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 181.61 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -1668,7 +1786,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 49.53 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1750,7 +1868,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 148.59 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1832,7 +1950,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 181.61 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1914,7 +2032,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 82.55 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2007,7 +2125,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 115.57 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -2097,7 +2215,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 214.63 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -2176,7 +2294,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 115.57 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2269,7 +2387,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "SW_B3W-1000_OMR"
+		(property "Footprint" "Omron:SW_B3W-1000_OMR"
 			(at 148.59 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -2320,104 +2438,6 @@
 			(project "buttons"
 				(path "/0e67d20b-756b-4fda-b523-6b8b59b452f1"
 					(reference "SW3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x08_Pin")
-		(at 22.86 33.02 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fafb324d-8982-4b9a-94ab-a4e265126a34")
-		(property "Reference" "J1"
-			(at 23.495 20.32 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x08_Pin"
-			(at 23.495 22.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
-			(at 22.86 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 22.86 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x08, script generated"
-			(at 22.86 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "8"
-			(uuid "b88aeb69-38f2-44dd-9cfe-aac5be9938ad")
-		)
-		(pin "2"
-			(uuid "2bf33a89-6a0b-4d85-beea-afc9212c5f42")
-		)
-		(pin "1"
-			(uuid "1c81d5de-0629-4b3a-8449-3df63badec36")
-		)
-		(pin "3"
-			(uuid "54d1f494-41e4-425e-bf46-1d154b21b7ab")
-		)
-		(pin "6"
-			(uuid "a37b84d6-8bf6-4e4f-9167-bdfb4ff226d4")
-		)
-		(pin "5"
-			(uuid "609cf5df-8e87-4c70-87ae-5d4cd9e775cc")
-		)
-		(pin "7"
-			(uuid "1c93fc80-1aa2-48e4-beff-fe1b2273a71a")
-		)
-		(pin "4"
-			(uuid "fc13e140-70ab-4866-bc07-d8f9f2e9d0b2")
-		)
-		(instances
-			(project "buttons"
-				(path "/0e67d20b-756b-4fda-b523-6b8b59b452f1"
-					(reference "J1")
 					(unit 1)
 				)
 			)

@@ -151,7 +151,7 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.2,
+        "min_clearance": 0.0,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.05,
         "min_groove_width": 0.0,
@@ -166,7 +166,7 @@
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.2,
         "min_via_annular_width": 0.05,
-        "min_via_diameter": 0.6,
+        "min_via_diameter": 0.4,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -509,7 +509,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "hat.kicad_pro",
+    "filename": "rpi_hat.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -565,7 +565,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../../../Downloads/hat/",
+      "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -696,18 +696,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "hat.kicad_sch",
-        "name": "hat",
+        "filename": "rpi_hat.kicad_sch",
+        "name": "rpi_hat",
         "uuid": "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
       }
     ],
-    "used_designators": "#PWR8",
+    "used_designators": "R1-4,J1-7,C1-4,#PWR1-12",
     "variants": []
   },
   "sheets": [
     [
       "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
-      "hat"
+      "rpi_hat"
     ]
   ],
   "text_variables": {},
