@@ -264,8 +264,7 @@
 
 	adc1_pins_mx: adc1_mx-0 {
 		pins {
-			pinmux = <STM32_PINMUX('A', 5, ANALOG)>, /* ADC1_INP2 */
-                	         <STM32_PINMUX('A', 7, ANALOG)>, /* ADC1_INP16 */
+			pinmux = <STM32_PINMUX('A', 7, ANALOG)>, /* ADC1_INP16 */
                 	         <STM32_PINMUX('A', 6, ANALOG)>; /* ADC1_INN16 */						
 			bias-disable;
 		};
@@ -273,11 +272,26 @@
 
 	adc1_sleep_pins_mx: adc1_sleep_mx-0 {
 		pins {
-			pinmux = <STM32_PINMUX('A', 5, ANALOG)>, /* ADC1_INP2 */
-                	         <STM32_PINMUX('A', 7, ANALOG)>, /* ADC1_INP16 */
+			pinmux = <STM32_PINMUX('A', 7, ANALOG)>, /* ADC1_INP16 */
                 	         <STM32_PINMUX('A', 6, ANALOG)>; /* ADC1_INN16 */					                    bias-disable;
 		};
 	};
+	/* adc1_pins_mx: adc1_mx-0 { */
+	/* 	pins { */
+	/* 		pinmux = <STM32_PINMUX('A', 5, ANALOG)>, /\* ADC1_INP2 *\/ */
+        /*         	         <STM32_PINMUX('A', 7, ANALOG)>, /\* ADC1_INP16 *\/ */
+        /*         	         <STM32_PINMUX('A', 6, ANALOG)>; /\* ADC1_INN16 *\/						 */
+	/* 		bias-disable; */
+	/* 	}; */
+	/* }; */
+
+	/* adc1_sleep_pins_mx: adc1_sleep_mx-0 { */
+	/* 	pins { */
+	/* 		pinmux = <STM32_PINMUX('A', 5, ANALOG)>, /\* ADC1_INP2 *\/ */
+        /*         	         <STM32_PINMUX('A', 7, ANALOG)>, /\* ADC1_INP16 *\/ */
+        /*         	         <STM32_PINMUX('A', 6, ANALOG)>; /\* ADC1_INN16 *\/					                    bias-disable; */
+	/* 	}; */
+	/* }; */
 	
 	/* USER CODE BEGIN pinctrl */
 	usb_connector_a_pin_mx: usb_connector_a_pin_mx-0 {
@@ -425,7 +439,7 @@
 
 	   channel@16 {
             reg = <16>;
-            label = "battery2";
+            /* label = "battery"; */
 	    st,min-sample-time-ns = <100000>;
 	    diff-channels = <16 16>;
 	   };
