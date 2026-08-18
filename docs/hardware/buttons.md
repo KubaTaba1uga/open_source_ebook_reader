@@ -24,6 +24,6 @@ pins wouldn't work.
 
 Once buttons are connected run following command and press all buttons to confirm they are working properly:
 ```bash
-evtest
+evtest /dev/input/event0
 ```
 
