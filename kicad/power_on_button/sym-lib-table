@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "mylib") (type "KiCad") (uri "/home/taba1uga/Github/open_source_ebook_reader/kicad/buttons/libs") (options "") (descr ""))
+)
