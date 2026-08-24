@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# Run the ebook reader daemon
+#
+
+# set -xeu
+
+start() {
+	echo -n "Starting ebook reader... "
+	export PYTHONUNBUFFERED=1
+	start-stop-daemon -S -b -m -p /var/run/ebook_reader.pid -x python -- \
+			  /usr/assets/data/daemonize.py \
+			  --log /var/log/ebook_reader.log \
+			  stdbuf -o0 -i0 -e0 ebook_reader
+        [ $? -eq 0 ] && echo "OK" || echo "ERROR"
+}
+
+stop() {
+        echo -n "Stopping ebook reader... "
+        start-stop-daemon -K -p /var/run/ebook_reader.pid
+        [ $? -eq 0 ] && echo "OK" || echo "ERROR"
+}
+
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+  start|stop|restart)
+        "$1"
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
