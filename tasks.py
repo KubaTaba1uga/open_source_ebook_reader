@@ -114,7 +114,7 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
                         ROOT_PATH,
                         config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
                             "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
-                        ),
+                        ).replace('"', ""),
                         repo,
                     )
                     if not os.path.exists(patches_dir):
@@ -147,8 +147,8 @@ def image_configure(c, config="stm32mp135d_odyssey_defconfig"):
         c.run(f"make " + " ".join(flags))
 
     _pr_info(f"Configuring image completed")
-
-
+    
+    
 @task
 def gdb_run(c, config, phase="linux", in_runetime=False):
     _pr_info(f"Starting gdb...")

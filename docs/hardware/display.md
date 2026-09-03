@@ -18,7 +18,7 @@ We tried Chipper displays, but the main problem was resolution. On resolutions l
 | 23            | G         | 10       | T                    | SPI5_SCK          | Output, Active high | CLK (SPI clock)                  |
 | 24            | H         | 11       | T                    | SPI5_NSS          | Output, Active low  | CS (SPI chip select; active low) |
 | 29            | B         | 10       | F                    | —                 | Output, Active low  | RST (reset)                      |
-| 31            | A         | 7        | F                    | —                 | Input, Active low   | BUSY (device ready/busy)         |
+| 26            | E         | 10       | F                    | —                 | Input, Active low   | BUSY (device ready/busy)         |
 
 ```{note}
 Connector pin stands for the pin number on the 40-pin hardware header.
@@ -33,3 +33,9 @@ When the pin is pulled LOW, the data will be interpreted as a command.
 When the `BUSY` pin is pulled HIGH, the device is idle.
 When the pin is pulled LOW, the device is busy processing a command and should not be communicated with.
 ```
+
+## Display power
+
+The display even when in sleep draws around 50mA, which is problematic whyen the device is off, afterall powered off device shouldnt draw anu current, rigth?
+
+So we introduced screen power switch on PIN 22, GPIO F9.

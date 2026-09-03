@@ -66,3 +66,7 @@ third_party
 *.db
 trash
 .venv
+*-backups
+clangd.log
+clangd.sh
+*.zip
