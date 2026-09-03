@@ -69,3 +69,4 @@ trash
 *-backups
 clangd.log
 clangd.sh
+*.zip
