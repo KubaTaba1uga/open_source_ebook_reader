@@ -67,3 +67,5 @@ third_party
 trash
 .venv
 *-backups
+clangd.log
+clangd.sh
