@@ -66,3 +66,4 @@ third_party
 *.db
 trash
 .venv
+*-backups
