@@ -480,5 +480,15 @@
         line-name = "enable-usb-a";
     };
 };
+
+/* &gpioa { */
+/*     screen_a_pin { */
+/*         gpio-hog; */
+/*         gpios = <3 GPIO_ACTIVE_HIGH>; */
+/*         output-high; */
+/*         line-name = "enable-it8951"; */
+/*     }; */
+/* }; */
+
 /* USER CODE END addons */
 
