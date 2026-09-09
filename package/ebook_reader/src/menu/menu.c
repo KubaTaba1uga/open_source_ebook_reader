@@ -39,6 +39,7 @@ static void menu_post_event(enum Events event, ref_t event_data,
                             void *sub_data);
 static const char *menu_state_dump(enum MenuStates state);
 static void select_book_cb(book_t, void *);
+static void menu_power_cb(void *);
 
 struct MenuTransition menu_fsm_table[MenuStates_MAX][Events_MAX] = {
     [MenuStates_NONE] =
@@ -106,7 +107,8 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
   books_list_t books = library_list_books(menu->library);
   ERR_TRY(err_o);
 
-  err_o = menu_view_init(&menu->view, books, select_book_cb, menu);
+  err_o =
+      menu_view_init(&menu->view, books, select_book_cb, menu, menu_power_cb);
   ERR_TRY(err_o);
 
   display_add_to_ingroup(menu->display, menu->view.books);
@@ -124,6 +126,12 @@ static void select_book_cb(book_t book, void *sub_data) {
   menu_t menu = sub_data;
 
   event_queue_push(menu->evqueue, Events_BOOK_OPENED, book);
+};
+
+static void menu_power_cb(void *sub_data) {
+  menu_t menu = sub_data;
+
+  event_queue_push(menu->evqueue, Events_BTN_POWER_CLICKED, NULL);
 };
 
 static void menu_deactivate(enum Events __, ref_t ___, void *sub_data) {

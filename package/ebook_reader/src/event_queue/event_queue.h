@@ -23,6 +23,7 @@ enum Events {
   Events_BTN_NEXT_PAGE_CLICKED,
   Events_BTN_PREV_PAGE_CLICKED,
   Events_BTN_MENU_CLICKED,
+  Events_BTN_POWER_CLICKED,  
   Events_BTN_BOOK_SETTINGS_ENTER_SET_SCALE_CLICKED,
   Events_BTN_BOOK_SETTINGS_MORE_CLICKED,
   Events_BTN_BOOK_SETTINGS_LESS_CLICKED,
@@ -38,6 +39,7 @@ enum EventSubscribers {
   EventSubscribers_MENU,
   EventSubscribers_READER,
   EventSubscribers_BOOK_SETTINGS,
+  EventSubscribers_POWER,  
   // Add more subscribers here
   EventSubscribers_MAX,
 };

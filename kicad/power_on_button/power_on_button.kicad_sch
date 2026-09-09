@@ -773,7 +773,7 @@
 		)
 		(uuid "4e786275-e5da-4e28-9efb-2d942ebdadb7")
 	)
-	(label "3.3V"
+	(label "Btn1"
 		(at 44.45 96.52 0)
 		(effects
 			(font
@@ -781,9 +781,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "64fddfdf-f2bb-4878-baa9-404dcdf3f2b3")
+		(uuid "52dd97d2-b1e4-4cc4-909f-d3b26da3e0bb")
 	)
-	(label "Btn1"
+	(label "3.3V"
 		(at 44.45 99.06 0)
 		(effects
 			(font
@@ -791,7 +791,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "96221dd3-cd64-4d5f-9115-3c7f67d3e655")
+		(uuid "a6ce3b78-4f57-4468-99b1-1fdc185484d3")
 	)
 	(symbol
 		(lib_id "omron b3w:B3W-1000")

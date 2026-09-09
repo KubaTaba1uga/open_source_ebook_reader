@@ -8,16 +8,18 @@
 
 #include "library/library.h"
 #include "menu/core.h"
+#include "utils/graphic.h"
 #include "utils/lvgl.h"
 #include "utils/mem.h"
 #include "utils/time.h"
-#include "utils/graphic.h"
 
 typedef lvgl_obj_t wdgt_book_t;
 
 struct WdgtBooks {
   void (*event_cb)(book_t, void *);
   void *event_data;
+
+  void (*power_cb)(void *);
 
   lv_style_t *books_style;
   wdgt_book_t *books_arr;
@@ -109,7 +111,8 @@ void wdgt_bar_destroy(wdgt_bar_t *out) {
 };
 
 err_t wdgt_books_init(wdgt_books_t *out, books_list_t books,
-                      void (*event_cb)(book_t, void *), void *event_data) {
+                      void (*event_cb)(book_t, void *), void *event_data,
+                      void (*power_cb)(void *)) {
   struct WdgtBooks *books_priv = mem_malloc(sizeof(struct WdgtBooks));
   lv_obj_t *books_container = *out = lvgl_obj_create(lv_screen_active());
   lv_gridnav_add(books_container, LV_GRIDNAV_CTRL_NONE);
@@ -156,6 +159,7 @@ err_t wdgt_books_init(wdgt_books_t *out, books_list_t books,
       .event_data = event_data,
       .books_arr = lv_books,
       .event_cb = event_cb,
+      .power_cb = power_cb,
       .books_style = style,
       .books_arr_len = i,
   };
@@ -266,5 +270,7 @@ static void wdgt_book_event_cb(lv_event_t *e) {
 
   if (key == '\r' || key == '\n' || key == LV_KEY_ENTER) {
     books->event_cb(wdgt->user_data, books->event_data);
+  } else if (key == LV_KEY_END) {
+    books->power_cb(books->event_data);
   }
 }

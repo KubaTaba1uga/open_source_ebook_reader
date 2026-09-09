@@ -9,7 +9,7 @@
 #include "utils/mem.h"
 
 err_t menu_view_init(struct MenuView *view, books_list_t books,
-                     void (*book_cb)(book_t, void *), void *data) {
+                     void (*book_cb)(book_t, void *), void *data,   void (*power_cb)(void *)) {
   err_o = wdgt_bar_init(&view->bar);
   ERR_TRY(err_o);
 
@@ -17,7 +17,7 @@ err_t menu_view_init(struct MenuView *view, books_list_t books,
     goto out;
   }
 
-  err_o = wdgt_books_init(&view->books, books, book_cb, data);
+  err_o = wdgt_books_init(&view->books, books, book_cb, data, power_cb);
   ERR_TRY_CATCH(err_o, error_bar_cleanup);
 
 out:

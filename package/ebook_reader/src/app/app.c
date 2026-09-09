@@ -17,6 +17,7 @@
 #include "utils/err.h"
 #include "utils/mem.h"
 #include "utils/time.h"
+#include "power/power.h"
 
 #define TRACE_APP 1
 
@@ -26,6 +27,7 @@ struct App {
   display_t display;
   library_t library;
   reader_t reader;
+  power_t power;
   menu_t menu;
   db_t db;
 };
@@ -70,6 +72,17 @@ err_t app_init(app_t *out) {
   trace_end(&trace);
 #endif
 
+#ifdef TRACE_APP
+  trace = trace_start("power_init");
+#endif
+
+  err_o = power_init(&app->power, app->display, app->event_queue);
+  ERR_TRY(err_o);
+
+#ifdef TRACE_APP
+  trace_end(&trace);
+#endif
+  
 #ifdef TRACE_APP
   trace = trace_start("library_init");
 #endif
@@ -116,6 +129,8 @@ err_t app_init(app_t *out) {
   trace_end(&trace);
 #endif
 
+  
+  
   event_queue_push(app->event_queue, Events_BOOT_DONE, NULL);
 
   return 0;
@@ -146,6 +161,10 @@ void app_destroy(app_t *out) {
 
   if (app->library) {
     library_destroy(&app->library);
+  }
+  
+  if (app->power) {
+    power_destroy(&app->power);
   }
 
   if (app->display) {

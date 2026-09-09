@@ -75,6 +75,7 @@ ebook_reader_src += [
         'src/reader/reader.c',
         'src/reader/view.c',
         'src/reader/widgets.c',
+        'src/power/power.c',        
         'src/utils/err.c',
         'src/utils/graphic.c',
         'src/utils/lvgl.c',
