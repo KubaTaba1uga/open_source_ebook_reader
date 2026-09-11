@@ -96,5 +96,5 @@ static void power_off(enum Events __, ref_t ___, void *sub_data) {
   power_t power = sub_data;
 
   display_panic(power->display);
-  system("poweroff");
+  /* (void)system("poweroff"); */
 }

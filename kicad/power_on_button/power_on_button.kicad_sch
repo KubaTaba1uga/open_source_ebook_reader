@@ -753,7 +753,7 @@
 		)
 		(uuid "525436a2-54f2-4837-9140-4846a93b4c99")
 	)
-	(label "Btn1"
+	(label "BtnPower"
 		(at 63.5 85.09 270)
 		(effects
 			(font
@@ -763,7 +763,7 @@
 		)
 		(uuid "2fa11a27-138a-4d7c-8a6b-bc4069d2c9e6")
 	)
-	(label "3.3V"
+	(label "GND"
 		(at 39.37 33.02 180)
 		(effects
 			(font
@@ -773,25 +773,25 @@
 		)
 		(uuid "4e786275-e5da-4e28-9efb-2d942ebdadb7")
 	)
-	(label "Btn1"
-		(at 44.45 96.52 0)
+	(label "BtnPower"
+		(at 35.56 90.17 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "52dd97d2-b1e4-4cc4-909f-d3b26da3e0bb")
+		(uuid "62115831-7f36-45cf-baf5-2d7ab4d499fb")
 	)
-	(label "3.3V"
-		(at 44.45 99.06 0)
+	(label "GND"
+		(at 35.56 92.71 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "a6ce3b78-4f57-4468-99b1-1fdc185484d3")
+		(uuid "84b698b6-a457-49f4-b2de-7fd495418a27")
 	)
 	(symbol
 		(lib_id "omron b3w:B3W-1000")
@@ -885,7 +885,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x02_Pin")
-		(at 39.37 96.52 0)
+		(at 40.64 92.71 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -896,7 +896,7 @@
 		(fields_autoplaced yes)
 		(uuid "7c0a538e-b0fe-4aaa-9ba7-d5eb6a689b28")
 		(property "Reference" "J1"
-			(at 40.005 91.44 0)
+			(at 40.005 97.79 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -906,7 +906,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02_Pin"
-			(at 40.005 93.98 0)
+			(at 40.005 95.25 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -916,7 +916,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
-			(at 39.37 96.52 0)
+			(at 40.64 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -927,7 +927,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 39.37 96.52 0)
+			(at 40.64 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -938,7 +938,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 39.37 96.52 0)
+			(at 40.64 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

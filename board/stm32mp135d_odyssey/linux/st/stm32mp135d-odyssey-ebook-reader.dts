@@ -108,8 +108,8 @@
 		button_power: button-power {
 			label = "power";
 			linux,code = <KEY_END>;
-			gpios = <&gpiod 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-		};		
+			gpios = <&gpiod 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		};
 	};
 	
 	/* USER CODE END root */
@@ -480,6 +480,15 @@
         line-name = "enable-usb-a";
     };
 };
+
+/* &gpiod { */
+/*     power_on_a_pin { */
+/*         gpio-hog; */
+/*         gpios = <5 GPIO_ACTIVE_HIGH>; */
+/*         output-low; */
+/*         line-name = "power-on-a"; */
+/*     }; */
+/* }; */
 
 /* USER CODE END addons */
 

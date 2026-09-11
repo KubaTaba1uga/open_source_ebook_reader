@@ -3319,10 +3319,6 @@
 		(uuid "0fa8f14d-bf2f-44f9-9a2c-e25957d1bd70")
 	)
 	(no_connect
-		(at 45.72 146.05)
-		(uuid "27a6ea1e-0044-4ab2-847a-4a672946e298")
-	)
-	(no_connect
 		(at 40.64 88.9)
 		(uuid "3b93015c-e256-454b-b169-49a7aa48015c")
 	)
@@ -3349,6 +3345,10 @@
 	(no_connect
 		(at 67.31 137.16)
 		(uuid "b90a923c-8883-4b25-a4cb-13b0b0513c43")
+	)
+	(no_connect
+		(at 45.72 148.59)
+		(uuid "bc0d94f2-f1f7-41f7-87b1-a3ffe7ca88c8")
 	)
 	(no_connect
 		(at 45.72 110.49)
@@ -4008,16 +4008,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 134.62) (xy 49.53 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d1324a85-5c8f-47b9-9654-5140e1832be9")
-	)
-	(wire
-		(pts
 			(xy 67.31 53.34) (xy 67.31 73.66)
 		)
 		(stroke
@@ -4106,16 +4096,6 @@
 		)
 		(uuid "06a22b29-ac55-46de-9efd-91136396384a")
 	)
-	(label "BtnPower"
-		(at 45.72 148.59 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0e0182ad-6c72-4129-a99a-b54f4be19b0a")
-	)
 	(label "SPI_PWR"
 		(at 67.31 107.95 0)
 		(effects
@@ -4155,6 +4135,16 @@
 			(justify left bottom)
 		)
 		(uuid "197fd547-ff7b-447d-84a8-b2e65148ff36")
+	)
+	(label "BtnPower"
+		(at 45.72 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1f110a56-f158-4585-a879-16336884268c")
 	)
 	(label "GPIO24"
 		(at 109.22 63.5 180)
@@ -4375,6 +4365,16 @@
 			(justify left bottom)
 		)
 		(uuid "7baf0ab4-1bf8-4d7f-b894-73876489adef")
+	)
+	(label "BtnPower"
+		(at 45.72 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7cc8c9a5-3a2b-4638-88a3-b4cd72ce46a9")
 	)
 	(label "GPIO26"
 		(at 40.64 88.9 0)
@@ -4676,16 +4676,6 @@
 		)
 		(uuid "f29dd5cb-72a1-4722-b750-92dc1f6858fc")
 	)
-	(label "BtnPower"
-		(at 45.72 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f797ee6a-7d28-4b69-9836-3771ecb37a23")
-	)
 	(label "Btn3"
 		(at 45.72 120.65 0)
 		(effects
@@ -4735,6 +4725,81 @@
 			(justify right bottom)
 		)
 		(uuid "ff39ecec-0e0c-49fd-b8ab-3b6586b31f84")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 137.16 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "08b615b1-cabb-4d66-a7c3-d3c2b6837cba")
+		(property "Reference" "#PWR013"
+			(at 52.07 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 50.0444 137.0457 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 137.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 137.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 45.72 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3926cd82-bc16-4adb-9721-804397558e01")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Transistor_BJT:PN2222A")
@@ -5645,81 +5710,6 @@
 			(project "rpi_hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 49.53 134.62 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6a07b8dc-92c6-4e55-a2e6-c11c779e5e3e")
-		(property "Reference" "#PWR02"
-			(at 49.53 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 49.8983 130.2956 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 49.53 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 49.53 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "63ef8b17-94ba-4d3a-937c-3600fb5e6de7")
-		)
-		(instances
-			(project "rpi_hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "#PWR02")
 					(unit 1)
 				)
 			)
