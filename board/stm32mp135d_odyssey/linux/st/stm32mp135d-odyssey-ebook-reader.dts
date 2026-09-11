@@ -481,14 +481,5 @@
     };
 };
 
-/* &gpiod { */
-/*     power_on_a_pin { */
-/*         gpio-hog; */
-/*         gpios = <5 GPIO_ACTIVE_HIGH>; */
-/*         output-low; */
-/*         line-name = "power-on-a"; */
-/*     }; */
-/* }; */
-
 /* USER CODE END addons */
 
