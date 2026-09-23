@@ -3303,6 +3303,10 @@
 		(uuid "f648560d-17c3-404c-b299-c660893a0bf2")
 	)
 	(no_connect
+		(at 67.31 134.62)
+		(uuid "0017d731-cbdc-4dab-a698-59f57469f4a2")
+	)
+	(no_connect
 		(at 40.64 76.2)
 		(uuid "0355001a-88bd-4432-9cdc-290533f96521")
 	)
@@ -3329,10 +3333,6 @@
 	(no_connect
 		(at 109.22 88.9)
 		(uuid "42a362f8-4c91-43de-9192-d57118da2075")
-	)
-	(no_connect
-		(at 67.31 139.7)
-		(uuid "7291e906-f12e-412c-8861-5203fe14ebd1")
 	)
 	(no_connect
 		(at 39.37 45.72)
@@ -4186,16 +4186,6 @@
 		)
 		(uuid "33e6c432-0f36-4724-9479-c6b690523928")
 	)
-	(label "BatteryPwr"
-		(at 67.31 134.62 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "37662a00-a61a-4a54-8e2a-fcf754f6b54e")
-	)
 	(label "GPIO14{slash}TXD0"
 		(at 109.22 50.8 180)
 		(effects
@@ -4425,6 +4415,16 @@
 			(justify left bottom)
 		)
 		(uuid "892c4eda-2310-4a7c-a480-4fffe0dccab2")
+	)
+	(label "BatteryPwr"
+		(at 67.31 139.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "89cbe183-2326-4033-82c3-4dfd4672fde4")
 	)
 	(label "BatterINP16"
 		(at 33.02 81.28 180)
