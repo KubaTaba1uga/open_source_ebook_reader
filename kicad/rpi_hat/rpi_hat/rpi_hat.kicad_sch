@@ -3323,10 +3323,6 @@
 		(uuid "0fa8f14d-bf2f-44f9-9a2c-e25957d1bd70")
 	)
 	(no_connect
-		(at 45.72 146.05)
-		(uuid "27a6ea1e-0044-4ab2-847a-4a672946e298")
-	)
-	(no_connect
 		(at 40.64 88.9)
 		(uuid "3b93015c-e256-454b-b169-49a7aa48015c")
 	)
@@ -3349,6 +3345,10 @@
 	(no_connect
 		(at 67.31 137.16)
 		(uuid "b90a923c-8883-4b25-a4cb-13b0b0513c43")
+	)
+	(no_connect
+		(at 48.26 151.13)
+		(uuid "b9548a88-6c2f-4035-81a7-39f86901b50a")
 	)
 	(no_connect
 		(at 45.72 110.49)
@@ -3375,6 +3375,16 @@
 			(type solid)
 		)
 		(uuid "00d7bc56-226f-4d39-8548-b1035a3aba45")
+	)
+	(wire
+		(pts
+			(xy 48.26 148.59) (xy 52.07 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03b68e06-9d9c-44a5-9e7a-a83438ecaec6")
 	)
 	(wire
 		(pts
@@ -3868,6 +3878,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 148.59) (xy 63.5 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92c1c463-7f04-4f93-9e72-a74ab80f501b")
+	)
+	(wire
+		(pts
 			(xy 33.02 83.82) (xy 69.85 83.82)
 		)
 		(stroke
@@ -4008,16 +4028,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 134.62) (xy 49.53 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d1324a85-5c8f-47b9-9654-5140e1832be9")
-	)
-	(wire
-		(pts
 			(xy 67.31 53.34) (xy 67.31 73.66)
 		)
 		(stroke
@@ -4086,6 +4096,16 @@
 		)
 		(uuid "fef09e2f-b547-48f9-a400-9b6d11b89237")
 	)
+	(label "BtnPower"
+		(at 63.5 148.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0004458c-82d1-46b2-9645-b161c89dd2b7")
+	)
 	(label "SPI_MISO"
 		(at 67.31 113.03 0)
 		(effects
@@ -4105,16 +4125,6 @@
 			(justify left bottom)
 		)
 		(uuid "06a22b29-ac55-46de-9efd-91136396384a")
-	)
-	(label "BtnPower"
-		(at 45.72 148.59 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0e0182ad-6c72-4129-a99a-b54f4be19b0a")
 	)
 	(label "SPI_PWR"
 		(at 67.31 107.95 0)
@@ -4155,6 +4165,16 @@
 			(justify left bottom)
 		)
 		(uuid "197fd547-ff7b-447d-84a8-b2e65148ff36")
+	)
+	(label "BtnPower"
+		(at 48.26 137.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "25af768c-5d7c-4a5e-b76a-24e2adda6faf")
 	)
 	(label "GPIO24"
 		(at 109.22 63.5 180)
@@ -4676,16 +4696,6 @@
 		)
 		(uuid "f29dd5cb-72a1-4722-b750-92dc1f6858fc")
 	)
-	(label "BtnPower"
-		(at 45.72 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f797ee6a-7d28-4b69-9836-3771ecb37a23")
-	)
 	(label "Btn3"
 		(at 45.72 120.65 0)
 		(effects
@@ -5154,6 +5164,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 43.18 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2ddd497e-55de-4101-96aa-0e1a6b674a97")
+		(property "Reference" "J3"
+			(at 43.815 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PowerWakeup"
+			(at 43.815 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 43.18 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2d5b2b9e-2a13-4f31-a1f6-d6377cdb0021")
+		)
+		(pin "1"
+			(uuid "faa90eea-018b-460a-9dc1-44762715a481")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Transistor_FET:AO3401A")
 		(at 163.83 49.53 180)
 		(unit 1)
@@ -5497,6 +5587,85 @@
 	)
 	(symbol
 		(lib_id "Device:R")
+		(at 55.88 148.59 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5689a2aa-822b-49eb-9201-2295330e9863")
+		(property "Reference" "R5"
+			(at 55.88 148.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 55.88 151.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 55.88 150.368 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 55.88 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d081b382-d9f9-4cca-abb0-081d53f7de7e")
+		)
+		(pin "1"
+			(uuid "0d052bbf-d324-4cb2-b4d3-f79a7212e356")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
 		(at 191.77 60.96 90)
 		(unit 1)
 		(body_style 1)
@@ -5645,81 +5814,6 @@
 			(project "rpi_hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 49.53 134.62 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6a07b8dc-92c6-4e55-a2e6-c11c779e5e3e")
-		(property "Reference" "#PWR02"
-			(at 49.53 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 49.8983 130.2956 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 49.53 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 49.53 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "63ef8b17-94ba-4d3a-937c-3600fb5e6de7")
-		)
-		(instances
-			(project "rpi_hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -6242,86 +6336,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x02_Pin")
-		(at 40.64 146.05 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d5ea2020-fac7-492f-939e-4fd3da14d213")
-		(property "Reference" "J3"
-			(at 41.275 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PowerWakeup"
-			(at 41.275 143.51 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
-			(at 40.64 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 40.64 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "12584fbf-5f1c-4d8f-a45c-5b870ae7930a")
-		)
-		(pin "1"
-			(uuid "b2a8b1c0-de3a-4a8c-af73-b9b168de16b6")
-		)
-		(instances
-			(project "rpi_hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 179.07 68.58 0)
 		(unit 1)
@@ -6391,86 +6405,6 @@
 			(project "rpi_hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x02_Pin")
-		(at 40.64 134.62 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e2c8e706-3a55-47e0-9015-1adc463b4263")
-		(property "Reference" "J2"
-			(at 41.275 129.54 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PowerButton"
-			(at 41.275 132.08 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
-			(at 40.64 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 40.64 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "a598d6db-a433-46b2-8cc3-3656cb6ad770")
-		)
-		(pin "1"
-			(uuid "83cc26fe-2ec5-4356-9386-c89534d5b537")
-		)
-		(instances
-			(project "rpi_hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -6564,6 +6498,81 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 48.26 139.7 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fc31ad93-69de-4e08-bc68-66f80dbecb54")
+		(property "Reference" "#PWR013"
+			(at 54.61 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 52.5844 139.5857 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 48.26 139.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 48.26 139.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 48.26 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "00730a48-f453-4ec6-9d5f-f9c32c5de86b")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 67.31 110.49 90)
 		(unit 1)
 		(body_style 1)
@@ -6632,6 +6641,86 @@
 			(project "rpi_hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 43.18 137.16 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe3b0a32-de0f-4400-9063-5297cdd47909")
+		(property "Reference" "J2"
+			(at 43.815 132.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PowerButton"
+			(at 43.815 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
+			(at 43.18 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 43.18 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d32e288b-e00c-432e-9489-362fd09a2806")
+		)
+		(pin "1"
+			(uuid "21df63a2-e1a5-4db7-b658-0cc51b1cd398")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "J2")
 					(unit 1)
 				)
 			)
