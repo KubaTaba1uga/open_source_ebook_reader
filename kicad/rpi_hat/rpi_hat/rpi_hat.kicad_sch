@@ -3327,12 +3327,12 @@
 		(uuid "42a362f8-4c91-43de-9192-d57118da2075")
 	)
 	(no_connect
-		(at 67.31 139.7)
-		(uuid "7291e906-f12e-412c-8861-5203fe14ebd1")
-	)
-	(no_connect
 		(at 39.37 45.72)
 		(uuid "748db824-fdcd-4bf0-8aef-63eab49b477a")
+	)
+	(no_connect
+		(at 67.31 133.35)
+		(uuid "931761ba-dd95-4f93-9e07-3e7fd8ab158b")
 	)
 	(no_connect
 		(at 109.22 50.8)
@@ -3341,10 +3341,6 @@
 	(no_connect
 		(at 109.22 86.36)
 		(uuid "b4a9e8e6-a6a7-4012-9a14-bfddbc6be66d")
-	)
-	(no_connect
-		(at 67.31 137.16)
-		(uuid "b90a923c-8883-4b25-a4cb-13b0b0513c43")
 	)
 	(no_connect
 		(at 45.72 148.59)
@@ -3365,6 +3361,10 @@
 	(no_connect
 		(at 109.22 68.58)
 		(uuid "d56c64ea-90b4-4806-98e5-f2a5dc4524e5")
+	)
+	(no_connect
+		(at 67.31 135.89)
+		(uuid "facdfcfa-7565-402d-a41a-878efa23fa6c")
 	)
 	(wire
 		(pts
@@ -3958,6 +3958,16 @@
 	)
 	(wire
 		(pts
+			(xy 45.72 146.05) (xy 49.53 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abb6d990-e30b-43ef-890c-9447329c1a77")
+	)
+	(wire
+		(pts
 			(xy 172.72 41.91) (xy 161.29 41.91)
 		)
 		(stroke
@@ -4045,6 +4055,16 @@
 			(type default)
 		)
 		(uuid "f295afd2-7996-4a11-966b-dc411aa5bf63")
+	)
+	(wire
+		(pts
+			(xy 57.15 146.05) (xy 60.96 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3230274-c53f-4417-84ca-17bf90ec2381")
 	)
 	(wire
 		(pts
@@ -4157,6 +4177,16 @@
 		(uuid "2bf74ffa-bbb0-4065-a2bb-1721cad76e4e")
 	)
 	(label "BatteryPwr"
+		(at 67.31 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2e0d4bd5-c018-413e-a3de-b531e59c55d2")
+	)
+	(label "BatteryPwr"
 		(at 167.64 109.22 180)
 		(effects
 			(font
@@ -4175,16 +4205,6 @@
 			(justify left bottom)
 		)
 		(uuid "33e6c432-0f36-4724-9479-c6b690523928")
-	)
-	(label "BatteryPwr"
-		(at 67.31 134.62 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "37662a00-a61a-4a54-8e2a-fcf754f6b54e")
 	)
 	(label "GPIO14{slash}TXD0"
 		(at 109.22 50.8 180)
@@ -4366,16 +4386,6 @@
 		)
 		(uuid "7baf0ab4-1bf8-4d7f-b894-73876489adef")
 	)
-	(label "BtnPower"
-		(at 45.72 146.05 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7cc8c9a5-3a2b-4638-88a3-b4cd72ce46a9")
-	)
 	(label "GPIO26"
 		(at 40.64 88.9 0)
 		(effects
@@ -4415,6 +4425,16 @@
 			(justify right bottom)
 		)
 		(uuid "84598b3a-320d-4d0d-8b00-b8f32cc34b7c")
+	)
+	(label "BtnPower"
+		(at 60.96 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "853742e0-6a44-4473-96e1-557213f1f50a")
 	)
 	(label "GPIO13{slash}PWM1"
 		(at 40.64 83.82 0)
@@ -5219,6 +5239,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 53.34 146.05 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3096b366-2e3a-40c8-b5cc-67e6c2951a84")
+		(property "Reference" "R5"
+			(at 53.34 146.05 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 53.34 148.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 53.34 147.828 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 53.34 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c8083ba6-e18c-457f-b9c1-80387ca33352")
+		)
+		(pin "1"
+			(uuid "2a22da4d-9efc-4a47-9d6b-28ea82b735cc")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Transistor_FET:AO3401A")
 		(at 163.83 49.53 180)
 		(unit 1)
@@ -5635,81 +5734,6 @@
 			(project "rpi_hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 67.31 142.24 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "666c0d31-52fb-4ce1-aeb8-366d0e367f91")
-		(property "Reference" "#PWR09"
-			(at 73.66 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 71.6344 142.1257 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 67.31 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "18713721-2f09-4ae2-bf36-a1ef7e906ea9")
-		)
-		(instances
-			(project "rpi_hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -6157,6 +6181,81 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 67.31 140.97 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bcab85a3-49d5-45d1-8c7b-378b667ca21a")
+		(property "Reference" "#PWR09"
+			(at 73.66 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 71.6344 140.8557 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 67.31 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8a7d8064-802c-44f4-a475-81619b3d83b7")
+		)
+		(instances
+			(project "rpi_hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 48.26 107.95 0)
 		(unit 1)
@@ -6468,7 +6567,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x04_Pin")
-		(at 62.23 137.16 0)
+		(at 62.23 135.89 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6477,9 +6576,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "fa9c5a3d-18ec-4c67-af18-fee3db87a12a")
+		(uuid "fcbf6a01-f285-4fc3-bf33-672dd85eaa19")
 		(property "Reference" "J5"
-			(at 62.865 129.54 0)
+			(at 62.865 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6489,7 +6588,7 @@
 			)
 		)
 		(property "Value" "BatteryLevel"
-			(at 62.865 132.08 0)
+			(at 62.865 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6499,7 +6598,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal"
-			(at 62.23 137.16 0)
+			(at 62.23 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6510,7 +6609,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 137.16 0)
+			(at 62.23 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6521,7 +6620,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 62.23 137.16 0)
+			(at 62.23 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6532,16 +6631,16 @@
 			)
 		)
 		(pin "2"
-			(uuid "4ff4549b-5757-485e-a8af-cbdaa7968f5a")
+			(uuid "ca5c07fc-f964-497f-8e27-5844ab30706a")
 		)
 		(pin "1"
-			(uuid "61b9c535-682f-413a-bf94-5efb6dad4186")
+			(uuid "41dd9899-a8b7-4d83-8cc1-2459603c0a66")
 		)
 		(pin "3"
-			(uuid "3481b69f-1cd2-4751-88e4-411e647b9b8f")
+			(uuid "f859ae69-e2a5-4eef-b961-be796f36413c")
 		)
 		(pin "4"
-			(uuid "8142b343-8f3e-41c9-95c8-d44627dd8dd7")
+			(uuid "17d62e4f-9fe9-4b86-8279-15953dcfdaec")
 		)
 		(instances
 			(project "rpi_hat"
