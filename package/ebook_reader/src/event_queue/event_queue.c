@@ -32,6 +32,10 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
         {
             EventSubscribers_MENU,
         },
+    [Events_POWER_OFF] =
+        {
+            EventSubscribers_POWER,
+        },
     [Events_BOOK_OPENED] =
         {
             EventSubscribers_MENU,
@@ -73,6 +77,13 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
         },
     [Events_BTN_BOOK_SETTINGS_EXIT_CLICKED] =
         {
+            EventSubscribers_BOOK_SETTINGS,
+        },
+    [Events_BTN_POWER_CLICKED] =
+        {
+            EventSubscribers_POWER,
+            EventSubscribers_MENU,
+            EventSubscribers_READER,
             EventSubscribers_BOOK_SETTINGS,
         },
     [Events_BOOK_SETTINGS_CLOSED] =
@@ -175,12 +186,14 @@ const char *events_dump(enum Events event) {
   static const char *const dumps[Events_MAX] = {
       [Events_NONE] = "Events_NONE",
       [Events_BOOT_DONE] = "Events_BOOT_DONE",
+      [Events_POWER_OFF] = "Events_POWER_OFF",
       [Events_BOOK_OPENED] = "Events_BOOK_OPENED",
       [Events_BOOK_CLOSED] = "Events_BOOK_CLOSED",
       [Events_BOOK_UPDATED] = "Events_BOOK_UPDATED",
       [Events_BTN_NEXT_PAGE_CLICKED] = "Events_BTN_NEXT_PAGE_CLICKED",
       [Events_BTN_PREV_PAGE_CLICKED] = "Events_BTN_PREV_PAGE_CLICKED",
       [Events_BTN_MENU_CLICKED] = "Events_BTN_MENU_CLICKED",
+      [Events_BTN_POWER_CLICKED] = "Events_BTN_POWER_CLICKED",
       [Events_BOOK_SETTINGS_OPENED] = "Events_BOOK_SETTINGS_OPENED",
       [Events_BOOK_SETTINGS_CLOSED] = "Events_BOOK_SETTINGS_CLOSED",
       [Events_BTN_BOOK_SETTINGS_ENTER_SET_SCALE_CLICKED] =
@@ -207,6 +220,7 @@ const char *event_subscriber_dump(enum EventSubscribers sub) {
       [EventSubscribers_MENU] = "EventSubscribers_MENU",
       [EventSubscribers_READER] = "EventSubscribers_READER",
       [EventSubscribers_BOOK_SETTINGS] = "EventSubscribers_BOOK_SETTINGS",
+      [EventSubscribers_POWER] = "EventSubscribers_POWER",
   };
 
   if (sub < EventSubscribers_NONE || sub >= EventSubscribers_MAX ||

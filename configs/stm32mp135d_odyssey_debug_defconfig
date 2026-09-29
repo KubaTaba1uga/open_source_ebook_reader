@@ -6,7 +6,6 @@ BR2_cortex_a7=y
 BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135d_odyssey/patches/"
 BR2_CCACHE=y
 
-
 ##############################################
 #                  Toolchain                 #
 ##############################################
@@ -149,6 +148,9 @@ BR2_PACKAGE_SPIDEV_TEST=y
 ##############################################
 #                  Debug                    #
 ##############################################
+BR2_ENABLE_RUNTIME_DEBUG=y
+BR2_ENABLE_DEBUG=y
+BR2_OPTIMIZE_G=y
 BR2_PACKAGE_OVERRIDE_FILE="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/dev/local.mk"
 BR2_PACKAGE_HOST_ENVIRONMENT_SETUP=y
 BR2_PACKAGE_HOST_GDB_RUN_SCRIPT="$(BR2_EXTERNAL_EBK_READER_PATH)/board/stm32mp135_common/gdb/start.py"

@@ -2,6 +2,7 @@
 
 #include "app/app.h"
 #include "display/display.h"
+#include "event_queue/event_queue.h"
 #include "power/power.h"
 #include "utils/log.h"
 
@@ -25,6 +26,7 @@ static void power_post_event(enum Events event, ref_t event_data,
                              void *sub_data);
 static const char *power_state_dump(enum PowerStates state);
 static void power_off(enum Events __, ref_t ___, void *sub_data);
+static void power_handle_power_button(enum Events __, ref_t ___, void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
     [PowerStates_NONE] =
@@ -32,12 +34,19 @@ struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
             [Events_BTN_POWER_CLICKED] =
                 {
                     .next_state = PowerStates_NONE,
+                    .action = power_handle_power_button,
+                },
+            [Events_POWER_OFF] =
+                {
+                    .next_state = PowerStates_NONE,
                     .action = power_off,
                 },
+
         },
 };
 
 err_t power_init(power_t *out, display_t display, event_queue_t queue) {
+  log_info("%s", __func__);
   power_t power = *out = mem_malloc(sizeof(struct Power));
   *power = (struct Power){
       .current_state = PowerStates_NONE,
@@ -93,8 +102,19 @@ static const char *power_state_dump(enum PowerStates state) {
 };
 
 static void power_off(enum Events __, ref_t ___, void *sub_data) {
-  power_t power = sub_data;
+  /* power_t power = sub_data; */
 
-  display_panic(power->display);
-  /* (void)system("poweroff"); */
+  /* display_panic(power->display); */
+
+  log_warn("POWER OFF!!!!");
+  /* app_panic()  ; */
+  if (system("poweroff") != 0){
+    log_warn("POWER OFF FAILED!!!!");    
+  }  
+}
+
+static void power_handle_power_button(enum Events __, ref_t ___,
+                                      void *sub_data) {
+  power_t power = sub_data;  
+  event_queue_push(power->evqueue,  Events_POWER_OFF, power);
 }

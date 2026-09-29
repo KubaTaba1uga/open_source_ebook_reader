@@ -48,6 +48,7 @@ static void next_page_cb(void *);
 static void prev_page_cb(void *);
 static void menu_cb(void *);
 static void book_settings_cb(void *);
+static void power_cb(void *);
 
 struct ReaderTransition reader_fsm_table[ReaderStates_MAX][Events_MAX] = {
     [ReaderStates_NONE] =
@@ -89,6 +90,11 @@ struct ReaderTransition reader_fsm_table[ReaderStates_MAX][Events_MAX] = {
                 {
                     .next_state = ReaderStates_BACKGROUND,
                     .action = reader_put_in_bg,
+                },
+            [Events_BTN_POWER_CLICKED] =
+                {
+                    .next_state = ReaderStates_NONE,
+                    .action = reader_deactivate,
                 },
         },
     [ReaderStates_BACKGROUND] =
@@ -182,7 +188,7 @@ static void reader_activate(enum Events __, ref_t arg, void *sub_data) {
   book_t book = arg;
 
   err_o = reader_view_init(&reader->view, book, next_page_cb, prev_page_cb,
-                           menu_cb, book_settings_cb, reader);
+                           menu_cb, book_settings_cb,power_cb, reader);
   ERR_TRY(err_o);
 
   display_add_to_ingroup(reader->display, reader->view.page);
@@ -229,6 +235,12 @@ static void book_settings_cb(void *out) {
 
   event_queue_push(reader->evqueue, Events_BOOK_SETTINGS_OPENED,
                    reader->view.book);
+}
+
+static void power_cb(void *out) {
+  reader_t reader = out;
+
+  event_queue_push(reader->evqueue, Events_BTN_POWER_CLICKED, NULL);
 }
 
 static void reader_next_page(enum Events __, ref_t ___, void *sub_data) {

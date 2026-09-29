@@ -9,6 +9,7 @@
 #include "library/library.h"
 #include "menu/core.h"
 #include "utils/graphic.h"
+#include "utils/log.h"
 #include "utils/lvgl.h"
 #include "utils/mem.h"
 #include "utils/time.h"
@@ -268,6 +269,7 @@ static void wdgt_book_event_cb(lv_event_t *e) {
   struct WdgtBook *wdgt = lv_obj_get_user_data(wx);
   lv_key_t key = lv_event_get_key(e);
 
+  log_warn("Key pressed: %d", key);
   if (key == '\r' || key == '\n' || key == LV_KEY_ENTER) {
     books->event_cb(wdgt->user_data, books->event_data);
   } else if (key == LV_KEY_END) {

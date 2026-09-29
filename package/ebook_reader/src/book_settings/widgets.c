@@ -40,7 +40,8 @@ err_t wdgt_settings_init(wdgt_settings_t *out,
                          void (*set_scale_cb)(lvgl_event_t),
                          void (*back_cb)(lvgl_event_t),
                          void (*x_off_cb)(lvgl_event_t),
-                         void (*y_off_cb)(lvgl_event_t), void *event_data) {
+                         void (*y_off_cb)(lvgl_event_t),
+                         void *event_data) {
 
   const int setting_x = 480;
   const int setting_y = 800;

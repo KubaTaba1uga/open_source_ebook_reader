@@ -62,6 +62,11 @@ struct MenuTransition menu_fsm_table[MenuStates_MAX][Events_MAX] = {
                     .next_state = MenuStates_NONE,
                     .action = menu_deactivate,
                 },
+            [Events_BTN_POWER_CLICKED] =
+                {
+                    .next_state = MenuStates_NONE,
+                    .action = menu_deactivate,
+                },
         },
 
 };
@@ -122,13 +127,14 @@ error_out:
 };
 
 static void select_book_cb(book_t book, void *sub_data) {
-
+  log_info("%s", __func__);
   menu_t menu = sub_data;
 
   event_queue_push(menu->evqueue, Events_BOOK_OPENED, book);
 };
 
 static void menu_power_cb(void *sub_data) {
+  log_info("%s", __func__);
   menu_t menu = sub_data;
 
   event_queue_push(menu->evqueue, Events_BTN_POWER_CLICKED, NULL);
