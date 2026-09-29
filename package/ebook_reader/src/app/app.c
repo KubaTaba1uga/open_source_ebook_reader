@@ -201,6 +201,7 @@ void app_panic(app_t out) {
   }
 
   if (out->display) {
+display    
     display_panic(out->display);
   }
 }

@@ -26,7 +26,8 @@ static void power_post_event(enum Events event, ref_t event_data,
                              void *sub_data);
 static const char *power_state_dump(enum PowerStates state);
 static void power_off(enum Events __, ref_t ___, void *sub_data);
-static void power_handle_power_button(enum Events __, ref_t ___, void *sub_data);
+static void power_handle_power_button(enum Events __, ref_t ___,
+                                      void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
     [PowerStates_NONE] =
@@ -108,13 +109,17 @@ static void power_off(enum Events __, ref_t ___, void *sub_data) {
 
   log_warn("POWER OFF!!!!");
   /* app_panic()  ; */
-  if (system("poweroff") != 0){
-    log_warn("POWER OFF FAILED!!!!");    
-  }  
+  if (system("it8951_png -2.51 0 /usr/assets/data/poweroff_screen.png") != 0) {
+    log_warn("POWER OFF DISPLAY FAILED!!!!");
+  }
+
+  if (system("poweroff") != 0) {
+    log_warn("POWER OFF FAILED!!!!");
+  }
 }
 
 static void power_handle_power_button(enum Events __, ref_t ___,
                                       void *sub_data) {
-  power_t power = sub_data;  
-  event_queue_push(power->evqueue,  Events_POWER_OFF, power);
+  power_t power = sub_data;
+  event_queue_push(power->evqueue, Events_POWER_OFF, power);
 }
