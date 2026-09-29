@@ -6447,6 +6447,14 @@
 		(uuid "eb07bc55-f28d-41bf-ad20-82cc958f1dd3")
 	)
 	(segment
+		(start 118.825 56.705)
+		(end 115.725 56.705)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(J3-Pin_1)")
+		(uuid "2152c3e1-95b6-4f1c-8c6e-c681d05943ae")
+	)
+	(segment
 		(start 114.7 49.6)
 		(end 114.7 47.8)
 		(width 0.2)
@@ -6597,14 +6605,6 @@
 		(layer "F.Cu")
 		(net "/GPIO12{slash}PWM0")
 		(uuid "f0e79f8d-340f-422d-b52d-fae09eb8fa8d")
-	)
-	(segment
-		(start 118.825 56.705)
-		(end 115.725 56.705)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "Net-(J3-Pin_1)")
-		(uuid "2152c3e1-95b6-4f1c-8c6e-c681d05943ae")
 	)
 	(zone
 		(net "GND")
