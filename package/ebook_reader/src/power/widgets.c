@@ -3,14 +3,10 @@
 #include <stdlib.h>
 
 #include "power/core.h"
-#include "src/misc/lv_event.h"
 #include "utils/err.h"
 #include "utils/graphic.h"
-#include "utils/log.h"
 #include "utils/lvgl.h"
 #include "utils/mem.h"
-
-static void event_cb(lvgl_event_t lvgl_event);
 
 err_t wdgt_power_init(wdgt_power_t *out, const unsigned char *power_screen_data,
                       int power_screen_size) {
@@ -26,8 +22,6 @@ err_t wdgt_power_init(wdgt_power_t *out, const unsigned char *power_screen_data,
   lv_image_set_src(power_screen, dsc);
   lv_obj_set_user_data(power_screen, dsc);
 
-  lv_obj_add_event_cb(power_screen, event_cb, LV_EVENT_ALL, NULL);
-
   return 0;
 }
 
@@ -40,14 +34,4 @@ void wdgt_power_destroy(wdgt_power_t *out) {
   mem_free(dsc);
   lv_obj_del(*out);
   *out = NULL;
-}
-
-static void event_cb(lvgl_event_t lvgl_event) {
-
-  log_info("%s: %s", __func__,
-           lv_event_code_get_name(lv_event_get_code(lvgl_event)));
-
-  /* if (lv_event_get_code(lvgl_event) == LV_EVENT_DRAW_POST_END){ */
-    /* exit(0); */
-    /* }   */
 }

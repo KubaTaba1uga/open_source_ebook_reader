@@ -29,9 +29,9 @@ struct PowerTransition {
 static void power_post_event(enum Events event, ref_t event_data,
                              void *sub_data);
 static const char *power_state_dump(enum PowerStates state);
-static void power_off(enum Events __, ref_t ___, void *sub_data);
 static void power_show_shutdown_screen(enum Events __, ref_t ___,
                                       void *sub_data);
+static void power_off(enum Events __, ref_t ___, void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
     [PowerStates_NONE] =
@@ -46,10 +46,9 @@ struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
         {
             [Events_DISPLAY_RENDERED] =
                 {
-                    .next_state = PowerStates_ACTIVE,
+                    .next_state = PowerStates_NONE,
                     .action = power_off,
                 },
-
         },
 };
 
@@ -110,6 +109,18 @@ static const char *power_state_dump(enum PowerStates state) {
   return dumps[state];
 };
 
+static void power_show_shutdown_screen(enum Events __, ref_t ___,
+                                      void *sub_data) {
+  power_t power = sub_data;
+  err_o = power_off_view_init(&power->view);
+  ERR_TRY(err_o);
+
+  return;
+
+error_out:
+  log_error(err_o);
+}
+
 static void power_off(enum Events __, ref_t ___, void *sub_data) {
   log_info("%s", __func__);
   power_t power = sub_data;
@@ -123,14 +134,3 @@ static void power_off(enum Events __, ref_t ___, void *sub_data) {
   }
 }
 
-static void power_show_shutdown_screen(enum Events __, ref_t ___,
-                                      void *sub_data) {
-  power_t power = sub_data;
-  err_o = power_off_view_init(&power->view);
-  ERR_TRY(err_o);
-
-  return;
-
-error_out:
-  log_error(err_o);
-}
