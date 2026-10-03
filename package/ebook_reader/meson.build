@@ -64,6 +64,7 @@ ebook_reader_src += [
         'src/book_settings/book_settings.c',
         'src/book_settings/view.c',
         'src/book_settings/widgets.c',
+        'src/display/display.c',        
         'src/db/db.c',
         'src/event_queue/event_queue.c',
         'src/library/library.c',
