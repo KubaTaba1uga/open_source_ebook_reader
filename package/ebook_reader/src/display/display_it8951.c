@@ -17,6 +17,7 @@
 #include "utils/mem.h"
 #include "utils/settings.h"
 #include "utils/time.h"
+#include "utils/log.h"
 
 struct Display {
   lv_group_t *lv_ingroup;
@@ -37,6 +38,16 @@ static const int ui_display_it8951_width = 1404; // Display is 1404 but lvgl in
 
 static void display_flush_callback(lv_display_t *display, const lv_area_t *area,
                                    uint8_t *px_map);
+
+static void event_cb(lv_event_t * lvgl_event) {
+
+  log_info("%s: %s", __func__,
+           lv_event_code_get_name(lv_event_get_code(lvgl_event)));
+
+  /* if (lv_event_get_code(lvgl_event) == LV_EVENT_DRAW_POST_END){ */
+    /* exit(0); */
+    /* }   */
+}
 
 err_t display_init(display_t *out) {
   display_t display = *out = mem_malloc(sizeof(struct Display));
@@ -82,6 +93,9 @@ err_t display_init(display_t *out) {
   lv_display_set_flush_cb(display->lv_disp, display_flush_callback);
   lv_display_set_buffers(display->lv_disp, display->render.buf, NULL,
                          display->render.len, LV_DISPLAY_RENDER_MODE_FULL);
+
+  lv_display_add_event_cb(display->lv_disp, event_cb, LV_EVENT_ALL, NULL);
+  
   return 0;
 
 error_disp_cleanup:
@@ -156,7 +170,7 @@ void display_refresh(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W, UWORD H,
 
 static void display_flush_callback(lv_display_t *display, const lv_area_t *area,
                                    uint8_t *px_map) {
-  puts(__func__);
+  log_info("%s", __func__);
   trace_end(&display_trace);
 
   struct Display *mydisp = lv_display_get_user_data(display);
@@ -177,7 +191,7 @@ static void display_flush_callback(lv_display_t *display, const lv_area_t *area,
   free(dst);
   free(final);
   lv_display_flush_ready(display);
-  printf("%s done\n", __func__);
+  log_info("%s done", __func__);
 }
 
 void display_panic(display_t display) {
