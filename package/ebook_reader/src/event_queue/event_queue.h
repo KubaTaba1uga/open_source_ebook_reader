@@ -12,6 +12,7 @@ enum Events {
   Events_NONE,
   // Global events
   Events_BOOT_DONE,
+  Events_POWER_OFF,
   // Book events
   Events_BOOK_OPENED,
   Events_BOOK_CLOSED,
@@ -19,16 +20,19 @@ enum Events {
   // Book settings events
   Events_BOOK_SETTINGS_OPENED,
   Events_BOOK_SETTINGS_CLOSED,
-  // UI buttons event
+  // UI buttons events
   Events_BTN_NEXT_PAGE_CLICKED,
   Events_BTN_PREV_PAGE_CLICKED,
   Events_BTN_MENU_CLICKED,
+  Events_BTN_POWER_CLICKED,
   Events_BTN_BOOK_SETTINGS_ENTER_SET_SCALE_CLICKED,
   Events_BTN_BOOK_SETTINGS_MORE_CLICKED,
   Events_BTN_BOOK_SETTINGS_LESS_CLICKED,
   Events_BTN_BOOK_SETTINGS_EXIT_CLICKED,
   Events_BTN_BOOK_SETTINGS_ENTER_SET_X_OFF_CLICKED,
   Events_BTN_BOOK_SETTINGS_ENTER_SET_Y_OFF_CLICKED,
+  // Display events
+  Events_DISPLAY_RENDERED,
   // Add more events here
   Events_MAX,
 };
@@ -38,6 +42,8 @@ enum EventSubscribers {
   EventSubscribers_MENU,
   EventSubscribers_READER,
   EventSubscribers_BOOK_SETTINGS,
+  EventSubscribers_POWER,
+  EventSubscribers_DISPLAY,    
   // Add more subscribers here
   EventSubscribers_MAX,
 };

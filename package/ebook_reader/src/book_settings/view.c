@@ -22,12 +22,13 @@ err_t book_settings_view_init(struct BookSettingsView *view,
                               void (*click_back_cb)(void *data),
                               void (*click_set_x_off_cb)(void *data),
                               void (*click_set_y_off_cb)(void *data),
-                              void *data) {
+                              void (*power_cb)(void *data), void *data) {
   *view = (struct BookSettingsView){
       .click_set_scale_cb = click_set_scale_cb,
       .click_exit_cb = click_back_cb,
       .click_set_x_off_cb = click_set_x_off_cb,
       .click_set_y_off_cb = click_set_y_off_cb,
+      .power_cb = power_cb,
       .cb_data = data,
   };
 
@@ -46,16 +47,15 @@ void book_settings_view_destroy(struct BookSettingsView *view) {
   wdgt_settings_destroy(&view->settings);
 };
 
-err_t book_settings_set_scale_view_init(struct BookSettingsSetScaleView *view,
-                                        double scale,
-                                        void (*inc_scale_cb)(void *data),
-                                        void (*dec_scale_cb)(void *data),
-                                        void (*back_cb)(void *data),
-                                        void *cb_data) {
+err_t book_settings_set_scale_view_init(
+    struct BookSettingsSetScaleView *view, double scale,
+    void (*inc_scale_cb)(void *data), void (*dec_scale_cb)(void *data),
+    void (*back_cb)(void *data), void (*power_cb)(void *data), void *cb_data) {
   *view = (struct BookSettingsSetScaleView){
       .inc_scale_cb = inc_scale_cb,
       .dec_scale_cb = dec_scale_cb,
       .back_cb = back_cb,
+      .power_cb = power_cb,
       .cb_data = cb_data,
   };
 
@@ -75,19 +75,34 @@ void book_settings_set_scale_view_destroy(
 }
 
 static void scale_click_event_cb(lvgl_event_t e) {
-
   struct BookSettingsView *view = lv_event_get_user_data(e);
-  view->click_set_scale_cb(view->cb_data);
+  lv_key_t key = lv_event_get_key(e);
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  } else {
+    view->click_set_scale_cb(view->cb_data);
+  }
 };
 
 static void x_off_click_event_cb(lvgl_event_t e) {
   struct BookSettingsView *view = lv_event_get_user_data(e);
-  view->click_set_x_off_cb(view->cb_data);
+  lv_key_t key = lv_event_get_key(e);
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  } else {
+    view->click_set_x_off_cb(view->cb_data);
+  }
 }
 
 static void exit_click_event_cb(lvgl_event_t e) {
   struct BookSettingsView *view = lv_event_get_user_data(e);
-  view->click_exit_cb(view->cb_data);
+  lv_key_t key = lv_event_get_key(e);
+
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  } else {
+    view->click_exit_cb(view->cb_data);
+  }
 };
 
 static void scale_change_event_cb(lvgl_event_t e) {
@@ -102,6 +117,9 @@ static void scale_change_event_cb(lvgl_event_t e) {
   if (key == LV_KEY_ENTER || key == '\n' || key == '\r' || key == LV_KEY_ESC) {
     view->back_cb(view->cb_data);
   }
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  }
 }
 
 void book_settings_set_scale_view_set_scale(
@@ -109,16 +127,15 @@ void book_settings_set_scale_view_set_scale(
   wdgt_set_scale_value(view->set_scale, scale);
 }
 
-err_t book_settings_set_x_off_view_init(struct BookSettingsSetXOffView *view,
-                                        int x_off,
-                                        void (*inc_x_off_cb)(void *data),
-                                        void (*dec_x_off_cb)(void *data),
-                                        void (*back_cb)(void *data),
-                                        void *cb_data) {
+err_t book_settings_set_x_off_view_init(
+    struct BookSettingsSetXOffView *view, int x_off,
+    void (*inc_x_off_cb)(void *data), void (*dec_x_off_cb)(void *data),
+    void (*back_cb)(void *data), void (*power_cb)(void *data), void *cb_data) {
   *view = (struct BookSettingsSetXOffView){
       .inc_x_off_cb = inc_x_off_cb,
       .dec_x_off_cb = dec_x_off_cb,
       .back_cb = back_cb,
+      .power_cb = power_cb,
       .cb_data = cb_data,
   };
 
@@ -149,6 +166,9 @@ static void x_off_change_event_cb(lvgl_event_t e) {
   if (key == LV_KEY_ENTER || key == '\n' || key == '\r' || key == LV_KEY_ESC) {
     view->back_cb(view->cb_data);
   }
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  }
 }
 
 void book_settings_set_x_off_view_set_value(
@@ -158,19 +178,23 @@ void book_settings_set_x_off_view_set_value(
 
 static void y_off_click_event_cb(lvgl_event_t e) {
   struct BookSettingsView *view = lv_event_get_user_data(e);
-  view->click_set_y_off_cb(view->cb_data);
+  lv_key_t key = lv_event_get_key(e);
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
+  } else {
+    view->click_set_y_off_cb(view->cb_data);
+  }
 }
 
-err_t book_settings_set_y_off_view_init(struct BookSettingsSetYOffView *view,
-                                        int y_off,
-                                        void (*inc_y_off_cb)(void *data),
-                                        void (*dec_y_off_cb)(void *data),
-                                        void (*back_cb)(void *data),
-                                        void *cb_data) {
+err_t book_settings_set_y_off_view_init(
+    struct BookSettingsSetYOffView *view, int y_off,
+    void (*inc_y_off_cb)(void *data), void (*dec_y_off_cb)(void *data),
+    void (*back_cb)(void *data), void (*power_cb)(void *data), void *cb_data) {
   *view = (struct BookSettingsSetYOffView){
       .inc_y_off_cb = inc_y_off_cb,
       .dec_y_off_cb = dec_y_off_cb,
       .back_cb = back_cb,
+      .power_cb = power_cb,
       .cb_data = cb_data,
   };
 
@@ -200,6 +224,9 @@ static void y_off_change_event_cb(lvgl_event_t e) {
   }
   if (key == LV_KEY_ENTER || key == '\n' || key == '\r' || key == LV_KEY_ESC) {
     view->back_cb(view->cb_data);
+  }
+  if (key == LV_KEY_END) {
+    view->power_cb(view->cb_data);
   }
 }
 

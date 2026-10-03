@@ -18,7 +18,8 @@ static void reader_page_event_cb(lv_event_t *e);
 err_t reader_view_init(struct ReaderView *view, book_t book,
                        void (*next_page_cb)(void *),
                        void (*prev_page_cb)(void *), void (*menu_cb)(void *),
-                       void (*book_settings_cb)(void *), void *data) {
+                       void (*book_settings_cb)(void *),
+                       void (*power_cb)(void *), void *data) {
   *view = (struct ReaderView){
       .book = mem_ref(book),
       .last_book =
@@ -32,6 +33,7 @@ err_t reader_view_init(struct ReaderView *view, book_t book,
       .prev_page_cb = prev_page_cb,
       .menu_cb = menu_cb,
       .book_settings_cb = book_settings_cb,
+      .power_cb = power_cb,
       .cb_data = data,
   };
 
@@ -112,6 +114,9 @@ static void reader_page_event_cb(lv_event_t *e) {
     break;
   case LV_KEY_ESC:
     view->menu_cb(view->cb_data);
+    break;
+  case LV_KEY_END:
+    view->power_cb(view->cb_data);
     break;
   default:
     if (key == '\n' || key == '\r' || key == LV_KEY_ENTER) {

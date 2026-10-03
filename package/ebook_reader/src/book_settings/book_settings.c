@@ -54,6 +54,7 @@ static void book_dec_scale_cb(void *data);
 static void book_back_cb(void *data);
 static void book_click_set_x_off_cb(void *data);
 static void book_click_set_y_off_cb(void *data);
+static void book_power_cb(void *data);
 static void book_settings_activate_set_scale(enum Events __, ref_t ___,
                                              void *sub_data);
 static void book_settings_deactivate_set_scale(enum Events __, ref_t ___,
@@ -107,6 +108,11 @@ struct BookSettingsTransition
                     },
 
                 [Events_BOOK_SETTINGS_CLOSED] =
+                    {
+                        .next_state = BookSettingsStates_NONE,
+                        .action = book_settings_deactivate,
+                    },
+                [Events_BTN_POWER_CLICKED] =
                     {
                         .next_state = BookSettingsStates_NONE,
                         .action = book_settings_deactivate,
@@ -255,7 +261,7 @@ static void book_settings_activate(enum Events __, ref_t book, void *sub_data) {
   err_o = book_settings_view_init(
       &book_settings->ctx.settings_view, book_click_set_scale_cb,
       book_settings_close_settings, book_click_set_x_off_cb,
-      book_click_set_y_off_cb, book_settings);
+      book_click_set_y_off_cb, book_power_cb, book_settings);
   ERR_TRY(err_o);
 
   book_settings->ctx.book = mem_ref(book);
@@ -298,6 +304,12 @@ static void book_click_set_x_off_cb(void *data) {
                    book_settings->ctx.book);
 }
 
+static void book_power_cb(void *data) {
+  book_settings_t book_settings = data;
+
+  event_queue_push(book_settings->evqueue, Events_BTN_POWER_CLICKED, NULL);
+}
+
 static void book_settings_activate_set_scale(enum Events __, ref_t ___,
                                              void *sub_data) {
   book_settings_t book_settings = sub_data;
@@ -305,7 +317,7 @@ static void book_settings_activate_set_scale(enum Events __, ref_t ___,
   err_o = book_settings_set_scale_view_init(
       &book_settings->ctx.set_scale_view,
       book_get_scale(book_settings->ctx.book), book_inc_scale_cb,
-      book_dec_scale_cb, book_back_cb, book_settings);
+      book_dec_scale_cb, book_back_cb, book_power_cb, book_settings);
   ERR_TRY(err_o);
 
   display_del_from_ingroup(book_settings->display,
@@ -406,7 +418,7 @@ static void book_settings_activate_set_x_off(enum Events __, ref_t ___,
   err_o = book_settings_set_x_off_view_init(
       &book_settings->ctx.set_x_off_view,
       book_get_x_off(book_settings->ctx.book), book_inc_scale_cb,
-      book_dec_scale_cb, book_back_cb, book_settings);
+      book_dec_scale_cb, book_back_cb, book_power_cb, book_settings);
   ERR_TRY(err_o);
 
   display_del_from_ingroup(book_settings->display,
@@ -474,7 +486,7 @@ static void book_settings_activate_set_y_off(enum Events __, ref_t ___,
   err_o = book_settings_set_y_off_view_init(
       &book_settings->ctx.set_y_off_view,
       book_get_y_off(book_settings->ctx.book), book_inc_scale_cb,
-      book_dec_scale_cb, book_back_cb, book_settings);
+      book_dec_scale_cb, book_back_cb, book_power_cb, book_settings);
   ERR_TRY(err_o);
 
   display_del_from_ingroup(book_settings->display,
