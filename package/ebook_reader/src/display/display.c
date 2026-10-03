@@ -23,7 +23,6 @@ err_t display_init(display_t *out, event_queue_t queue) {
       .ev_queue = queue,
   };
 
-  puts(__func__);
 #if EBK_DISPLAY_IT8951
   err_o = display_it8951_init(display, display_width, display_heigth);
   ERR_TRY(err_o);
@@ -31,7 +30,7 @@ err_t display_init(display_t *out, event_queue_t queue) {
   err_o = display_x11_init(display, display_width, display_heigth);
   ERR_TRY(err_o);
 #elif EBK_DISPLAY_PNG
-  err_o = display_png_init(display);
+  err_o = display_png_init(display, display_width, display_heigth);
   ERR_TRY(err_o);
 #else
 #error "No display selected!"
@@ -83,10 +82,10 @@ void display_del_from_ingroup(display_t _, void *wx) {
 }
 
 int display_get_x(display_t display) {
-  return lv_display_get_horizontal_resolution(NULL);
+  return display_width;
 };
 int display_get_y(display_t display) {
-  return lv_display_get_vertical_resolution(NULL);
+  return display_heigth;
 }
 
 void display_set_trace(display_t display) {

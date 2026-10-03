@@ -30,5 +30,6 @@ struct Display {
 
 err_t display_it8951_init(display_t display, int x, int y);
 err_t display_x11_init(display_t display, int x, int y);
+err_t display_png_init(display_t display, int x, int y);
 
 #endif

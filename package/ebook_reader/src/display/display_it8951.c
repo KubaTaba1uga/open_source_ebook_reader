@@ -128,8 +128,6 @@ static void display_it8951_refresh(UBYTE *Frame_Buf, UWORD X, UWORD Y, UWORD W,
 static void display_it8951_flush_callback(lv_display_t *display,
                                           const lv_area_t *area,
                                           uint8_t *px_map) {
-  log_info("%s", __func__);
-
   struct Display *mydisp = lv_display_get_user_data(display);
   struct DisplayIT8951 *it8951 = mydisp->private.data;
 
@@ -149,11 +147,9 @@ static void display_it8951_flush_callback(lv_display_t *display,
   free(dst);
   free(final);
   lv_display_flush_ready(display);  
-  log_info("%s done", __func__);
 }
 
 static void display_it8951_panic(display_t display) {
-  puts(__func__);
   EPD_IT8951_Reset();
   EPD_IT8951_Sleep();
 }

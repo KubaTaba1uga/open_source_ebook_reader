@@ -15,6 +15,7 @@
 #include "menu/menu.h"
 #include "reader/reader.h"
 #include "utils/err.h"
+#include "utils/log.h"
 #include "utils/mem.h"
 #include "utils/time.h"
 #include "power/power.h"
@@ -195,7 +196,8 @@ err_t app_main(app_t app) {
 };
 
 void app_panic(app_t out) {
-  puts(__func__);
+  log_warn("App panic!");
+  
   if (!out) {
     return;
   }

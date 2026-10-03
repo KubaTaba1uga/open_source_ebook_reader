@@ -4,19 +4,17 @@
 #include "power/core.h"
 #include "utils/err.h"
 #include "utils/graphic.h"
+#include "utils/settings.h"
 
 err_t power_off_view_init(struct PowerView *view) {
-  /* "/home/taba1uga/Github/open_source_ebook_reader/package/ebook_reader/" */
-  /* "data/poweroff_screen.png"); */
-
-  cairo_surface_t *cairo_surface = cairo_image_surface_create_from_png(
-      "/usr/assets/data/poweroff_screen.png");
+  cairo_surface_t *cairo_surface =
+      cairo_image_surface_create_from_png(settings_boot_screen_path);
   if (!cairo_surface) {
-    err_o = err_errnos(
-        EINVAL, "Cannot load png from /usr/assets/data/poweroff_screen.png");
+    err_o = err_errnof(EINVAL, "Cannot load png from %s",
+                       settings_boot_screen_path);
     goto error_out;
   }
-  
+
   uint8_t *buf = cairo_image_surface_get_data(cairo_surface);
   wdgt_power_t power = NULL;
   err_o = wdgt_power_init(&power, buf,

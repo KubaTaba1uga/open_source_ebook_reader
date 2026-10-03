@@ -7,6 +7,7 @@
 #include "power/power.h"
 #include "utils/err.h"
 #include "utils/log.h"
+#include "utils/settings.h"
 
 enum PowerStates {
   PowerStates_NONE,
@@ -30,7 +31,7 @@ static void power_post_event(enum Events event, ref_t event_data,
                              void *sub_data);
 static const char *power_state_dump(enum PowerStates state);
 static void power_show_shutdown_screen(enum Events __, ref_t ___,
-                                      void *sub_data);
+                                       void *sub_data);
 static void power_off(enum Events __, ref_t ___, void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
@@ -110,7 +111,7 @@ static const char *power_state_dump(enum PowerStates state) {
 };
 
 static void power_show_shutdown_screen(enum Events __, ref_t ___,
-                                      void *sub_data) {
+                                       void *sub_data) {
   power_t power = sub_data;
   err_o = power_off_view_init(&power->view);
   ERR_TRY(err_o);
@@ -122,15 +123,19 @@ error_out:
 }
 
 static void power_off(enum Events __, ref_t ___, void *sub_data) {
-  log_info("%s", __func__);
   power_t power = sub_data;
 
   log_warn("POWER OFF!!!!");
 
   power_off_view_destroy(&power->view);
 
-  if (system("poweroff") != 0) {
-    log_warn("POWER OFF FAILED!!!!");
+  switch (settings_display_model) {
+  case DisplayModelEnum_IT8951:
+    if (system("poweroff") != 0) {
+      log_warn("POWER OFF FAILED!!!!");
+    }
+
+  default:;
+    /* exit(0); */
   }
 }
-

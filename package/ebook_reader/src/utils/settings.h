@@ -8,8 +8,8 @@
 
 enum DisplayModelEnum {
   DisplayModelEnum_X11 = 0,
-  DisplayModelEnum_WVS7IN5V2B,
-  DisplayModelEnum_WVS7IN5V2,
+  DisplayModelEnum_PNG,
+  DisplayModelEnum_IT8951,
   DisplayModelEnum_MAX,
 };
 
