@@ -54,7 +54,6 @@ struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
 };
 
 err_t power_init(power_t *out, display_t display, event_queue_t queue) {
-  log_info("%s", __func__);
   power_t power = *out = mem_malloc(sizeof(struct Power));
   *power = (struct Power){
       .current_state = PowerStates_NONE,
