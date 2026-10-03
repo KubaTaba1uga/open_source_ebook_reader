@@ -54,7 +54,7 @@ err_t app_init(app_t *out) {
   trace = trace_start("display_init");
 #endif
 
-  err_o = display_init(&app->display);
+  err_o = display_init(&app->display, app->event_queue);
   ERR_TRY(err_o);
 
 #ifdef TRACE_APP

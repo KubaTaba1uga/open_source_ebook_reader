@@ -8,6 +8,7 @@
 #include <lvgl.h>
 
 #include "display/display.h"
+#include "event_queue/event_queue.h"
 #include "utils/time.h"
 
 struct Display {
@@ -24,6 +25,7 @@ struct Display {
     void (*destroy)(void *data);
     void (*panic)(display_t self);
   } private;
+  event_queue_t ev_queue;
 };
 
 err_t display_it8951_init(display_t display, int x, int y);

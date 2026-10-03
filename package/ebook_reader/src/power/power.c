@@ -30,7 +30,7 @@ static void power_post_event(enum Events event, ref_t event_data,
                              void *sub_data);
 static const char *power_state_dump(enum PowerStates state);
 static void power_off(enum Events __, ref_t ___, void *sub_data);
-static void power_handle_power_button(enum Events __, ref_t ___,
+static void power_show_shutdown_screen(enum Events __, ref_t ___,
                                       void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
@@ -39,12 +39,12 @@ struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
             [Events_BTN_POWER_CLICKED] =
                 {
                     .next_state = PowerStates_ACTIVE,
-                    .action = power_handle_power_button,
+                    .action = power_show_shutdown_screen,
                 },
         },
     [PowerStates_ACTIVE] =
         {
-            [Events_POWER_OFF] =
+            [Events_DISPLAY_RENDERED] =
                 {
                     .next_state = PowerStates_ACTIVE,
                     .action = power_off,
@@ -112,27 +112,22 @@ static const char *power_state_dump(enum PowerStates state) {
 
 static void power_off(enum Events __, ref_t ___, void *sub_data) {
   log_info("%s", __func__);
-  /* power_t power = sub_data; */
+  power_t power = sub_data;
 
   log_warn("POWER OFF!!!!");
 
-  /* power_off_view_destroy(&power->view); */
+  power_off_view_destroy(&power->view);
 
-  /* app_panic()  ; */
-  /* if (system("poweroff") != 0) { */
-    /* log_warn("POWER OFF FAILED!!!!"); */
-  /* } */
-
-  return;
+  if (system("poweroff") != 0) {
+    log_warn("POWER OFF FAILED!!!!");
+  }
 }
 
-static void power_handle_power_button(enum Events __, ref_t ___,
+static void power_show_shutdown_screen(enum Events __, ref_t ___,
                                       void *sub_data) {
   power_t power = sub_data;
   err_o = power_off_view_init(&power->view);
   ERR_TRY(err_o);
-
-  /* event_queue_push(power->evqueue, Events_POWER_OFF, power); */
 
   return;
 

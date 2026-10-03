@@ -7,10 +7,11 @@
 #define EBOOK_READER_DISPLAY_H
 
 #include "utils/err.h"
+#include "event_queue/event_queue.h"
 
 typedef struct Display *display_t;
 
-err_t display_init(display_t *out);
+err_t display_init(display_t *out, event_queue_t event_queue);
 void display_destroy(display_t *out);
 void display_add_to_ingroup(display_t display, void *wx);
 void display_del_from_ingroup(display_t display, void *wx);

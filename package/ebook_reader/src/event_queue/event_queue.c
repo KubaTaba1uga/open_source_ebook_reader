@@ -4,6 +4,7 @@
  * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
  */
 #include "event_queue/event_queue.h"
+#include "event_queue.h"
 #include "utils/log.h"
 #include "utils/mem.h"
 #include "utils/zlist.h"
@@ -99,7 +100,10 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
         {
             EventSubscribers_BOOK_SETTINGS,
         },
-
+    [Events_DISPLAY_RENDERED] =
+        {
+            EventSubscribers_POWER,
+        },
 };
 
 static void event_bus_route_event(event_queue_t queue, event_t event);
@@ -206,7 +210,7 @@ const char *events_dump(enum Events event) {
           "Events_BTN_BOOK_SETTINGS_ENTER_SET_X_OFF_CLICKED",
       [Events_BTN_BOOK_SETTINGS_ENTER_SET_Y_OFF_CLICKED] =
           "Events_BTN_BOOK_SETTINGS_ENTER_SET_Y_OFF_CLICKED",
-  };
+      [Events_DISPLAY_RENDERED] = "Events_DISPLAY_RENDERED"};
 
   if (event < Events_NONE || event >= Events_MAX || !dumps[event]) {
     return "Unknown";
@@ -221,6 +225,7 @@ const char *event_subscriber_dump(enum EventSubscribers sub) {
       [EventSubscribers_READER] = "EventSubscribers_READER",
       [EventSubscribers_BOOK_SETTINGS] = "EventSubscribers_BOOK_SETTINGS",
       [EventSubscribers_POWER] = "EventSubscribers_POWER",
+      [EventSubscribers_DISPLAY] = "EventSubscribers_DISPLAY",
   };
 
   if (sub < EventSubscribers_NONE || sub >= EventSubscribers_MAX ||
