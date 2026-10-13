@@ -19,9 +19,27 @@ static int main_setup(void);
 static void exit_handler(void);
 static void signal_handler(int);
 
+static void
+apply_mode (FILE *stream, char const *stream_name)
+{
+  char *buf = NULL;
+  int setvbuf_mode;
+  unsigned long int size = 0;
+
+
+    setvbuf_mode = _IONBF;
+    if (setvbuf(stream, buf, setvbuf_mode, size) != 0) {
+      log_warn("Cannot configure stream: %s!!!", stream_name)      ;
+      free (buf);
+    }
+}
+
 int main(void) {
   log_info("Starting app");
+  apply_mode(stderr, "stderr");
+  apply_mode(stdout, "stdout");
 
+  
   if (main_setup() != 0) {
     goto error_out;
   }
