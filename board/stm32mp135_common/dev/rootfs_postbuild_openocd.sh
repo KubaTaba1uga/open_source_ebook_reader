@@ -4,6 +4,7 @@ set -xeu
 
 sh $BR2_EXTERNAL_EBK_READER_PATH/board/stm32mp135_common/dev/rootfs_postbuild.sh
 
+# Enable OpenOCD
 find ${BINARIES_DIR} -name 'tf-a-*.stm32' | while read -r path
 do
     if [ "$(basename "$path")" = 'tf-a-ebook-reader-debug.stm32' ]
@@ -16,3 +17,4 @@ do
     rm -f $dst_path
     $HOST_DIR/bin/stm32wrapper4dbg -s $path -d $dst_path -b
 done
+
