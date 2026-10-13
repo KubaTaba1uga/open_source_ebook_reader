@@ -18,28 +18,11 @@ static app_t app;
 static int main_setup(void);
 static void exit_handler(void);
 static void signal_handler(int);
-
-static void
-apply_mode (FILE *stream, char const *stream_name)
-{
-  char *buf = NULL;
-  int setvbuf_mode;
-  unsigned long int size = 0;
-
-
-    setvbuf_mode = _IONBF;
-    if (setvbuf(stream, buf, setvbuf_mode, size) != 0) {
-      log_warn("Cannot configure stream: %s!!!", stream_name)      ;
-      free (buf);
-    }
-}
+static int disable_stream_buffering(FILE *);
 
 int main(void) {
   log_info("Starting app");
-  apply_mode(stderr, "stderr");
-  apply_mode(stdout, "stdout");
 
-  
   if (main_setup() != 0) {
     goto error_out;
   }
@@ -90,22 +73,32 @@ static void signal_handler(int signum) {
 
 static int main_setup(void) {
   struct sigaction sa = {0};
-  sa.sa_handler = signal_handler;
-  sigemptyset(&sa.sa_mask);
   int signals[] = {
       SIGINT, SIGTERM, SIGHUP,
       SIGABRT, // SIGABRT is triggered by assert
   };
+
+  if (disable_stream_buffering(stderr) != 0) {
+    err_o = err_errnof(errno, "Cannot sonfigure buffer for stderr");
+    return 1;
+  };
+  if (disable_stream_buffering(stdout) != 0) {
+    err_o = err_errnof(errno, "Cannot sonfigure buffer for stdout");
+    return 2;
+  };
+
+  sa.sa_handler = signal_handler;
+  sigemptyset(&sa.sa_mask);
   for (size_t i = 0; i < sizeof(signals) / sizeof(signals[0]); i++) {
     if (sigaction(signals[i], &sa, NULL) == -1) {
       err_o = err_errnof(errno, "Cannot sonfigure signal handler for %d",
                          signals[i]);
-      return 1;
+      return 3;
     }
   }
   if (atexit(exit_handler) != 0) {
     err_o = err_errnof(errno, "Cannot set exit handler");
-    return 2;
+    return 4;
   };
 
   return 0;
@@ -115,4 +108,12 @@ void __asan_on_error(void) {
   if (app) {
     /* app_panic(app); */
   }
+}
+
+static int disable_stream_buffering(FILE *stream) {
+  int setvbuf_mode = _IONBF; // No buffering
+  if (setvbuf(stream, NULL, setvbuf_mode, 0) != 0) {
+    return 1;
+  }
+  return 0;
 }

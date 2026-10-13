@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# remember about: source build/buildroot/host/environment-setup
+
 set -xeu
 
 rm -rf build/buildroot/build/ebook_reader-v0.0.1/src/

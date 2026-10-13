@@ -11,7 +11,7 @@ start() {
 	start-stop-daemon -S -b -m -p /var/run/ebook_reader.pid -x python -- \
 			  /usr/assets/data/daemonize.py \
 			  --log /var/log/ebook_reader.log \
-			  stdbuf -o0 -i0 -e0 ebook_reader
+			  ebook_reader
         [ $? -eq 0 ] && echo "OK" || echo "ERROR"
 }
 
