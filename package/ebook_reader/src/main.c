@@ -20,17 +20,12 @@ static void exit_handler(void);
 static void signal_handler(int);
 static int disable_stream_buffering(FILE *);
 
-
 int main(void) {
-  log_info("Starting app");
-  void *p = malloc(12345);
-  printf("Allocated: %p\n", p);
-
-  p = NULL;
-  
   if (main_setup() != 0) {
     goto error_out;
   }
+
+  log_info("Starting app");
 
   err_o = app_init(&app);
   ERR_TRY(err_o);
@@ -40,9 +35,6 @@ int main(void) {
   err_o = app_main(app);
   ERR_TRY(err_o);
 
-  app_destroy(&app);
-
-  /* puts("DONE"); */
   return 0;
 
 error_out:
@@ -62,6 +54,7 @@ static void exit_handler(void) {
   puts("EXIT");
   if (app) {
     app_destroy(&app);
+
     FcFini(); // Font config leave some rubbish, we are cleaning it
               // cause it seems cleaner than adding asan suppresion
               // file.
@@ -71,15 +64,11 @@ static void exit_handler(void) {
 static void signal_handler(int signum) {
   puts("SIGNAL");
   if (app) {
-    app_panic(app);
+    app_stop(app);
   }
-  /* _exit(1); */
 };
 
-static int main_setup(void) {
-  char *mem = malloc(100);
-  (void)mem;
-  puts("Mem lost!");
+static int main_setup(void) {  
   struct sigaction sa = {0};
   int signals[] = {
       SIGINT, SIGTERM, SIGHUP,
@@ -114,7 +103,7 @@ static int main_setup(void) {
 
 void __asan_on_error(void) {
   if (app) {
-    app_panic(app);
+    /* app_panic(app); */
   }
 }
 

@@ -14,5 +14,6 @@ err_t app_init(app_t *out);
 err_t app_main(app_t out);
 void app_destroy(app_t *out);
 void app_panic(app_t out);
+void app_stop(app_t out);
 
 #endif // EBOOK_READER_APP_H

@@ -121,7 +121,7 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
   return;
 
 error_out:
-  mem_deref(books);
+  mem_deref(books);  
   log_error(err_o);
   // @todo post error event
 };
@@ -142,7 +142,9 @@ static void menu_deactivate(enum Events __, ref_t ___, void *sub_data) {
 
   menu_t menu = sub_data;
 
+  puts("display_del_from_ingroup");
   display_del_from_ingroup(menu->display, menu->view.books);
+  puts("menu_view_destroy");  
   menu_view_destroy(&menu->view);
 };
 

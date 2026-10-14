@@ -4,6 +4,7 @@
  * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
  */
 #include <lvgl.h>
+#include <stdatomic.h>
 #include <stdio.h>
 
 #include "app/app.h"
@@ -13,12 +14,12 @@
 #include "event_queue/event_queue.h"
 #include "library/library.h"
 #include "menu/menu.h"
+#include "power/power.h"
 #include "reader/reader.h"
 #include "utils/err.h"
 #include "utils/log.h"
 #include "utils/mem.h"
 #include "utils/time.h"
-#include "power/power.h"
 
 #define TRACE_APP 1
 
@@ -31,6 +32,7 @@ struct App {
   power_t power;
   menu_t menu;
   db_t db;
+  atomic_bool is_running;
 };
 
 err_t app_init(app_t *out) {
@@ -46,7 +48,7 @@ err_t app_init(app_t *out) {
 
   lv_init();
   lv_tick_set_cb(time_now);
-  
+
 #ifdef TRACE_APP
   trace_end(&trace);
 #endif
@@ -83,7 +85,7 @@ err_t app_init(app_t *out) {
 #ifdef TRACE_APP
   trace_end(&trace);
 #endif
-  
+
 #ifdef TRACE_APP
   trace = trace_start("library_init");
 #endif
@@ -130,8 +132,6 @@ err_t app_init(app_t *out) {
   trace_end(&trace);
 #endif
 
-  
-  
   event_queue_push(app->event_queue, Events_BOOT_DONE, NULL);
 
   return 0;
@@ -163,7 +163,7 @@ void app_destroy(app_t *out) {
   if (app->library) {
     library_destroy(&app->library);
   }
-  
+
   if (app->power) {
     power_destroy(&app->power);
   }
@@ -184,19 +184,23 @@ void app_destroy(app_t *out) {
   *out = NULL;
 };
 
-err_t app_main(app_t app) {
-  while (1) {
-    display_set_trace(app->display);    
+err_t app_main(app_t app) {  
+  app->is_running = true;
+
+  while (app->is_running) {
+    display_set_trace(app->display);
     event_queue_step(app->event_queue);
 
     int ms = lv_timer_handler();
     time_sleep_ms(ms);
   }
+
+  return 0;
 };
 
 void app_panic(app_t out) {
   log_warn("App panic!");
-  
+
   if (!out) {
     return;
   }
@@ -204,4 +208,10 @@ void app_panic(app_t out) {
   if (out->display) {
     display_panic(out->display);
   }
+}
+
+void app_stop(app_t app) {
+  log_warn("App stop!");
+  
+  app->is_running = false;  
 }
