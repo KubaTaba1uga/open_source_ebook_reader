@@ -11,8 +11,8 @@ EBOOK_READER_DEPENDENCIES = it8951_epaper lvgl host-pkgconf
 EBOOK_READER_INSTALL_STAGING = YES
 EBOOK_READER_INSTALL_TARGET = YES
 ifeq ($(BR2_ENABLE_DEBUG),y)
-   # EBOOK_READER_CONF_OPTS += -Db_sanitize=address,undefined -Db_lundef=false
-   EBOOK_READER_CONF_OPTS += -Db_sanitize=leak -Db_lundef=false
+   EBOOK_READER_CONF_OPTS += -Db_sanitize=address,undefined -Db_lundef=false
+   # EBOOK_READER_CONF_OPTS += -Db_sanitize=leak -Db_lundef=false
 endif
 
 $(eval $(meson-package))

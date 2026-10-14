@@ -28,7 +28,7 @@ int main(void) {
 
     printf("%d\n", x[10]);
 
-    free(x);
+    /* free(x); */
   /*   char *x = malloc(10); */
   /* (void)x; */
   puts("DONE");
