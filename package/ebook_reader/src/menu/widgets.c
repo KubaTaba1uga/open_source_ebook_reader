@@ -146,7 +146,6 @@ err_t wdgt_books_init(wdgt_books_t *out, books_list_t books,
   wdgt_book_t lv_book = NULL;
   int i = 0;
 
-  log_info("Creating widgets for books")  ;  
   for (book_t book = books_list_get(books); book != NULL;
        book = books_list_get(books)) {
     lv_book = wdgt_book_create(
@@ -250,7 +249,6 @@ static wdgt_book_t wdgt_book_create(wdgt_books_t books, const char *book_title,
       .user_data = mem_ref(data),
   };
 
-  log_info("Widget for %s created", book_title)  ;
   return book_card;
 }
 
@@ -271,7 +269,7 @@ static void wdgt_book_event_cb(lv_event_t *e) {
   struct WdgtBook *wdgt = lv_obj_get_user_data(wx);
   lv_key_t key = lv_event_get_key(e);
 
-  log_warn("Key pressed: %d", key);
+  /* log_warn("Key pressed: %d", key); */
   if (key == '\r' || key == '\n' || key == LV_KEY_ENTER) {
     books->event_cb(wdgt->user_data, books->event_data);
   } else if (key == LV_KEY_END) {
