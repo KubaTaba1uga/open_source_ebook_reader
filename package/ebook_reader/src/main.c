@@ -110,7 +110,7 @@ static int main_setup(void) {
 
 void __asan_on_error(void) {
   if (app) {
-    /* app_panic(app); */
+    app_panic(app);
   }
 }
 
