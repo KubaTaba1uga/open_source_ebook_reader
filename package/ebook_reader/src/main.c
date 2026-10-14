@@ -22,17 +22,18 @@ static int disable_stream_buffering(FILE *);
 
 
 int main(void) {
+    /* char *x = malloc(10); */
+
+    /* x[10] = 42;  // Heap buffer overflow */
+
+    /* printf("%d\n", x[10]); */
+
+    /* /\* free(x); *\/ */
     char *x = malloc(10);
-
-    x[10] = 42;  // Heap buffer overflow
-
-    printf("%d\n", x[10]);
-
-    /* free(x); */
-  /*   char *x = malloc(10); */
-  /* (void)x; */
+  (void)x;
   puts("DONE");
-  return 0;  
+  return 0;
+  
   log_info("Starting app");
 
   if (main_setup() != 0) {
