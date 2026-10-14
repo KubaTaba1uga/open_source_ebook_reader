@@ -23,7 +23,11 @@ static int disable_stream_buffering(FILE *);
 
 int main(void) {
   log_info("Starting app");
+  void *p = malloc(12345);
+  printf("Allocated: %p\n", p);
 
+  p = NULL;
+  
   if (main_setup() != 0) {
     goto error_out;
   }
@@ -55,7 +59,7 @@ error_out:
          not equal to 0.
 */
 static void exit_handler(void) {
-  /* puts("EXIT"); */
+  puts("EXIT");
   if (app) {
     app_destroy(&app);
     FcFini(); // Font config leave some rubbish, we are cleaning it
@@ -65,11 +69,11 @@ static void exit_handler(void) {
 }
 
 static void signal_handler(int signum) {
-  /* puts("SIGNAL"); */
+  puts("SIGNAL");
   if (app) {
     app_panic(app);
   }
-  _exit(1);
+  /* _exit(1); */
 };
 
 static int main_setup(void) {
