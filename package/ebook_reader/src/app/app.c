@@ -185,7 +185,6 @@ void app_destroy(app_t *out) {
 };
 
 err_t app_main(app_t app) {
-
   while (1) {
     display_set_trace(app->display);    
     event_queue_step(app->event_queue);

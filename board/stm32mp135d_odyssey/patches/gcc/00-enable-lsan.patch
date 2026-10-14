@@ -1,0 +1,12 @@
+diff --git a/libsanitizer/configure.tgt b/libsanitizer/configure.tgt
+index bc169c365..0cb4cd640 100644
+--- a/libsanitizer/configure.tgt
++++ b/libsanitizer/configure.tgt
+@@ -53,6 +53,7 @@ case "${target}" in
+ 	UNSUPPORTED=1
+ 	;;
+   arm*-*-linux*)
++        LSAN_SUPPORTED=yes      
+ 	;;
+   mips*-*-linux*)
+ 	;;

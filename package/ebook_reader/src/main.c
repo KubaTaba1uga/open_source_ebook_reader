@@ -20,7 +20,19 @@ static void exit_handler(void);
 static void signal_handler(int);
 static int disable_stream_buffering(FILE *);
 
+
 int main(void) {
+    char *x = malloc(10);
+
+    x[10] = 42;  // Heap buffer overflow
+
+    printf("%d\n", x[10]);
+
+    free(x);
+  /*   char *x = malloc(10); */
+  /* (void)x; */
+  puts("DONE");
+  return 0;  
   log_info("Starting app");
 
   if (main_setup() != 0) {
@@ -37,7 +49,7 @@ int main(void) {
 
   app_destroy(&app);
 
-  puts("DONE");
+  /* puts("DONE"); */
   return 0;
 
 error_out:
@@ -54,7 +66,7 @@ error_out:
          not equal to 0.
 */
 static void exit_handler(void) {
-  puts("EXIT");
+  /* puts("EXIT"); */
   if (app) {
     app_destroy(&app);
     FcFini(); // Font config leave some rubbish, we are cleaning it
@@ -64,7 +76,7 @@ static void exit_handler(void) {
 }
 
 static void signal_handler(int signum) {
-  puts("SIGNAL");
+  /* puts("SIGNAL"); */
   if (app) {
     app_panic(app);
   }
@@ -72,6 +84,9 @@ static void signal_handler(int signum) {
 };
 
 static int main_setup(void) {
+  char *mem = malloc(100);
+  (void)mem;
+  puts("Mem lost!");
   struct sigaction sa = {0};
   int signals[] = {
       SIGINT, SIGTERM, SIGHUP,
