@@ -144,12 +144,12 @@ books_list_t library_list_books(library_t lib) {
         lib->interfaces[book_ext].private, file_path, book);
     ERR_TRY_CATCH(err_o, error_list_cleanup);
 
-    if (!list->current_book) {
-      list->current_book = list->books.head;
-    }
-
     zlist_append(&list->books, &book->next);
     mem_free(file_path);
+
+    if (!list->current_book) {
+      list->current_book = list->books.head;
+    }    
   }
 
   closedir(books_dir);
