@@ -99,30 +99,31 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
 
     repos = _find_repos_in_br_config(config_dict)
 
-    if "debug" in config:
-        c.run("mkdir -p third_party")
-        with c.cd("third_party"):
-            for repo, rdata in repos.items():
-                if os.path.exists(os.path.join(ROOT_PATH, "third_party", repo)):
+    c.run("mkdir -p third_party")
+    with c.cd("third_party"):
+        for repo, rdata in repos.items():
+            if os.path.exists(os.path.join(ROOT_PATH, "third_party", repo)):
+                continue
+            if not "debug" in config and repo != "buildroot":
+                continue
+
+            c.run(f"git clone {rdata['url']} {repo}")
+            with c.cd(repo):
+                c.run(f"git checkout {rdata['version']}")
+
+                patches_dir = os.path.join(
+                    ROOT_PATH,
+                    config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
+                        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
+                    ).replace('"', ""),
+                    repo,
+                )
+                if not os.path.exists(patches_dir):
                     continue
 
-                c.run(f"git clone {rdata['url']} {repo}")
-                with c.cd(repo):
-                    c.run(f"git checkout {rdata['version']}")
-
-                    patches_dir = os.path.join(
-                        ROOT_PATH,
-                        config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
-                            "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
-                        ).replace('"', ""),
-                        repo,
-                    )
-                    if not os.path.exists(patches_dir):
-                        continue
-
-                    c.run(
-                        f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
-                    )
+                c.run(
+                    f"find {patches_dir} -type f -name '*.patch' -exec git apply {{}} \\;"
+                )
 
     if config:
         image_configure(c, config)
