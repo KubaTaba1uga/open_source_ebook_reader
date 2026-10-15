@@ -4,6 +4,7 @@
  * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
  */
 #include "event_queue/event_queue.h"
+#include "event_queue.h"
 #include "utils/log.h"
 #include "utils/mem.h"
 #include "utils/zlist.h"
@@ -31,6 +32,10 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
     [Events_BOOT_DONE] =
         {
             EventSubscribers_MENU,
+        },
+    [Events_POWER_OFF] =
+        {
+            EventSubscribers_POWER,
         },
     [Events_BOOK_OPENED] =
         {
@@ -75,6 +80,13 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
         {
             EventSubscribers_BOOK_SETTINGS,
         },
+    [Events_BTN_POWER_CLICKED] =
+        {
+            EventSubscribers_POWER,
+            EventSubscribers_MENU,
+            EventSubscribers_READER,
+            EventSubscribers_BOOK_SETTINGS,
+        },
     [Events_BOOK_SETTINGS_CLOSED] =
         {
             EventSubscribers_READER,
@@ -88,7 +100,10 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
         {
             EventSubscribers_BOOK_SETTINGS,
         },
-
+    [Events_DISPLAY_RENDERED] =
+        {
+            EventSubscribers_POWER,
+        },
 };
 
 static void event_bus_route_event(event_queue_t queue, event_t event);
@@ -175,12 +190,14 @@ const char *events_dump(enum Events event) {
   static const char *const dumps[Events_MAX] = {
       [Events_NONE] = "Events_NONE",
       [Events_BOOT_DONE] = "Events_BOOT_DONE",
+      [Events_POWER_OFF] = "Events_POWER_OFF",
       [Events_BOOK_OPENED] = "Events_BOOK_OPENED",
       [Events_BOOK_CLOSED] = "Events_BOOK_CLOSED",
       [Events_BOOK_UPDATED] = "Events_BOOK_UPDATED",
       [Events_BTN_NEXT_PAGE_CLICKED] = "Events_BTN_NEXT_PAGE_CLICKED",
       [Events_BTN_PREV_PAGE_CLICKED] = "Events_BTN_PREV_PAGE_CLICKED",
       [Events_BTN_MENU_CLICKED] = "Events_BTN_MENU_CLICKED",
+      [Events_BTN_POWER_CLICKED] = "Events_BTN_POWER_CLICKED",
       [Events_BOOK_SETTINGS_OPENED] = "Events_BOOK_SETTINGS_OPENED",
       [Events_BOOK_SETTINGS_CLOSED] = "Events_BOOK_SETTINGS_CLOSED",
       [Events_BTN_BOOK_SETTINGS_ENTER_SET_SCALE_CLICKED] =
@@ -193,7 +210,7 @@ const char *events_dump(enum Events event) {
           "Events_BTN_BOOK_SETTINGS_ENTER_SET_X_OFF_CLICKED",
       [Events_BTN_BOOK_SETTINGS_ENTER_SET_Y_OFF_CLICKED] =
           "Events_BTN_BOOK_SETTINGS_ENTER_SET_Y_OFF_CLICKED",
-  };
+      [Events_DISPLAY_RENDERED] = "Events_DISPLAY_RENDERED"};
 
   if (event < Events_NONE || event >= Events_MAX || !dumps[event]) {
     return "Unknown";
@@ -207,6 +224,8 @@ const char *event_subscriber_dump(enum EventSubscribers sub) {
       [EventSubscribers_MENU] = "EventSubscribers_MENU",
       [EventSubscribers_READER] = "EventSubscribers_READER",
       [EventSubscribers_BOOK_SETTINGS] = "EventSubscribers_BOOK_SETTINGS",
+      [EventSubscribers_POWER] = "EventSubscribers_POWER",
+      [EventSubscribers_DISPLAY] = "EventSubscribers_DISPLAY",
   };
 
   if (sub < EventSubscribers_NONE || sub >= EventSubscribers_MAX ||

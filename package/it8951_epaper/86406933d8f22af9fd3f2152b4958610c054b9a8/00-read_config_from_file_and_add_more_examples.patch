@@ -1,6 +1,6 @@
 diff --git a/Raspberry/examples/cat_big.c b/Raspberry/examples/cat_big.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..fee4695d967fe395d63bbd22735566bfe6c2f6f7
+index 0000000..fee4695
 --- /dev/null
 +++ b/Raspberry/examples/cat_big.c
 @@ -0,0 +1 @@
@@ -8,7 +8,7 @@ index 0000000000000000000000000000000000000000..fee4695d967fe395d63bbd22735566bf
 \ No newline at end of file
 diff --git a/Raspberry/examples/cat_big_not_rot.c b/Raspberry/examples/cat_big_not_rot.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..289f5fac5bd4c79f0fe75932c04c528ca30e9903
+index 0000000..289f5fa
 --- /dev/null
 +++ b/Raspberry/examples/cat_big_not_rot.c
 @@ -0,0 +1 @@
@@ -16,7 +16,7 @@ index 0000000000000000000000000000000000000000..289f5fac5bd4c79f0fe75932c04c528c
 \ No newline at end of file
 diff --git a/Raspberry/examples/display_png.c b/Raspberry/examples/display_png.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..b884d3684ff4cee139557070e6acbc6d7fe9ed09
+index 0000000..b884d36
 --- /dev/null
 +++ b/Raspberry/examples/display_png.c
 @@ -0,0 +1,188 @@
@@ -209,7 +209,7 @@ index 0000000000000000000000000000000000000000..b884d3684ff4cee139557070e6acbc6d
 +  return dst;
 +}
 diff --git a/Raspberry/examples/example.c b/Raspberry/examples/example.c
-index 2648f366e708cb874769109fddd615c4eb6ce1ce..e2f0e9e117e5a5d1ccb933527188f1dc2a51459f 100644
+index 2648f36..e2f0e9e 100644
 --- a/Raspberry/examples/example.c
 +++ b/Raspberry/examples/example.c
 @@ -7,10 +7,11 @@
@@ -242,7 +242,7 @@ index 2648f366e708cb874769109fddd615c4eb6ce1ce..e2f0e9e117e5a5d1ccb933527188f1dc
  function: Change direction of display, Called after Paint_NewImage()
  parameter:
 diff --git a/Raspberry/examples/example.h b/Raspberry/examples/example.h
-index 96b9f179d00f697ad16fb1c21c5586ee21e6f543..a6b20d3de9585db5772b5ec17f50c1647de60f6c 100644
+index 96b9f17..a6b20d3 100644
 --- a/Raspberry/examples/example.h
 +++ b/Raspberry/examples/example.h
 @@ -2,7 +2,7 @@
@@ -268,7 +268,7 @@ index 96b9f179d00f697ad16fb1c21c5586ee21e6f543..a6b20d3de9585db5772b5ec17f50c164
  UBYTE Display_CharacterPattern_Example(UWORD Panel_Width, UWORD Panel_Height, UDOUBLE Init_Target_Memory_Addr, UBYTE BitsPerPixel);
 diff --git a/Raspberry/examples/export_gpiod.c b/Raspberry/examples/export_gpiod.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..ce323781b2482de37dfb4a9e3fac9c4bf4f5d040
+index 0000000..ce32378
 --- /dev/null
 +++ b/Raspberry/examples/export_gpiod.c
 @@ -0,0 +1,10 @@
@@ -283,7 +283,7 @@ index 0000000000000000000000000000000000000000..ce323781b2482de37dfb4a9e3fac9c4b
 +  
 +}
 diff --git a/Raspberry/examples/main.c b/Raspberry/examples/main.c
-index 330c9f44ece1f748c9bdee28dc2d3d22790e0f3c..4a268424183169932c55ac6221a5357261846361 100644
+index 330c9f4..4a26842 100644
 --- a/Raspberry/examples/main.c
 +++ b/Raspberry/examples/main.c
 @@ -1,11 +1,14 @@
@@ -649,7 +649,7 @@ index 330c9f44ece1f748c9bdee28dc2d3d22790e0f3c..4a268424183169932c55ac6221a53572
  }
 diff --git a/Raspberry/examples/refresh.c b/Raspberry/examples/refresh.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..5947444bb9b269c5f26d4ff6b85ac61f5db0d4f3
+index 0000000..5947444
 --- /dev/null
 +++ b/Raspberry/examples/refresh.c
 @@ -0,0 +1,228 @@
@@ -883,7 +883,7 @@ index 0000000000000000000000000000000000000000..5947444bb9b269c5f26d4ff6b85ac61f
 +}
 diff --git a/Raspberry/examples/rotate.c b/Raspberry/examples/rotate.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..09ad5f8e02cc5897bcb6ddde60d91ed05ea7dd39
+index 0000000..09ad5f8
 --- /dev/null
 +++ b/Raspberry/examples/rotate.c
 @@ -0,0 +1,100 @@
@@ -989,7 +989,7 @@ index 0000000000000000000000000000000000000000..09ad5f8e02cc5897bcb6ddde60d91ed0
 +}
 diff --git a/Raspberry/examples/timing.h b/Raspberry/examples/timing.h
 new file mode 100644
-index 0000000000000000000000000000000000000000..c4352ccece4568b6992dc1a0d9d59f88dab4384c
+index 0000000..c4352cc
 --- /dev/null
 +++ b/Raspberry/examples/timing.h
 @@ -0,0 +1,24 @@
@@ -1018,7 +1018,7 @@ index 0000000000000000000000000000000000000000..c4352ccece4568b6992dc1a0d9d59f88
 +}
 +
 diff --git a/Raspberry/lib/Config/DEV_Config.c b/Raspberry/lib/Config/DEV_Config.c
-index 9f3b4ed1315c90ec3b26516c910fba1d0880d271..79b2658af2bfc3334243f1374065dc29059b2ddf 100644
+index 9f3b4ed..bc861d9 100644
 --- a/Raspberry/lib/Config/DEV_Config.c
 +++ b/Raspberry/lib/Config/DEV_Config.c
 @@ -28,6 +28,9 @@
@@ -1071,8 +1071,11 @@ index 9f3b4ed1315c90ec3b26516c910fba1d0880d271..79b2658af2bfc3334243f1374065dc29
      Debug("/***********************************/ \r\n");
  	return 0;
  }
-@@ -313,3 +325,17 @@ void DEV_Module_Exit(void)
-     GPIOD_Unexport_GPIO();
+@@ -310,6 +322,19 @@ void DEV_Module_Exit(void)
+ 	DEV_Digital_Write(EPD_RST_PIN, 0);
+     GPIOD_Unexport(EPD_RST_PIN);
+     GPIOD_Unexport(EPD_BUSY_PIN);
+-    GPIOD_Unexport_GPIO();
  #endif
  }
 +
@@ -1091,10 +1094,10 @@ index 9f3b4ed1315c90ec3b26516c910fba1d0880d271..79b2658af2bfc3334243f1374065dc29
 +#endif // ifdef EBK
 diff --git a/Raspberry/lib/Config/FILE_gpiod.c b/Raspberry/lib/Config/FILE_gpiod.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d781f0d0171
+index 0000000..87df43c
 --- /dev/null
 +++ b/Raspberry/lib/Config/FILE_gpiod.c
-@@ -0,0 +1,314 @@
+@@ -0,0 +1,316 @@
 +/*****************************************************************************
 +* | File        :   GPIOD.c
 +* | Author      :   Waveshare team
@@ -1136,9 +1139,9 @@ index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d78
 +#include <unistd.h>
 +
 +#include "DEV_Config.h"
-+#include "dev_hardware_SPI.h"
-+#include "RPI_gpiod.h"
 +#include "Debug.h"
++#include "RPI_gpiod.h"
++#include "dev_hardware_SPI.h"
 +
 +#define GPIOD_CONFIG_DEFAULT_PATH "/etc/it8951_epaper/gpiod.conf"
 +
@@ -1153,7 +1156,7 @@ index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d78
 +    [EPD_RST_PIN] = "RST",
 +    [EPD_BUSY_PIN] = "BSY",
 +    [EPD_CS_PIN] = "CS",
-+    [EPD_EN_PIN] = "EN",    
++    [EPD_EN_PIN] = "EN",
 +};
 +
 +static struct GpiodMapping gpio_mappings[EPD_MAX_PIN];
@@ -1318,8 +1321,10 @@ index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d78
 +  gpioline = GPIOD_Line(Pin);
 +  if (gpioline == NULL) {
 +    GPIOD_Debug("Export Failed: No gpioline for %s\n", pin_to_name_map[Pin]);
++    return 1;
 +  } else {
 +    gpiod_line_release(gpioline);
++    gpioline = NULL;
 +  }
 +
 +  struct GpiodMapping *gpio_mapping = &gpio_mappings[Pin];
@@ -1331,6 +1336,7 @@ index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d78
 +        gpio_mappings[idx2].chip = NULL;
 +      }
 +    }
++    gpiod_chip_close(chip);
 +  }
 +
 +  GPIOD_Debug("Unexport: Pin%d\r\n", Pin);
@@ -1344,330 +1350,10 @@ index 0000000000000000000000000000000000000000..ac1e8aecdf77ace2145c23ec97869d78
 +    gpioline = NULL;
 +  }
 +
-+
 +  for (int idx = 0; idx < EPD_MAX_PIN; idx++) {
 +    GPIOD_Unexport(idx);
 +  }
-+  
-+  memset(gpio_mappings, 0, sizeof(gpio_mappings));
 +
-+  return 0;
-+}
-+
-+int GPIOD_Direction(int Pin, int Dir) {
-+  gpioline = GPIOD_Line(Pin);
-+  if (gpioline == NULL) {
-+    GPIOD_Debug("Export Failed: Pin%d\n", Pin);
-+    return -1;
-+  }
-+
-+  if (Dir == GPIOD_IN) {
-+    ret = gpiod_line_request_input(gpioline, "gpio");
-+    if (ret != 0) {
-+      GPIOD_Debug("Export Failed: Pin%d\n", Pin);
-+      return -1;
-+    }
-+    GPIOD_Debug("Pin%d:intput\r\n", Pin);
-+  } else {
-+    ret = gpiod_line_request_output(gpioline, "gpio", 0);
-+    if (ret != 0) {
-+      GPIOD_Debug("Export Failed: Pin%d\n", Pin);
-+      return -1;
-+    }
-+    GPIOD_Debug("Pin%d:Output\r\n", Pin);
-+  }
-+  return 0;
-+}
-+
-+int GPIOD_Read(int Pin) {
-+  gpioline = GPIOD_Line(Pin);
-+  if (gpioline == NULL) {
-+    GPIOD_Debug("Export Failed: Pin%d\n", Pin);
-+    return -1;
-+  }
-+
-+  ret = gpiod_line_get_value(gpioline);
-+  if (ret < 0) {
-+    GPIOD_Debug("failed to read value!\n");
-+    return -1;
-+  }
-+
-+  return (ret);
-+}
-+
-+int GPIOD_Write(int Pin, int value) {
-+  gpioline = GPIOD_Line(Pin);
-+  if (gpioline == NULL) {
-+    GPIOD_Debug("Export Failed: Pin%d\n", Pin);
-+    return -1;
-+  }
-+
-+  ret = gpiod_line_set_value(gpioline, value);
-+  if (ret != 0) {
-+    GPIOD_Debug("failed to write value! : Pin%d\n", Pin);
-+    return -1;
-+  }
-+  return 0;
-+}
-diff --git a/Raspberry/lib/Config/FILE_gpiod.c~ b/Raspberry/lib/Config/FILE_gpiod.c~
-new file mode 100644
-index 0000000000000000000000000000000000000000..bb016c273e3f1def8481edc1ea053912dd87a074
---- /dev/null
-+++ b/Raspberry/lib/Config/FILE_gpiod.c~
-@@ -0,0 +1,313 @@
-+/*****************************************************************************
-+* | File        :   GPIOD.c
-+* | Author      :   Waveshare team
-+* | Function    :   Drive GPIO
-+* | Info        :   Read and write gpio
-+*----------------
-+* |	This version:   V1.0
-+* | Date        :   2023-11-15
-+* | Info        :   Basic version
-+*
-+#
-+# Permission is hereby granted, free of charge, to any person obtaining a copy
-+# of this software and associated documnetation files (the "Software"), to deal
-+# GPIOD_IN the Software without restriction, including without limitation the
-+rights # to use, copy, modify, merge, publish, distribute, sublicense, and/or
-+sell # copies of the Software, and to permit persons to  whom the Software is #
-+furished to do so, subject to the folGPIOD_LOWing conditions:
-+#
-+# The above copyright notice and this permission notice shall be included
-+GPIOD_IN # all copies or substantial portions of the Software.
-+#
-+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+# FITNESS OR A PARTICULAR PURPOSE AND NONINFRINGEMENT. GPIOD_IN NO EVENT SHALL
-+THE # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER #
-+LIABILITY WHETHER GPIOD_IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-+FROM, # GPIOD_OUT OF OR GPIOD_IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-+OTHER DEALINGS GPIOD_IN # THE SOFTWARE.
-+#
-+******************************************************************************/
-+#include <fcntl.h>
-+#include <gpiod.h>
-+#include <linux/limits.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/stat.h>
-+#include <sys/types.h>
-+#include <unistd.h>
-+
-+#include "DEV_Config.h"
-+#include "dev_hardware_SPI.h"
-+#include "RPI_gpiod.h"
-+#include "Debug.h"
-+
-+#define GPIOD_CONFIG_DEFAULT_PATH "/etc/it8951_epaper/gpiod.conf"
-+
-+struct GpiodMapping {
-+  char mapping_name[128];
-+  struct gpiod_chip *chip;
-+  char chip_path[PATH_MAX];
-+  int pin;
-+};
-+
-+static const char *pin_to_name_map[] = {
-+    [EPD_RST_PIN] = "RST",
-+    [EPD_BUSY_PIN] = "BSY",
-+    [EPD_CS_PIN] = "CS",
-+};
-+
-+static struct GpiodMapping gpio_mappings[EPD_MAX_PIN];
-+static struct gpiod_line *gpioline;
-+static int ret;
-+
-+static int GPIOD_Mapping_init(const struct GpiodMapping *mapping);
-+
-+/*
-+   Import pin mapping from file.
-+   For example following file:
-+     CS  = /dev/gpiochip2 5
-+     BSY = /dev/gpiochip3 2
-+     RST = /dev/gpiochip4 3
-+
-+   Will become:
-+     CS is assigned to pin 5 from /dev/gpiochip2
-+     BSY is assigned to pin 2 from /dev/gpiochip3
-+     RST is assigned to pin 3 from /dev/gpiochip4
-+ */
-+int GPIOD_Export() {
-+  static struct GpiodMapping local_gpio_mappings[EPD_MAX_PIN];
-+  char config_field_chip[PATH_MAX];
-+  char config_field_name[128];
-+  int config_field_pin;
-+  FILE *config_file;
-+  char *config_path;
-+  int ret;
-+
-+  config_path = getenv("GPIOD_CONFIG_PATH");
-+  if (!config_path) {
-+    config_path = GPIOD_CONFIG_DEFAULT_PATH;
-+  }
-+
-+  config_file = fopen(config_path, "r");
-+  if (!config_file) {
-+    perror("fopen");
-+    goto error_out;
-+  }
-+
-+  memset(local_gpio_mappings, 0, sizeof(local_gpio_mappings));
-+
-+  int idx = 0;
-+  for (; idx < sizeof(local_gpio_mappings) / sizeof(struct GpiodMapping);
-+       idx++) {
-+    ret = fscanf(config_file, "%s = %s %d", config_field_name,
-+                 config_field_chip, &config_field_pin);
-+
-+    if (ret != 3) {
-+      break;
-+    }
-+
-+    strcpy(local_gpio_mappings[idx].mapping_name, config_field_name);
-+    strcpy(local_gpio_mappings[idx].chip_path, config_field_chip);
-+    local_gpio_mappings[idx].pin = config_field_pin;
-+    printf("Found GPIOD mapping: name=%s, chip_path=%s, pin=%d\n",
-+           config_field_name, config_field_chip, config_field_pin);
-+  }
-+
-+  if (idx != 3) {
-+    printf("idx=%d\n", idx);
-+    errno = EINVAL;
-+    puts("Invalid config content");
-+    goto error_file_cleanup;
-+  }
-+
-+  for (int mapping_idx = 0; mapping_idx < idx; mapping_idx++) {
-+    ret = GPIOD_Mapping_init(&local_gpio_mappings[mapping_idx]);
-+    if (ret != 0) {
-+      printf("ret=%d\n", ret);
-+      puts("Invalid config content");
-+      goto error_file_cleanup;
-+    }
-+  }
-+
-+  printf("idx=%d\n", idx);
-+
-+  return 0;
-+
-+error_file_cleanup:
-+  fclose(config_file);
-+error_out:
-+  return errno;
-+}
-+
-+static int GPIOD_Mapping_init(const struct GpiodMapping *new_mapping) {
-+  // Add mapping under proper idx
-+  struct GpiodMapping *mapping = NULL;
-+  bool is_mapping_valid = false;
-+
-+  for (int idx = 0; idx < sizeof(pin_to_name_map) / sizeof(char *); idx++) {
-+    if (pin_to_name_map[idx] &&
-+        strcmp(new_mapping->mapping_name, pin_to_name_map[idx]) == 0) {
-+      is_mapping_valid = true;
-+      mapping = &gpio_mappings[idx];
-+      memcpy(mapping, new_mapping, sizeof(struct GpiodMapping));
-+      break;
-+    }
-+  }
-+
-+  if (!is_mapping_valid) {
-+    GPIOD_Debug("Mapping is not valid: %s\n", new_mapping->mapping_name);
-+    return EINVAL;
-+  }
-+
-+  // Check if chip is already open
-+  struct gpiod_chip *chip = NULL;
-+  for (int idx = 0; idx < sizeof(gpio_mappings) / sizeof(struct GpiodMapping);
-+       idx++) {
-+    if (strcmp(mapping->chip_path, gpio_mappings[idx].chip_path) == 0 &&
-+        gpio_mappings[idx].chip) {
-+      chip = gpio_mappings[idx].chip;
-+      break;
-+    }
-+  }
-+
-+  // Open chip
-+  if (!chip) {
-+    mapping->chip = gpiod_chip_open(mapping->chip_path);
-+    if (mapping->chip == NULL) {
-+      GPIOD_Debug("gpiod_chip_open failed\n");
-+      return -1;
-+    }
-+  } else {
-+    mapping->chip = chip;
-+  }
-+
-+  return 0;
-+};
-+
-+static struct gpiod_chip *GPIOD_Chip(int Pin) {
-+  const struct GpiodMapping *mapping;
-+  if (Pin >= (sizeof(gpio_mappings) / sizeof(struct GpiodMapping))) {
-+    GPIOD_Debug("INVALID GPIOCHIP\n");
-+    return NULL;
-+  }
-+
-+  mapping = &gpio_mappings[Pin];
-+
-+  return mapping->chip;
-+}
-+
-+static int GPIOD_Pin(int Pin) {
-+  const struct GpiodMapping *mapping;
-+  if (Pin >= (sizeof(gpio_mappings) / sizeof(struct GpiodMapping))) {
-+    GPIOD_Debug("INVALID GPIOCHIP\n");
-+    return -1;
-+  }
-+
-+  mapping = &gpio_mappings[Pin];
-+
-+  return mapping->pin;
-+}
-+
-+static struct gpiod_line *GPIOD_Line(int Pin) {
-+  return gpiod_chip_get_line(GPIOD_Chip(Pin), GPIOD_Pin(Pin));
-+}
-+
-+int GPIOD_Unexport(int Pin) {
-+  struct gpiod_chip *chip = NULL;
-+
-+  gpioline = GPIOD_Line(Pin);
-+  if (gpioline == NULL) {
-+    GPIOD_Debug("Export Failed: No gpioline for %s\n", pin_to_name_map[Pin]);
-+  } else {
-+    gpiod_line_release(gpioline);
-+  }
-+
-+  struct GpiodMapping *gpio_mapping = &gpio_mappings[Pin];
-+  if (gpio_mapping->chip) {
-+    chip = gpio_mapping->chip;
-+    for (int idx2 = 0;
-+         idx2 < sizeof(gpio_mappings) / sizeof(struct GpiodMapping); idx2++) {
-+      if (gpio_mappings[idx2].chip == chip) {
-+        gpio_mappings[idx2].chip = NULL;
-+      }
-+    }
-+  }
-+
-+  GPIOD_Debug("Unexport: Pin%d\r\n", Pin);
-+
-+  return 0;
-+}
-+
-+int GPIOD_Unexport_GPIO(void) {
-+  if (gpioline) {
-+    gpiod_line_release(gpioline);
-+    gpioline = NULL;
-+  }
-+
-+
-+  for (int idx = 0; idx < EPD_MAX_PIN; idx++) {
-+    GPIOD_Unexport(idx);
-+  }
-+  
 +  memset(gpio_mappings, 0, sizeof(gpio_mappings));
 +
 +  return 0;
@@ -1730,7 +1416,7 @@ index 0000000000000000000000000000000000000000..bb016c273e3f1def8481edc1ea053912
 +}
 diff --git a/Raspberry/lib/Config/RPI_gpiod.c b/Raspberry/lib/Config/RPI_gpiod.c
 deleted file mode 100644
-index a5283f808175891ce7e9356ce0b00cca0509c119..0000000000000000000000000000000000000000
+index a5283f8..0000000
 --- a/Raspberry/lib/Config/RPI_gpiod.c
 +++ /dev/null
 @@ -1,170 +0,0 @@
@@ -1905,7 +1591,7 @@ index a5283f808175891ce7e9356ce0b00cca0509c119..00000000000000000000000000000000
 -    return 0;
 -}
 diff --git a/Raspberry/lib/Config/RPI_gpiod.h b/Raspberry/lib/Config/RPI_gpiod.h
-index 362fdefee1a94c5b76b77663e943ead3642c2f95..150c2e493718568900cce8b24dc2682778e10e77 100644
+index 362fdef..150c2e4 100644
 --- a/Raspberry/lib/Config/RPI_gpiod.h
 +++ b/Raspberry/lib/Config/RPI_gpiod.h
 @@ -74,9 +74,9 @@
@@ -1929,7 +1615,7 @@ index 362fdefee1a94c5b76b77663e943ead3642c2f95..150c2e493718568900cce8b24dc26827
 \ No newline at end of file
 +#endif
 diff --git a/Raspberry/lib/Config/dev_hardware_SPI.c b/Raspberry/lib/Config/dev_hardware_SPI.c
-index d6010ca08e83d863a7427cc3076b1ea43bd75e05..e8b66690030f55c9709e9c39d1f362ead0162689 100644
+index d6010ca..e8b6669 100644
 --- a/Raspberry/lib/Config/dev_hardware_SPI.c
 +++ b/Raspberry/lib/Config/dev_hardware_SPI.c
 @@ -46,17 +46,41 @@
@@ -1978,7 +1664,7 @@ index d6010ca08e83d863a7427cc3076b1ea43bd75e05..e8b66690030f55c9709e9c39d1f362ea
  /******************************************************************************
  function:   SPI port initialization
 diff --git a/Raspberry/lib/GUI/GUI_BMPfile.c b/Raspberry/lib/GUI/GUI_BMPfile.c
-index 0a1cc6b246efd6ae5a2001af4d487a5294b70f22..4c4e534778f61eacee361069327c40b275800140 100644
+index 0a1cc6b..4c4e534 100644
 --- a/Raspberry/lib/GUI/GUI_BMPfile.c
 +++ b/Raspberry/lib/GUI/GUI_BMPfile.c
 @@ -236,7 +236,7 @@ static void DrawMatrix(UWORD Xpos, UWORD Ypos,UWORD Width, UWORD High,const UBYT
@@ -2008,7 +1694,7 @@ index 0a1cc6b246efd6ae5a2001af4d487a5294b70f22..4c4e534778f61eacee361069327c40b2
 \ No newline at end of file
 +}
 diff --git a/Raspberry/lib/GUI/GUI_BMPfile.h b/Raspberry/lib/GUI/GUI_BMPfile.h
-index e4868e682ae13351b722f1000c4fa666d0dd948a..dd57f82c46682657df141004ab39492712f9bb96 100644
+index e4868e6..dd57f82 100644
 --- a/Raspberry/lib/GUI/GUI_BMPfile.h
 +++ b/Raspberry/lib/GUI/GUI_BMPfile.h
 @@ -42,7 +42,7 @@
@@ -2021,7 +1707,7 @@ index e4868e682ae13351b722f1000c4fa666d0dd948a..dd57f82c46682657df141004ab394927
  extern UBYTE *bmp_dst_buf;
  extern UBYTE *bmp_src_buf;
 diff --git a/Raspberry/lib/GUI/GUI_Paint.h b/Raspberry/lib/GUI/GUI_Paint.h
-index e406523926355a2cf34f1511d77c6a9b7c5a3fdf..ac39f6045efe4d553e70b7c44afdde59582ceb85 100644
+index e406523..ac39f60 100644
 --- a/Raspberry/lib/GUI/GUI_Paint.h
 +++ b/Raspberry/lib/GUI/GUI_Paint.h
 @@ -65,7 +65,7 @@
@@ -2037,7 +1723,7 @@ diff --git a/Raspberry/lib/Config/DEV_Config.h b/Raspberry/lib/e-Paper/DEV_Confi
 similarity index 90%
 rename from Raspberry/lib/Config/DEV_Config.h
 rename to Raspberry/lib/e-Paper/DEV_Config.h
-index 6fefcaa84538b3c12d7f966ff87ba0d07b2dc26d..80c1dc8f2990a3bc1357584bc1083c5330797c27 100644
+index 6fefcaa..80c1dc8 100644
 --- a/Raspberry/lib/Config/DEV_Config.h
 +++ b/Raspberry/lib/e-Paper/DEV_Config.h
 @@ -55,19 +55,6 @@
@@ -2100,110 +1786,8 @@ index 6fefcaa84538b3c12d7f966ff87ba0d07b2dc26d..80c1dc8f2990a3bc1357584bc1083c53
 +#endif // ifdef EBK
  
  #endif
-diff --git a/Raspberry/lib/e-Paper/DEV_Config.h~ b/Raspberry/lib/e-Paper/DEV_Config.h~
-new file mode 100644
-index 0000000000000000000000000000000000000000..93e9c6a6bcd4199b4db7d35d325fcccef1fec163
---- /dev/null
-+++ b/Raspberry/lib/e-Paper/DEV_Config.h~
-@@ -0,0 +1,96 @@
-+/*****************************************************************************
-+* | File      	:   DEV_Config.h
-+* | Author      :   Waveshare team
-+* | Function    :   Hardware underlying interface
-+* | Info        :
-+*                Used to shield the underlying layers of each master
-+*                and enhance portability
-+*----------------
-+* |	This version:   V2.0
-+* | Date        :   2018-10-30
-+* | Info        :
-+* 1.add:
-+*   UBYTE\UWORD\UDOUBLE
-+* 2.Change:
-+*   EPD_RST -> EPD_RST_PIN
-+*   EPD_DC -> EPD_DC_PIN
-+*   EPD_CS -> EPD_CS_PIN
-+*   EPD_BUSY -> EPD_BUSY_PIN
-+* 3.Remote:
-+*   EPD_RST_1\EPD_RST_0
-+*   EPD_DC_1\EPD_DC_0
-+*   EPD_CS_1\EPD_CS_0
-+*   EPD_BUSY_1\EPD_BUSY_0
-+* 3.add:
-+*   #define DEV_Digital_Write(_pin, _value) bcm2835_GPIOI_write(_pin, _value)
-+*   #define DEV_Digital_Read(_pin) bcm2835_GPIOI_lev(_pin)
-+*   #define DEV_SPI_WriteByte(__value) bcm2835_spi_transfer(__value)
-+#
-+# Permission is hereby granted, free of charge, to any person obtaining a copy
-+# of this software and associated documnetation files (the "Software"), to deal
-+# in the Software without restriction, including without limitation the rights
-+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-+# copies of the Software, and to permit persons to  whom the Software is
-+# furished to do so, subject to the following conditions:
-+#
-+# The above copyright notice and this permission notice shall be included in
-+# all copies or substantial portions of the Software.
-+#
-+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+# FITNESS OR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-+# LIABILITY WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-+# THE SOFTWARE.
-+#
-+******************************************************************************/
-+#ifndef _DEV_CONFIG_H_
-+#define _DEV_CONFIG_H_
-+
-+#include <stdint.h>
-+#include <stdlib.h>
-+#include <stdio.h>
-+#include <unistd.h>
-+#include <errno.h>
-+#include <stdio.h>
-+#include <string.h>
-+
-+#define HIGH   0x1
-+#define LOW    0x0  
-+
-+/**
-+ * GPIO
-+ **/
-+enum {
-+  EPD_RST_PIN = 0,
-+  EPD_CS_PIN,
-+  EPD_BUSY_PIN,
-+  EPD_MAX_PIN  
-+};
-+
-+/**
-+ * data
-+**/
-+#define UBYTE   uint8_t
-+#define UWORD   uint16_t
-+#define UDOUBLE uint32_t
-+
-+/*------------------------------------------------------------------------------------------------------*/
-+void DEV_Digital_Write(UWORD Pin, UBYTE Value);
-+UBYTE DEV_Digital_Read(UWORD Pin);
-+
-+void DEV_SPI_WriteByte(UBYTE Value);
-+UBYTE DEV_SPI_ReadByte();
-+
-+void DEV_Delay_ms(UDOUBLE xms);
-+void DEV_Delay_us(UDOUBLE xus);
-+
-+UBYTE DEV_Module_Init(void);
-+void DEV_Module_Exit(void);
-+
-+#ifdef EBK
-+void DEV_SPI_WriteBytes(UBYTE *Value, UDOUBLE Length);
-+#endif // ifdef EBK
-+
-+#endif
 diff --git a/Raspberry/lib/e-Paper/EPD_IT8951.c b/Raspberry/lib/e-Paper/EPD_IT8951.c
-index 5d74bfc80e4a65ae6b421cd1db4b354dd49b40c5..52733ff4eabed2d7c5494b23621462472ba29ea4 100644
+index 5d74bfc..52733ff 100644
 --- a/Raspberry/lib/e-Paper/EPD_IT8951.c
 +++ b/Raspberry/lib/e-Paper/EPD_IT8951.c
 @@ -29,6 +29,9 @@
@@ -2469,7 +2053,7 @@ index 5d74bfc80e4a65ae6b421cd1db4b354dd49b40c5..52733ff4eabed2d7c5494b2362146247
  
      free(Frame_Buf);
 diff --git a/Raspberry/lib/e-Paper/EPD_IT8951.h b/Raspberry/lib/e-Paper/EPD_IT8951.h
-index 04ab3a16eaaa21b120f502ffdd15313ace9042e8..e3599181dec02d0762f758140752b7c13a473310 100644
+index 04ab3a1..e359918 100644
 --- a/Raspberry/lib/e-Paper/EPD_IT8951.h
 +++ b/Raspberry/lib/e-Paper/EPD_IT8951.h
 @@ -33,7 +33,7 @@
@@ -2491,7 +2075,7 @@ index 04ab3a16eaaa21b120f502ffdd15313ace9042e8..e3599181dec02d0762f758140752b7c1
  #endif
 diff --git a/Raspberry/test_config.txt b/Raspberry/test_config.txt
 new file mode 100644
-index 0000000000000000000000000000000000000000..b5a0138b9d21e3edc59231175a5ecdba332156a4
+index 0000000..b5a0138
 --- /dev/null
 +++ b/Raspberry/test_config.txt
 @@ -0,0 +1,3 @@
@@ -2500,7 +2084,7 @@ index 0000000000000000000000000000000000000000..b5a0138b9d21e3edc59231175a5ecdba
 +RST = /dev/gpiochip4 3
 diff --git a/meson.build b/meson.build
 new file mode 100644
-index 0000000000000000000000000000000000000000..f8ab668054558a8bde5323f35ed3ec0addb7d916
+index 0000000..f8ab668
 --- /dev/null
 +++ b/meson.build
 @@ -0,0 +1,128 @@
@@ -2634,7 +2218,7 @@ index 0000000000000000000000000000000000000000..f8ab668054558a8bde5323f35ed3ec0a
 +)
 diff --git a/meson.options b/meson.options
 new file mode 100644
-index 0000000000000000000000000000000000000000..bd49c07ce87999921c3639082e4a0c4a206b9ea0
+index 0000000..bd49c07
 --- /dev/null
 +++ b/meson.options
 @@ -0,0 +1,5 @@

@@ -4,6 +4,7 @@
  * Copyright 2026 Jakub Buczynski <KubaTaba1uga>
  */
 #include <lvgl.h>
+#include <stdatomic.h>
 #include <stdio.h>
 
 #include "app/app.h"
@@ -13,8 +14,10 @@
 #include "event_queue/event_queue.h"
 #include "library/library.h"
 #include "menu/menu.h"
+#include "power/power.h"
 #include "reader/reader.h"
 #include "utils/err.h"
+#include "utils/log.h"
 #include "utils/mem.h"
 #include "utils/time.h"
 
@@ -26,8 +29,10 @@ struct App {
   display_t display;
   library_t library;
   reader_t reader;
+  power_t power;
   menu_t menu;
   db_t db;
+  atomic_bool is_running;
 };
 
 err_t app_init(app_t *out) {
@@ -43,7 +48,7 @@ err_t app_init(app_t *out) {
 
   lv_init();
   lv_tick_set_cb(time_now);
-  
+
 #ifdef TRACE_APP
   trace_end(&trace);
 #endif
@@ -52,7 +57,7 @@ err_t app_init(app_t *out) {
   trace = trace_start("display_init");
 #endif
 
-  err_o = display_init(&app->display);
+  err_o = display_init(&app->display, app->event_queue);
   ERR_TRY(err_o);
 
 #ifdef TRACE_APP
@@ -64,6 +69,17 @@ err_t app_init(app_t *out) {
 #endif
 
   err_o = db_init(&app->db);
+  ERR_TRY(err_o);
+
+#ifdef TRACE_APP
+  trace_end(&trace);
+#endif
+
+#ifdef TRACE_APP
+  trace = trace_start("power_init");
+#endif
+
+  err_o = power_init(&app->power, app->display, app->event_queue);
   ERR_TRY(err_o);
 
 #ifdef TRACE_APP
@@ -148,6 +164,10 @@ void app_destroy(app_t *out) {
     library_destroy(&app->library);
   }
 
+  if (app->power) {
+    power_destroy(&app->power);
+  }
+
   if (app->display) {
     display_destroy(&app->display);
   }
@@ -164,19 +184,23 @@ void app_destroy(app_t *out) {
   *out = NULL;
 };
 
-err_t app_main(app_t app) {
+err_t app_main(app_t app) {  
+  app->is_running = true;
 
-  while (1) {
-    display_set_trace();    
+  while (app->is_running) {
+    display_set_trace(app->display);
     event_queue_step(app->event_queue);
 
     int ms = lv_timer_handler();
     time_sleep_ms(ms);
   }
+
+  return 0;
 };
 
 void app_panic(app_t out) {
-  puts(__func__);
+  log_warn("App panic!");
+
   if (!out) {
     return;
   }
@@ -184,4 +208,10 @@ void app_panic(app_t out) {
   if (out->display) {
     display_panic(out->display);
   }
+}
+
+void app_stop(app_t app) {
+  log_warn("App stop!");
+  
+  app->is_running = false;  
 }

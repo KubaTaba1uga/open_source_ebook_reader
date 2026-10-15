@@ -28,13 +28,15 @@ struct ReaderView {
   void (*prev_page_cb)(void *);
   void (*book_settings_cb)(void *);
   void (*menu_cb)(void *);
+  void (*power_cb)(void *);
   void *cb_data;
 };
 
 err_t reader_view_init(struct ReaderView *view, book_t book,
                        void (*next_page_cb)(void *),
                        void (*prev_page_cb)(void *), void (*menu_cb)(void *),
-                       void (*book_settings_cb)(void *), void *data);
+                       void (*book_settings_cb)(void *),
+                       void (*power_cb)(void *), void *data);
 void reader_view_destroy(struct ReaderView *view);
 err_t reader_view_refresh(struct ReaderView *view);
 

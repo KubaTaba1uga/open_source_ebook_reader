@@ -104,6 +104,12 @@
 			linux,code = <KEY_LEFT>;
 			gpios = <&gpiod 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		};
+
+		button_power: button-power {
+			label = "power";
+			linux,code = <KEY_END>;
+			gpios = <&gpiod 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		};
 	};
 	
 	/* USER CODE END root */

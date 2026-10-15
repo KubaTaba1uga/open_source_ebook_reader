@@ -20,22 +20,17 @@
 
 #include "settings.h"
 
-#if !defined(EBK_DISPLAY_WVS7IN5V2B) && !defined(EBK_DISPLAY_X11) &&           \
-    !defined(EBK_DISPLAY_WVS7IN5V2)
-#define EBK_DISPLAY_WVS7IN5V2B 1
-#endif
-
-#if EBK_DISPLAY_WVS7IN5V2B
-#define EBK_DISPLAY_MODEL DisplayModelEnum_WVS7IN5V2B
-#define EBK_DISPLAY_BOOT_SCREEN_PATH "data/480x800_img_boot_screen_adjusted"
-#elif EBK_DISPLAY_WVS7IN5V2
-#define EBK_DISPLAY_MODEL DisplayModelEnum_WVS7IN5V2
-#define EBK_DISPLAY_BOOT_SCREEN_PATH "data/480x800_img_boot_screen_adjusted"
-#elif EBK_DISPLAY_X11
+#if EBK_DISPLAY_X11
 #define EBK_DISPLAY_MODEL DisplayModelEnum_X11
 #define EBK_DISPLAY_BOOT_SCREEN_PATH                                           \
-  "/home/taba1uga/Github/stm32mp135f_ebook_reader/ebook_reader/data/"          \
-  "480x800_img_boot_screen_normal"
+  "/home/taba1uga/Github/open_source_ebook_reader/package/ebook_reader/data/"  \
+  "poweroff_screen.png"
+#elif EBK_DISPLAY_PNG
+#define EBK_DISPLAY_MODEL DisplayModelEnum_PNG
+#define EBK_DISPLAY_BOOT_SCREEN_PATH "/usr/assets/data/poweroff_screen.png"
+#elif EBK_DISPLAY_IT8951
+#define EBK_DISPLAY_MODEL DisplayModelEnum_IT8951
+#define EBK_DISPLAY_BOOT_SCREEN_PATH "/usr/assets/data/poweroff_screen.png"
 #else
 #error "Unsupported display model"
 #endif

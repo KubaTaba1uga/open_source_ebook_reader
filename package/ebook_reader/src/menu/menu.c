@@ -39,6 +39,7 @@ static void menu_post_event(enum Events event, ref_t event_data,
                             void *sub_data);
 static const char *menu_state_dump(enum MenuStates state);
 static void select_book_cb(book_t, void *);
+static void menu_power_cb(void *);
 
 struct MenuTransition menu_fsm_table[MenuStates_MAX][Events_MAX] = {
     [MenuStates_NONE] =
@@ -61,13 +62,17 @@ struct MenuTransition menu_fsm_table[MenuStates_MAX][Events_MAX] = {
                     .next_state = MenuStates_NONE,
                     .action = menu_deactivate,
                 },
+            [Events_BTN_POWER_CLICKED] =
+                {
+                    .next_state = MenuStates_NONE,
+                    .action = menu_deactivate,
+                },
         },
 
 };
 
 err_t menu_init(menu_t *out, display_t display, event_queue_t evqueue,
                 library_t library) {
-
   menu_t menu = *out = mem_malloc(sizeof(struct Menu));
   *menu = (struct Menu){.current_state = MenuStates_NONE,
                         .evqueue = evqueue,
@@ -100,13 +105,15 @@ void menu_destroy(menu_t *out) {
 }
 
 static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
-
   menu_t menu = sub_data;
 
   books_list_t books = library_list_books(menu->library);
   ERR_TRY(err_o);
 
-  err_o = menu_view_init(&menu->view, books, select_book_cb, menu);
+  
+  
+  err_o =
+      menu_view_init(&menu->view, books, select_book_cb, menu, menu_power_cb);
   ERR_TRY(err_o);
 
   display_add_to_ingroup(menu->display, menu->view.books);
@@ -114,20 +121,24 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
   return;
 
 error_out:
-  mem_deref(books);
+  mem_deref(books);  
   log_error(err_o);
   // @todo post error event
 };
 
 static void select_book_cb(book_t book, void *sub_data) {
-
   menu_t menu = sub_data;
 
   event_queue_push(menu->evqueue, Events_BOOK_OPENED, book);
 };
 
-static void menu_deactivate(enum Events __, ref_t ___, void *sub_data) {
+static void menu_power_cb(void *sub_data) {
+  menu_t menu = sub_data;
 
+  event_queue_push(menu->evqueue, Events_BTN_POWER_CLICKED, NULL);
+};
+
+static void menu_deactivate(enum Events __, ref_t ___, void *sub_data) {
   menu_t menu = sub_data;
 
   display_del_from_ingroup(menu->display, menu->view.books);

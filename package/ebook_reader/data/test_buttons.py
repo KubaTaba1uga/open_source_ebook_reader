@@ -10,6 +10,7 @@ BUTTON_PINS = {
     "rigth": 106,
     "up": 103,
     "left": 105,
+    "power": 107,
 }
 WAIT_SECONDS = 5
 

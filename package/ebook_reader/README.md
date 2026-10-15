@@ -11,6 +11,6 @@ meson install -C build
 
 Then run app with:
 ```bash
-/opt/ebook_reader/app/bin/ebook_reader
+/opt/ebk_reader/app/bin/ebook_reader
 ```
 
