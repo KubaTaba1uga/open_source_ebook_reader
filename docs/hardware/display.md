@@ -39,3 +39,9 @@ When the pin is pulled LOW, the device is busy processing a command and should n
 The display even when in sleep draws around 50mA, which is problematic whyen the device is off, afterall powered off device shouldnt draw anu current, rigth?
 
 So we introduced screen power switch on PIN 32, GPIO A3.
+
+## Display Testing
+
+```
+python /usr/assets/data/test_it8951.py
+```

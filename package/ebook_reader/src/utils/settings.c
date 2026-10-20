@@ -44,3 +44,9 @@ const char *settings_boot_screen_path = EBK_DISPLAY_BOOT_SCREEN_PATH;
 const char *settings_books_dir = "/mnt/sdcard";
 const char *settings_input_path = "/dev/input/event0";
 const char *settings_db_path = EBK_DB_PATH;
+const char *settings_adc_raw_path =
+    "/sys/bus/iio/devices/iio:device0/in_voltage16-voltage16_raw";
+const char *settings_adc_scale_path =
+    "/sys/bus/iio/devices/iio:device0/in_voltage-voltage_scale";
+const char *settings_adc_offset_path =
+    "/sys/bus/iio/devices/iio:device0/in_voltage-voltage_offset";

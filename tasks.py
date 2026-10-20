@@ -131,6 +131,8 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
     with c.cd("build/buildroot"):
         c.run("make -j24")
 
+    c.run("cp build/buildroot/build/ebook_reader-v0.0.1/build/compile_commands.json ./build/")
+    
     _pr_info(f"Building image completed")
 
 

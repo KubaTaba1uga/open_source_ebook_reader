@@ -3,7 +3,7 @@ orphan: true
 ---
 # Battery
 
-To charge a battery we use Adafruit Powerboost 1000. Module exposes battery level via Bat and GND pins, because i use Poly-Lipo battery it's max voltage is 4.2V which exceeds maximum reference voltage for ADC (3.3V). To solve this we introduce simple voltage divider which splits 0-4.2V into 0-1.8V range:
+To charge a battery we use Adafruit Powerboost 1000. Module exposes battery level via Bat and GND pins, because i use Poly-Lipo battery it's max voltage is 4.1V which exceeds maximum reference voltage for ADC (3.3V). To solve this we introduce simple voltage divider which splits 0-4.1V into 0-1.8V range:
 ```txt
 +
 -------
@@ -25,3 +25,10 @@ To charge a battery we use Adafruit Powerboost 1000. Module exposes battery leve
 | Bat            | ADC1 | INP16   | PA7  | 31  | Battery +              |
 | GND            | ADC1 | NNP16   | PA6  | 33  | Battery -              |
 
+## Battery Testing
+
+```
+read_adc /sys/bus/iio/devices/iio:device0/in_voltage16-voltage16_raw \
+          /sys/bus/iio/devices/iio:device0/in_voltage-voltage_scale \
+		  /sys/bus/iio/devices/iio:device0/in_voltage-voltage_offset
+```

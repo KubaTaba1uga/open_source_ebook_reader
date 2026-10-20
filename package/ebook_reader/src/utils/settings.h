@@ -18,5 +18,8 @@ extern const char *settings_boot_screen_path;
 extern const char *settings_input_path;
 extern const char *settings_books_dir;
 extern const char *settings_db_path;
+extern const char *settings_adc_raw_path;
+extern const char *settings_adc_scale_path;
+extern const char *settings_adc_offset_path;
 
 #endif // SETTINGS_H

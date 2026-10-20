@@ -22,11 +22,14 @@ struct MenuView {
 
 err_t menu_view_init(struct MenuView *view, books_list_t books,
                      void (*book_cb)(book_t, void *), void *data,
-                     void (*power_cb)(void *));
+                     void (*power_cb)(void *), int battery_pct);
+void menu_view_battery_update(struct MenuView *view, int battery_pct);
 void menu_view_destroy(struct MenuView *view);
 
 void menu_wdgts_init(void);
-err_t wdgt_bar_init(wdgt_bar_t *out);
+err_t wdgt_bar_init(wdgt_bar_t *out, int battery_pct, bool battery_charging);
+void wdgt_bar_update_battery(wdgt_bar_t bar, int battery_pct,
+                             bool battery_charging);
 void wdgt_bar_destroy(wdgt_bar_t *out);
 err_t wdgt_books_init(wdgt_books_t *out, books_list_t books,
                       void (*event_cb)(book_t, void *), void *event_data,

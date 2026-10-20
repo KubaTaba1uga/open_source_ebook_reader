@@ -69,7 +69,6 @@ ebook_reader_src += [
         'src/event_queue/event_queue.c',
         'src/library/library.c',
         'src/library/pdf.c',
-        'src/main.c',
         'src/menu/menu.c',
         'src/menu/view.c',
         'src/menu/widgets.c',
@@ -78,7 +77,8 @@ ebook_reader_src += [
         'src/reader/widgets.c',
         'src/power/power.c',
         'src/power/view.c',
-        'src/power/widgets.c',                
+        'src/power/widgets.c',
+        'src/power/battery_monitor.c',                        
         'src/utils/err.c',
         'src/utils/graphic.c',
         'src/utils/lvgl.c',
@@ -113,6 +113,15 @@ ebook_reader_dep = declare_dependency(
 # ******************************************************************************
 ebook_reader_exe = executable(
     'ebook_reader',
+    sources: ['src/main.c'],
+    include_directories: ebook_reader_inc,
+    dependencies: ebook_reader_deps + [ebook_reader_dep],
+    install: true,
+)
+
+read_adc_exe = executable(
+    'read_adc',
+    sources: ['src/read_adc.c'],
     include_directories: ebook_reader_inc,
     dependencies: ebook_reader_deps + [ebook_reader_dep],
     install: true,
