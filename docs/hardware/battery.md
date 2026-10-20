@@ -25,3 +25,10 @@ To charge a battery we use Adafruit Powerboost 1000. Module exposes battery leve
 | Bat            | ADC1 | INP16   | PA7  | 31  | Battery +              |
 | GND            | ADC1 | NNP16   | PA6  | 33  | Battery -              |
 
+## Battery Testing
+
+```
+read_adc /sys/bus/iio/devices/iio:device0/in_voltage16-voltage16_raw \
+          /sys/bus/iio/devices/iio:device0/in_voltage-voltage_scale \
+		  /sys/bus/iio/devices/iio:device0/in_voltage-voltage_offset
+```

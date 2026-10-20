@@ -8,11 +8,13 @@
 #include "display/display.h"
 #include "event_queue/event_queue.h"
 #include "library/library.h"
+#include "menu.h"
 #include "menu/core.h"
 #include "menu/menu.h"
 #include "utils/err.h"
 #include "utils/log.h"
 #include "utils/mem.h"
+#include "utils/settings.h"
 
 enum MenuStates {
   MenuStates_NONE,
@@ -37,6 +39,7 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data);
 static void menu_deactivate(enum Events __, ref_t ___, void *sub_data);
 static void menu_post_event(enum Events event, ref_t event_data,
                             void *sub_data);
+static void menu_battery_update(enum Events __, ref_t ___, void *sub_data);
 static const char *menu_state_dump(enum MenuStates state);
 static void select_book_cb(book_t, void *);
 static void menu_power_cb(void *);
@@ -66,6 +69,11 @@ struct MenuTransition menu_fsm_table[MenuStates_MAX][Events_MAX] = {
                 {
                     .next_state = MenuStates_NONE,
                     .action = menu_deactivate,
+                },
+            [Events_POWER_BATTERY_UPDATED] =
+                {
+                    .next_state = MenuStates_ACTIVE,
+                    .action = menu_battery_update,
                 },
         },
 
@@ -110,10 +118,8 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
   books_list_t books = library_list_books(menu->library);
   ERR_TRY(err_o);
 
-  
-  
-  err_o =
-      menu_view_init(&menu->view, books, select_book_cb, menu, menu_power_cb);
+  err_o = menu_view_init(&menu->view, books, select_book_cb, menu,
+                         menu_power_cb, 0);
   ERR_TRY(err_o);
 
   display_add_to_ingroup(menu->display, menu->view.books);
@@ -121,7 +127,7 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
   return;
 
 error_out:
-  mem_deref(books);  
+  mem_deref(books);
   log_error(err_o);
   // @todo post error event
 };
@@ -177,3 +183,11 @@ static const char *menu_state_dump(enum MenuStates state) {
 
   return dumps[state];
 };
+
+static void menu_battery_update(enum Events event, ref_t event_data,
+                                void *sub_data) {
+  int *battery_pct_ptr = event_data;
+  menu_t menu = sub_data;
+
+  menu_view_battery_update(&menu->view, *battery_pct_ptr);
+}

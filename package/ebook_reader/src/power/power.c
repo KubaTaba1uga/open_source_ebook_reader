@@ -4,14 +4,17 @@
 #include "core.h"
 #include "display/display.h"
 #include "event_queue/event_queue.h"
+#include "power/core.h"
 #include "power/power.h"
 #include "utils/err.h"
 #include "utils/log.h"
+#include "utils/mem.h"
 #include "utils/settings.h"
 
 enum PowerStates {
   PowerStates_NONE,
   PowerStates_ACTIVE,
+  PowerStates_IN_BACKGROUND,
   PowerStates_MAX,
 };
 
@@ -20,6 +23,7 @@ struct Power {
   event_queue_t evqueue;
   display_t display;
   struct PowerView view;
+  struct PowerBatteryMonitor battery_monitor;
 };
 
 struct PowerTransition {
@@ -32,10 +36,24 @@ static void power_post_event(enum Events event, ref_t event_data,
 static const char *power_state_dump(enum PowerStates state);
 static void power_show_shutdown_screen(enum Events __, ref_t ___,
                                        void *sub_data);
+static void power_monitor_battery_start(enum Events __, ref_t ___,
+                                        void *sub_data);
+static void power_monitor_battery_stop(enum Events __, ref_t ___,
+                                       void *sub_data);
+static void power_monitor_battery_timer_cb(int battery_pct, void *data);
 static void power_off(enum Events __, ref_t ___, void *sub_data);
 
 struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
     [PowerStates_NONE] =
+        {
+            [Events_BOOT_DONE] =
+                {
+                    .next_state = PowerStates_IN_BACKGROUND,
+                    .action = power_monitor_battery_start,
+                },
+
+        },
+    [PowerStates_IN_BACKGROUND] =
         {
             [Events_BTN_POWER_CLICKED] =
                 {
@@ -47,7 +65,7 @@ struct PowerTransition power_fsm_table[PowerStates_MAX][Events_MAX] = {
         {
             [Events_DISPLAY_RENDERED] =
                 {
-                    .next_state = PowerStates_NONE,
+                    .next_state = PowerStates_IN_BACKGROUND,
                     .action = power_off,
                 },
         },
@@ -71,6 +89,14 @@ void power_destroy(power_t *out) {
   }
 
   power_t power = *out;
+
+  switch (power->current_state) {
+  case PowerStates_IN_BACKGROUND:
+    power_monitor_battery_stop(0, 0, power);
+    break;
+  default:;
+  }
+
   event_queue_deregister(power->evqueue, EventSubscribers_POWER);
   mem_free(*out);
   *out = NULL;
@@ -98,8 +124,9 @@ static void power_post_event(enum Events event, ref_t event_data,
 
 static const char *power_state_dump(enum PowerStates state) {
   static char *dumps[PowerStates_MAX] = {
-      [PowerStates_NONE] = "power_none",
-      [PowerStates_ACTIVE] = "power_active",
+    [PowerStates_NONE] = "power_none",
+    [PowerStates_ACTIVE] = "power_active",
+      [PowerStates_IN_BACKGROUND] = "power_in_background",    
   };
 
   if (state < PowerStates_NONE || state >= PowerStates_MAX || !dumps[state]) {
@@ -135,6 +162,38 @@ static void power_off(enum Events __, ref_t ___, void *sub_data) {
     }
 
   default:;
-    /* exit(0); */
   }
 }
+
+static void power_monitor_battery_start(enum Events __, ref_t ___,
+                                        void *sub_data) {
+  power_t power = sub_data;
+
+  err_o = power_battery_monitor_init(&power->battery_monitor,
+                                     power_monitor_battery_timer_cb, power);
+  ERR_TRY(err_o);
+
+  return;
+
+error_out:
+  log_error(err_o);
+}
+
+static void power_monitor_battery_stop(enum Events __, ref_t ___,
+                                       void *sub_data) {
+  power_t power = sub_data;
+
+  power_battery_monitor_destroy(&power->battery_monitor);
+}
+
+static void power_monitor_battery_timer_cb(int battery_pct, void *data) {
+  power_t power = data;
+
+  ref_t battery_pct_ptr = mem_refalloc(sizeof(int), NULL);
+  *((int *)battery_pct_ptr) = battery_pct;
+
+  event_queue_push(power->evqueue, Events_POWER_BATTERY_UPDATED,
+                   battery_pct_ptr);
+
+  mem_deref(battery_pct_ptr);  
+};

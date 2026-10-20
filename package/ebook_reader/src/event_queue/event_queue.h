@@ -13,6 +13,7 @@ enum Events {
   // Global events
   Events_BOOT_DONE,
   Events_POWER_OFF,
+  Events_POWER_BATTERY_UPDATED,  
   // Book events
   Events_BOOK_OPENED,
   Events_BOOK_CLOSED,

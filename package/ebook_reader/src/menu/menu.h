@@ -17,4 +17,7 @@ err_t menu_init(menu_t *out, display_t display, event_queue_t queue,
                 library_t library);
 void menu_destroy(menu_t *out);
 
+float menu_adc_read(const char *raw_file, const char *scale_file,
+                    const char *offset_file, bool verbose);
+
 #endif // EBOOK_READER_MENU_H

@@ -9,8 +9,9 @@
 #include "utils/mem.h"
 
 err_t menu_view_init(struct MenuView *view, books_list_t books,
-                     void (*book_cb)(book_t, void *), void *data,   void (*power_cb)(void *)) {
-  err_o = wdgt_bar_init(&view->bar);
+                     void (*book_cb)(book_t, void *), void *data,
+                     void (*power_cb)(void *), int battery_pct) {  
+  err_o = wdgt_bar_init(&view->bar, battery_pct, false);
   ERR_TRY(err_o);
 
   if (!books) {
@@ -35,3 +36,7 @@ void menu_view_destroy(struct MenuView *view) {
   wdgt_books_destroy(&view->books);
   mem_deref(view->books_data);
 }
+
+void menu_view_battery_update(struct MenuView *view, int battery_pct) {
+  wdgt_bar_update_battery(view->bar, battery_pct, false);  
+}  

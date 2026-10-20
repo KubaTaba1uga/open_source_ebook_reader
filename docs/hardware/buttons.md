@@ -24,6 +24,6 @@ pins wouldn't work.
 
 Once buttons are connected run following command and press all buttons to confirm they are working properly:
 ```bash
-evtest /dev/input/event0
+python /usr/assets/data/test_buttons.py
 ```
 

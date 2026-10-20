@@ -32,10 +32,15 @@ enum EventSubscribers route_table[Events_MAX][EventSubscribers_MAX] = {
     [Events_BOOT_DONE] =
         {
             EventSubscribers_MENU,
+            EventSubscribers_POWER,
         },
     [Events_POWER_OFF] =
         {
             EventSubscribers_POWER,
+        },
+    [Events_POWER_BATTERY_UPDATED] =
+        {
+            EventSubscribers_MENU,
         },
     [Events_BOOK_OPENED] =
         {
@@ -191,6 +196,7 @@ const char *events_dump(enum Events event) {
       [Events_NONE] = "Events_NONE",
       [Events_BOOT_DONE] = "Events_BOOT_DONE",
       [Events_POWER_OFF] = "Events_POWER_OFF",
+      [Events_POWER_BATTERY_UPDATED] = "Events_POWER_BATTERY_UPDATED",
       [Events_BOOK_OPENED] = "Events_BOOK_OPENED",
       [Events_BOOK_CLOSED] = "Events_BOOK_CLOSED",
       [Events_BOOK_UPDATED] = "Events_BOOK_UPDATED",

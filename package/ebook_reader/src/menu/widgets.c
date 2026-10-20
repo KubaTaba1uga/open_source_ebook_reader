@@ -5,9 +5,11 @@
  */
 #include <lvgl.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "library/library.h"
 #include "menu/core.h"
+#include "src/widgets/label/lv_label.h"
 #include "utils/graphic.h"
 #include "utils/log.h"
 #include "utils/lvgl.h"
@@ -33,8 +35,19 @@ struct WdgtBook {
   ref_t user_data;
 };
 
+struct WdgtBar {
+  lv_obj_t *bar;
+  lv_obj_t *battery;
+  lv_obj_t *battery_text;
+  lv_obj_t *clock;
+  lv_obj_t *clock_text;
+  lv_style_t bar_style;
+  char clock_text_buf[100];
+};
+
 static const int bar_y = 48;
-static const int bar_clock_x = 336;
+static const int bar_clock_x = 1050;
+static const int bar_battery_x = 20;
 static const int books_x_off = 48;
 static const int books_y_off = 64;
 static const int book_x = 296;
@@ -46,18 +59,22 @@ static wdgt_book_t wdgt_book_create(wdgt_books_t books, const char *book_title,
                                     ref_t data);
 static void wdgt_book_destroy(wdgt_book_t book);
 static void wdgt_book_event_cb(lv_event_t *e);
+static const char *wdgt_bar_get_battery_symbol(int battery_pct);
 
 void menu_wdgts_init(void) {
   book_thumbnail_x = book_x;
   book_thumbnail_y = book_y - book_text_y;
 }
 
-err_t wdgt_bar_init(wdgt_bar_t *out) {
+err_t wdgt_bar_init(wdgt_bar_t *out, int battery_pct, bool battery_charging) {
+  struct WdgtBar *bar_data = mem_malloc(sizeof(struct WdgtBar));
+  *bar_data = (struct WdgtBar){0};
+
   lv_obj_t *bar = lvgl_obj_create(lv_screen_active());
   lv_obj_set_size(bar, lv_display_get_horizontal_resolution(NULL), bar_y);
   lv_obj_set_pos(bar, 0, 0);
 
-  lv_style_t *bar_style = mem_malloc(sizeof(lv_style_t));
+  lv_style_t *bar_style = &bar_data->bar_style;
   lv_style_init(bar_style);
   lv_style_set_border_color(bar_style, lv_color_black());
   lv_style_set_border_width(bar_style, 2);
@@ -67,23 +84,42 @@ err_t wdgt_bar_init(wdgt_bar_t *out) {
   lv_style_set_pad_all(bar_style, 0);
   lv_obj_add_style(bar, bar_style, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+  const int bar_battery_y = bar_y - 2;
+  lv_obj_t *battery = lvgl_obj_create(bar);
+  lv_obj_set_style_border_width(battery, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_pos(battery, bar_battery_x, 0);
+  lv_obj_set_size(battery, 100, bar_battery_y);
+  lv_obj_t *battery_text = lv_label_create(battery);
+  lv_obj_set_style_border_width(battery_text, 0,
+                                LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_style_text_font(battery_text, &lv_font_montserrat_30, 0);
+
+  const char *battery_symbol = wdgt_bar_get_battery_symbol(battery_pct);
+  lv_label_set_text_fmt(battery_text, "%s%s", battery_symbol,
+                        battery_charging ? LV_SYMBOL_CHARGE : "");
+
   const int bar_clock_y = bar_y - 2;
   lv_obj_t *clock = lvgl_obj_create(bar);
   lv_obj_set_style_border_width(clock, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-  lv_obj_set_pos(clock,
-                 lv_display_get_horizontal_resolution(NULL) - bar_clock_x, 0);
-  lv_obj_set_size(clock, bar_clock_x, bar_clock_y);
-  lv_obj_set_user_data(bar, clock);
+  lv_obj_set_pos(clock, bar_clock_x, 0);
+  lv_obj_set_size(clock,
+                  lv_display_get_horizontal_resolution(NULL) - bar_clock_x,
+                  bar_clock_y);
 
   lv_obj_t *clock_text = lv_label_create(clock);
   lv_obj_set_style_border_width(clock_text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
   lv_obj_set_style_text_font(clock_text, &lv_font_montserrat_30, 0);
-  static char buf[100];
-  char *res = time_now_dump(buf, sizeof(buf));
+  char *res =
+      time_now_dump(bar_data->clock_text_buf, sizeof(bar_data->clock_text_buf));
   assert(res != NULL);
-  lv_label_set_text(clock_text, time_now_dump(buf, sizeof(buf)));
-  lv_obj_set_user_data(clock, clock_text);
-  lv_obj_set_user_data(clock_text, bar_style);
+  lv_label_set_text(clock_text, res);
+
+  bar_data->bar = bar;
+  bar_data->clock = clock;
+  bar_data->clock_text = clock_text;
+  bar_data->battery = battery;
+  bar_data->battery_text = battery_text;
+  lv_obj_set_user_data(bar, bar_data);
 
   lv_label_set_long_mode(clock_text, LV_LABEL_LONG_MODE_CLIP);
   lv_obj_clear_flag(clock_text, LV_OBJ_FLAG_SCROLLABLE);
@@ -100,13 +136,13 @@ void wdgt_bar_destroy(wdgt_bar_t *out) {
     return;
   }
 
-  lv_obj_t *clock = lv_obj_get_user_data(*out);
-  lv_obj_t *clock_text = lv_obj_get_user_data(clock);
-  lv_style_t *bar_style = lv_obj_get_user_data(clock_text);
-  lv_obj_del(clock_text);
-  lv_obj_del(clock);
-  lv_style_reset(bar_style);
-  mem_free(bar_style);
+  struct WdgtBar *bar_data = lv_obj_get_user_data(*out);
+  lv_obj_del(bar_data->clock_text);
+  lv_obj_del(bar_data->clock);
+  lv_obj_del(bar_data->battery_text);
+  lv_obj_del(bar_data->battery);
+  lv_style_reset(&bar_data->bar_style);
+  mem_free(bar_data);
   lv_obj_del(*out);
   *out = NULL;
 };
@@ -275,4 +311,35 @@ static void wdgt_book_event_cb(lv_event_t *e) {
   } else if (key == LV_KEY_END) {
     books->power_cb(books->event_data);
   }
+}
+
+static const char *wdgt_bar_get_battery_symbol(int battery_pct) {
+  const char *battery_symbol;
+  if (battery_pct >= 90)
+    battery_symbol = LV_SYMBOL_BATTERY_FULL;
+  else if (battery_pct >= 60)
+    battery_symbol = LV_SYMBOL_BATTERY_3;
+  else if (battery_pct >= 40)
+    battery_symbol = LV_SYMBOL_BATTERY_2;
+  else if (battery_pct >= 20)
+    battery_symbol = LV_SYMBOL_BATTERY_1;
+  else
+    battery_symbol = LV_SYMBOL_BATTERY_EMPTY;
+
+  return battery_symbol;
+}
+
+void wdgt_bar_update_battery(wdgt_bar_t bar, int battery_pct,
+                             bool battery_charging) {
+  const char *battery_symbol = wdgt_bar_get_battery_symbol(battery_pct);
+  struct WdgtBar *bar_data = lv_obj_get_user_data(bar);
+
+  char *current_symbol = lv_label_get_text(bar_data->battery_text);
+
+  if (strcmp(current_symbol, battery_symbol) == 0) {
+    return;
+  }
+
+  lv_label_set_text_fmt(bar_data->battery_text, "%s%s", battery_symbol,
+                        battery_charging ? LV_SYMBOL_CHARGE : "");
 }
