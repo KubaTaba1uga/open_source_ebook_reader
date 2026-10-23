@@ -47,7 +47,7 @@ err_t display_it8951_init(display_t display, int x, int y) {
   display->private.panic = display_it8951_panic;
 
   if (DEV_Module_Init() != 0) {
-    err_o = err_errnos(EINVAL, "Cannot initialize ET8951 driver");
+    err_o = err_errnos(EINVAL, "Cannot initialize IT8951 driver");
     goto error_it8951_cleanup;
   }
 
@@ -62,6 +62,12 @@ err_t display_it8951_init(display_t display, int x, int y) {
   printf("ui_display_it8951_width=%d\n", x);
   printf("ui_display_it8951_heigth=%d\n", y);
 
+
+  /* if (x != it8951->dev_info.Panel_W || y != it8951->dev_info.Panel_H) { */
+  /*   err_o = err_errnos(EINVAL, "Invalid IT8951 driver width and heigth"); */
+  /*   goto error_it8951_cleanup2;     */
+  /* } */
+  
   EPD_IT8951_Clear_Refresh(it8951->dev_info, it8951->init_mem_addr, INIT_Mode);
   
   // Configure LVGL
@@ -82,6 +88,8 @@ err_t display_it8951_init(display_t display, int x, int y) {
 
   return 0;
 
+/* error_it8951_cleanup2: */
+  /* DEV_Module_Exit();   */
 error_it8951_cleanup:
   lv_display_delete(display->lv_disp);  
   mem_free(it8951);

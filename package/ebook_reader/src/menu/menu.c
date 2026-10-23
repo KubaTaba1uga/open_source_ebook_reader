@@ -124,6 +124,22 @@ static void menu_activate(enum Events __, ref_t ___, void *sub_data) {
 
   display_add_to_ingroup(menu->display, menu->view.books);
 
+  books_list_reset(books);
+  
+  book_t the_book = NULL;
+  for (book_t book = books_list_get(books); book != NULL;
+       book = books_list_get(books)) {
+    if (strcmp(book_get_title(book), "Mistakes Were Made (but Not by Me) 3rd Ed") == 0) {
+      the_book = book;
+      break;
+    }
+  }
+  
+  books_list_reset(books);
+  if (the_book) {
+    event_queue_push(menu->evqueue, Events_BOOK_OPENED, the_book);
+  }
+
   return;
 
 error_out:
