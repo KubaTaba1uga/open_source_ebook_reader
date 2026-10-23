@@ -8,6 +8,8 @@ display such pictures. To solve power issue we propose using 18650 power cell ra
 to hold battery we use this holder `https://www.tme.eu/pl/details/bhc-18650-1p/baterie-pojemniki-i-uchwyty/comf/`. Charging the battery is done externally after ejecting 
 battery from the device. To supply high amps from the battery at stable 5V we use Pololulu 5V Step-Up Voltage Regulator U3V70F5 `https://www.pololu.com/product/2891`.
 
+To connect the Pololulu booster with the 
+
 ## ADC
 
 To charge a battery we use Adafruit Powerboost 1000. Module exposes battery level via Bat and GND pins, because i use Poly-Lipo battery it's max voltage is 4.1V which exceeds maximum reference voltage for ADC (3.3V). To solve this we introduce simple voltage divider which splits 0-4.1V into 0-1.8V range:
