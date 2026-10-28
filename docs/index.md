@@ -19,6 +19,7 @@ The documentation starts from getting started page, so if you are new to the rea
 
 getting_started
 hardware
+design
 ```
 
 
