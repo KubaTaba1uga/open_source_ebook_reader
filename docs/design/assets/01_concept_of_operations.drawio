@@ -1,158 +1,82 @@
 <mxfile host="Electron" pages="2">
   <diagram name="UC-001" id="Im9gHGDILpyhFva4_Du6">
-    <mxGraphModel dx="2003" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2519" dy="1530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Device" vertex="1">
-          <mxGeometry height="200" width="120" x="310" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-17" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="User" vertex="1">
-          <mxGeometry height="60" width="30" x="50" y="60" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-18" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Power button" vertex="1">
-          <mxGeometry height="50" width="50" x="310" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-20" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="100" y="94.76" as="sourcePoint" />
-            <mxPoint x="300" y="94.76" as="targetPoint" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-6" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-410" y="210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Click" vertex="1">
-          <mxGeometry height="30" width="60" x="160" y="60" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" value="User press the power button." vertex="1">
+          <mxGeometry height="100" width="100" x="-460" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Device" vertex="1">
-          <mxGeometry height="200" width="120" x="550" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-24" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Power button" vertex="1">
-          <mxGeometry height="50" width="50" x="550" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-25" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="440" y="180" as="sourcePoint" />
-            <mxPoint x="540" y="180" as="targetPoint" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-8" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-410" y="270" as="sourcePoint" />
+            <mxPoint x="-410.0000000000002" y="310" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-26" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Screen" vertex="1">
-          <mxGeometry height="200" width="300" x="510" y="400" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-140" parent="1" style="html=1;whiteSpace=wrap;" value="Device indicate startup&lt;div&gt;progress&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="135" x="-478" y="210" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-46" parent="qqc7NorMA1uGY5pT1uUi-26" style="rounded=0;whiteSpace=wrap;html=1;" value="Blank screen (White?)" vertex="1">
-          <mxGeometry height="170" width="300" y="30" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-151" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-150" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-27" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="CPU&amp;nbsp; OFF" vertex="1">
-          <mxGeometry height="50" width="50" x="310" y="220" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-153" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-152" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-28" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="CPU&lt;div&gt;&amp;nbsp;ON&lt;/div&gt;" vertex="1">
-          <mxGeometry height="50" width="50" x="550" y="220" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-149" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Has startup suceed?" vertex="1">
+          <mxGeometry height="140" width="135" x="-478" y="310" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-30" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="609.66" y="285" as="sourcePoint" />
-            <mxPoint x="609.66" y="385" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-150" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Power off the device" vertex="1">
+          <mxGeometry height="60" width="100" x="-650" y="350" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-37" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Screen" vertex="1">
-          <mxGeometry height="200" width="300" x="970" y="730" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-157" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-156" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-38" parent="qqc7NorMA1uGY5pT1uUi-37" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;strokeColor=#666666;fontColor=#666666;fontSize=17;verticalAlign=top;whiteSpace=wrap;fillColor=#ffffff;spacingTop=32;" value="Starting app" vertex="1">
-          <mxGeometry height="80" width="250" x="25" y="50" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-152" parent="1" style="html=1;whiteSpace=wrap;" value="Device check operating conditions" vertex="1">
+          <mxGeometry height="60" width="135" x="-478" y="510" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-39" parent="qqc7NorMA1uGY5pT1uUi-38" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;strokeColor=#666666;align=left;spacingLeft=8;fillColor=none;resizeWidth=1;whiteSpace=wrap;" value="Info" vertex="1">
-          <mxGeometry height="30" relative="1" width="250" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-154" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="No" vertex="1">
+          <mxGeometry height="30" width="60" x="-538" y="350" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-40" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="840" y="510.6896551724135" as="sourcePoint" />
-            <mxPoint x="940" y="510.6896551724135" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-155" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Yes" vertex="1">
+          <mxGeometry height="30" width="60" x="-420" y="460" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-41" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Screen" vertex="1">
-          <mxGeometry height="200" width="300" x="970" y="410" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-160" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-159" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-42" parent="qqc7NorMA1uGY5pT1uUi-41" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;strokeColor=#666666;fontColor=#666666;fontSize=17;verticalAlign=top;whiteSpace=wrap;fillColor=#ffffff;spacingTop=32;" value="Powering on" vertex="1">
-          <mxGeometry height="80" width="250" x="25" y="50" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-163" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-162" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-43" parent="qqc7NorMA1uGY5pT1uUi-42" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;strokeColor=#666666;align=left;spacingLeft=8;fillColor=none;resizeWidth=1;whiteSpace=wrap;" value="Info" vertex="1">
-          <mxGeometry height="30" relative="1" width="250" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-156" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Are operating&amp;nbsp;&lt;div&gt;conditions met?&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="135" x="-477.5" y="620" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-47" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1110" y="620" as="sourcePoint" />
-            <mxPoint x="1110" y="720" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-159" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Handle startup failure" vertex="1">
+          <mxGeometry height="60" width="100" x="-647.5" y="660" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-49" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Screen" vertex="1">
-          <mxGeometry height="200" width="300" x="970" y="1050" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-161" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="No" vertex="1">
+          <mxGeometry height="30" width="60" x="-530" y="660" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-50" parent="qqc7NorMA1uGY5pT1uUi-49" style="rounded=0;whiteSpace=wrap;html=1;" value="Ebook reader App" vertex="1">
-          <mxGeometry height="170" width="300" y="30" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-165" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-164" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-54" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Turn the board on" vertex="1">
-          <mxGeometry height="30" width="60" x="460" y="140" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-162" parent="1" style="html=1;whiteSpace=wrap;" value="Start ebook reader application" vertex="1">
+          <mxGeometry height="60" width="135" x="-478" y="820" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-57" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Start linux kernel" vertex="1">
-          <mxGeometry height="30" width="60" x="1120" y="660" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-164" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Device ready to use" vertex="1">
+          <mxGeometry height="60" width="100" x="-460" y="940" as="geometry" />
         </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-61" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Failure" vertex="1">
-          <mxGeometry height="30" width="60" x="1325" y="480" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-65" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1310" y="830" as="sourcePoint" />
-            <mxPoint x="1410" y="830" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-66" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Failure" vertex="1">
-          <mxGeometry height="30" width="60" x="1330" y="800" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-67" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Screen" vertex="1">
-          <mxGeometry height="200" width="300" x="1440" y="730" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-68" parent="qqc7NorMA1uGY5pT1uUi-67" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;strokeColor=#666666;fontColor=#666666;fontSize=17;verticalAlign=top;whiteSpace=wrap;fillColor=#ffffff;spacingTop=32;" value="&amp;lt;Content of failure&#39;s stdout&amp;gt;" vertex="1">
-          <mxGeometry height="80" width="250" x="25" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-69" parent="qqc7NorMA1uGY5pT1uUi-68" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;strokeColor=#666666;align=left;spacingLeft=8;fillColor=none;resizeWidth=1;whiteSpace=wrap;" value="Error" vertex="1">
-          <mxGeometry height="30" relative="1" width="250" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-70" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Device" vertex="1">
-          <mxGeometry height="200" width="120" x="1440" y="410" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-71" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Power button" vertex="1">
-          <mxGeometry height="50" width="50" x="1440" y="410" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-72" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="CPU&amp;nbsp; OFF" vertex="1">
-          <mxGeometry height="50" width="50" x="1440" y="560" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-73" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1305.000000000001" y="509.58" as="sourcePoint" />
-            <mxPoint x="1405.000000000001" y="509.58" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-79" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1499.58" y="715" as="sourcePoint" />
-            <mxPoint x="1499.58" y="625" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-80" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1115" y="940" as="sourcePoint" />
-            <mxPoint x="1115" y="1040" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-81" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Start ebook reader application" vertex="1">
-          <mxGeometry height="30" width="60" x="1125" y="980" as="geometry" />
-        </mxCell>
-        <mxCell id="qqc7NorMA1uGY5pT1uUi-82" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Start bootloader" vertex="1">
-          <mxGeometry height="30" width="60" x="630" y="320" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-166" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Yes" vertex="1">
+          <mxGeometry height="30" width="60" x="-410" y="770" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="Fa0hyC36tujcf72wKQil" name="UC-002">
-    <mxGraphModel dx="2356" dy="2160" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2003" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />

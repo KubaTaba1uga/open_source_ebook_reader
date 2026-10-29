@@ -32,11 +32,11 @@ The structure of use case is pretty simple, each use case contain multiple field
 
 **Related objectives**: [OBJ-User-01](/design/00_stakeholders.md#OBJ-User-01)
 
-**Preconditions**: Device has enough power to operate. Device is fully operational. Device is powered off.
+**Preconditions**: Device has enough power to operate. Device is powered off.
 
-**Postconditions**: Ebook reader app has started.
+**Postconditions**: The device either reaches a ready-to-use state or reports a startup failure and powers off.
 
-**Trigger**: User wants to use a device.
+**Trigger**: User presses the power button.
 
 **Main flow**
 ![Main Flow](/design/assets/UC-001.png)
