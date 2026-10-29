@@ -30,32 +30,49 @@ The structure of use case is pretty simple, each use case contain multiple field
 
 **ID**: <a id="UC-001"></a>UC-001
 
-**Related objectives**: [OBJ-User-01](/design/00_stakeholders.md#OBJ-User-01)
+**Related objectives**: [OBJ-User-02](/design/00_stakeholders.md#OBJ-User-02)
 
-**Preconditions**: Device has enough power to operate. Device is powered off.
+**Preconditions**: Device is powered off.
 
-**Postconditions**: The device either reaches a ready-to-use state or reports a startup failure and powers off.
+**Postconditions**: The device either start ebook reader application or reports a startup failure and powers off.
 
 **Trigger**: User presses the power button.
 
 **Main flow**
 ![Main Flow](/design/assets/UC-001.png)
 
+We need to indicate to user that we received his button press, otherwise he may think that nothing is hapenning and that device is not working.
+
+We need checking operation conditions because if device is not safe to operate we do not want to start ebook reader application which may write to 
+disk and make some important files unusable in case of failure. For example battery level, in case of battery level we want to show sth like
+battery too low and power off. Beside battery, we may want to try reach the screen and check whether it is responding.
+
+In battery ctx, displaying something on epaper screen draws a lot of current so it may be wise to first check battery and then decide whether 
+proceed with the startup process.
 
 ### Select and open a book
 
 **ID**: <a id="UC-002"></a>UC-002
 
-**Related objectives**: [OBJ-User-01](/design/00_stakeholders.md#OBJ-User-01)
+**Related objectives**: [OBJ-User-01](/design/00_stakeholders.md#OBJ-User-01), [OBJ-User-03](/design/00_stakeholders.md#OBJ-User-03)
 
-**Preconditions**: Device is fully operational. Device is powered on.
+**Preconditions**: All hardware components are intialized correctly and are working. Ebook reader application is started.
 
-**Postconditions**: Book's page is displayed on the screen.
+**Postconditions**: Book's page is displayed on the screen or app showed error and handled it.
 
-**Trigger**: Ebook reader app has started.
+**Trigger**: Application is started.
 
 **Main flow**
 ![Main Flow](/design/assets/UC-002.png)
+
+You can open an book from multiple places, menu, library or in initialization. Same in error state, basically every statre can go to error.
+Which means that all recorvable errors should be handled internally by particullar states. It is important because errors considering books 
+(ex. not supported format) need to be considered in design of each state of the app.
+
+
+### Read and navigate a PDF
+
+
 
 Normal operations:
 │   ├── UC-001: Select and open a PDF
