@@ -191,7 +191,7 @@ Identify the primary use case for the device keeping in mind cost and time restr
 - <a id="OBJ-PotentialCustomer-05"></a> `OBJ-PotentialCustomer-05` Select one primary capability to receive development priority.
 - <a id="OBJ-PotentialCustomer-06"></a> `OBJ-PotentialCustomer-06` Define what successful operation of the selected capability means.
 - <a id="OBJ-PotentialCustomer-07"></a> `OBJ-PotentialCustomer-07` Demonstrate the capability through representative user scenarios.
-- <a id="OBJ-PotentialCustomer-08"></a> `OBJ-PotentialCustomer-04` Evaluate feedback against the project's primary use case.
+- <a id="OBJ-PotentialCustomer-08"></a> `OBJ-PotentialCustomer-08` Evaluate feedback against the project's primary use case.
 
 | Objective ID             | Expectation ID           |
 | ------------------------ | ------------------------ |
@@ -259,7 +259,7 @@ Evaluate financial feasibility to support a decision on whether to pursue commer
 - <a id="OBJ-ProjectOwner-08"></a> `OBJ-ProjectOwner-08`: Estimate potential selling prices, gross margins, and break-even volumes.
 - <a id="OBJ-ProjectOwner-09"></a> `OBJ-ProjectOwner-09`: Evaluate the sensitivity of profitability to production volume, component prices, and selling price.
 - <a id="OBJ-ProjectOwner-10"></a> `OBJ-ProjectOwner-10`: Compare estimated customer willingness to pay with projected costs and selling prices.
-- <a id="OBJ-ProjectOwner-11"></a> `OBJ-ProjectOwner-12`: Identify major commercial risks and uncertainties.
+- <a id="OBJ-ProjectOwner-11"></a> `OBJ-ProjectOwner-11`: Identify major commercial risks and uncertainties.
 - <a id="OBJ-ProjectOwner-12"></a> `OBJ-ProjectOwner-12`: Produce an evidence-based recommendation on whether to proceed, revise the concept, or stop commercialization efforts.
 
 | Objective ID         | Expectation ID      |
@@ -276,5 +276,5 @@ Evaluate financial feasibility to support a decision on whether to pursue commer
 | OBJ-ProjectOwner-10  | EXP-ProjectOwner-01 |
 | OBJ-ProjectOwner-11  | EXP-ProjectOwner-01 |
 | OBJ-ProjectOwner-12  | EXP-ProjectOwner-01 |
-| OBJ-ProjectOwner-13  | EXP-ProjectOwner-01 |
+
 
