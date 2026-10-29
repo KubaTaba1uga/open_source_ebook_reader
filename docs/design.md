@@ -15,7 +15,7 @@ So when you see sth like `UPPERCASE` dash `Data` this shouldn't be so strange to
 
 Design documents:
 - [Stakeholders](design/00_stakeholders.md)
-
+- [Concept of operations](design/01_concept_of_operations.md)
 
 
 
