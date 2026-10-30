@@ -166,33 +166,37 @@ to determine whether we can do sth better to not loose data integrity in case of
 
 Capabilities list:
 - Multiple formats support (EPUB, MOBI)
-- PDF Words Translation
+- Words on page Translation
 - Performance
 - Long battery life
 - Good responsivness
+- Good UI look
+
+Whatever we choose we should ask the user whether it was importnat to them in [UC-006](#UC-006).
 
 
 ### Create project site where we gather customer interest
 
 **ID**: <a id="UC-006"></a>UC-006
 
-**Related objectives**: [OBJ-ProjectOwner-02](/design/00_stakeholders.md#OBJ-ProjectOwner-02) [OBJ-ProjectOwner-03](/design/00_stakeholders.md#OBJ-ProjectOwner-03) [OBJ-ProjectOwner-04](/design/00_stakeholders.md#OBJ-ProjectOwner-04)
+**Related objectives**: [OBJ-ProjectOwner-02](/design/00_stakeholders.md#OBJ-ProjectOwner-02) [OBJ-ProjectOwner-03](/design/00_stakeholders.md#OBJ-ProjectOwner-03) [OBJ-ProjectOwner-04](/design/00_stakeholders.md#OBJ-ProjectOwner-04) [OBJ-PotentialCustomer-01](/design/00_stakeholders.md#OBJ-PotentialCustomer-01) [OBJ-PotentialCustomer-02](/design/00_stakeholders.md#OBJ-PotentialCustomer-02) [OBJ-PotentialCustomer-03](/design/00_stakeholders.md#OBJ-PotentialCustomer-03) [OBJ-PotentialCustomer-08](/design/00_stakeholders.md#OBJ-PotentialCustomer-08) [OBJ-ProjectOwner-10](/design/00_stakeholders.md#OBJ-ProjectOwner-10) [OBJ-ProjectOwner-12](/design/00_stakeholders.md#OBJ-ProjectOwner-12) [OBJ-ProjectOwner-01](/design/00_stakeholders.md#OBJ-ProjectOwner-01)
 						
 **Preconditions**: None.
 
-**Postconditions**: Exsist a website which is a go to place regareding all stuff regarding the project and form with user questions.
+**Postconditions**: There is a place where potential customer can read about the project and express interest. We have a plan how attract potential customer there.
 
 **Trigger**: Defined project is finished.
 
 **Main flow**:
-1. We create a website which shows pictures and videos of the ebook reader.
-2. We list all most important info on website like link to docs, link to repo, how aquire device, plans for future of the project, why we develop it etc.
-3. We list current project limitations.
-4. We provide Form of Interest where user can express interest in buying the device, how much he/she would pay (100, 500, 1000 more) and what features are important (long battery live, touch screen, front ligth, big screen, wifi, hackability, customizibility, good responsivness, built in translation of books). We need to also ask about the measure of interest wont but, maybe will buy, will buy for sure etc. Maybe we cand o some concept graphic how it could look like?
-5. We write articles about the ebook reader and publicize to gather some users data.
-6. We gather user data.
-7. We analyze anwsers to find how many people each day expressed interest and in what wariant. We need to store all anwserts it's really important!
-
+1. We post some article or post on social media channel with link to the project.
+2. Someone click link to the project.
+3. Someone read project mission and vision.
+4. Someone understand current state of the project.
+5. If someone is interested in potentiallyt buying the project, we provide such capability.
+6. We can see how many people went onto the page.
+7. We can see how many people clicked they are interested.
+8. We can see statistics regarding other questions we ask during `I'm interested process`.
+7. We analyze anwsers to find how many people each day expressed interest and what is important to them.
 
 The idea is to create one place where we place links to repos, photos videos, links to articles about the ebook reader.
 I want people to understand what the idea is about, open source ebook reader. You can build your sdcard and do any customization you want,
@@ -206,43 +210,52 @@ I need some way to track how much people go on the main page every week. Maybe s
 
 At this point we have only protype and contemplating whether pursu building customer grade device. Now we have POC, we do not have a product.
 
-
-<!-- UC-007 — Import a PDF document	How do books reach the device? -->
-<!-- UC-008 — Diagnose a device failure	Supports your maintainer objective -->
-<!-- UC-009 — Initial device setup	Useful for integration and acceptance testing -->
-
-<!-- Normal operations: -->
-<!-- │   ├── UC-001: Select and open a PDF -->
-<!-- │   ├── UC-002: Read and navigate a PDF -->
-<!-- │   ├── UC-003: Power on the device -->
-<!-- │   └── UC-004: Power off the device from menu -->
-<!-- │   └── UC-004: Power off the device from book -->
-<!-- │ -->
-<!-- ├── 5. Exceptional Operations -->
-<!-- │   ├── UC-005: Respond to low battery -->
-<!-- │   └── UC-006: Handle insufficient battery power -->
-<!-- │ -->
-<!-- ├── 6. Maintenance Operations -->
-<!-- │   └── UC-007: Diagnose a device failure automatically -->
-<!-- |-------UC-008: Develop ebook reader app on local machine -->
-<!-- |-------UC-008: Diagnose regression in app automatically -->
-<!-- | -->
-<!-- ├── 7. Integration and Testing -->
-<!-- │   └── Initial assembly and acceptance testing -->
-<!-- │ -->
-<!-- ├── 8. Commercialization Considerations -->
-<!-- │   ├── Manufacturing cost versus production volume -->
-<!-- │   ├── Gross margin at different selling prices -->
-<!-- │   └── Cost assumptions and uncertainties -->
+Watch out for reddit, in some communities you can't post if you are not active member we should prepare beforehand and start activity now to be able to post in half a year.
 
 
+### Auto-test the device
 
-<!-- Use cases we want to cover: -->
-<!-- - OBJ-User-01: Selecting a PDF, reading a PDF, changing page in PDF. -->
-<!-- - OBJ-User-02: Powering on ebook reader from battery, warning that battery is low, not enough battery to operate mode, poweroff and power on. -->
-<!-- - OBJ-DeveloperMantainer-04: Diagnose a device failure without external hardware. -->
-<!-- - OBJ-ProjectOwner-06: Graph showing on x axis manufacturing cost and on Y axis number of manufactured devices. -->
-<!-- - OBJ-ProjectOwner-08: Graph shjowing on x  manufacturing cost and on Y axis gross margin, make few version each for one selling price. -->
-<!-- - OBJ-ProjectOwner-12: Create a list of assumptions made in calculating costs. -->
-<!-- - OBJ-ProjectOwner-12: Show somehow that we need to optimize for getting data from users whether they would purchase the device. -->
+**ID**: <a id="UC-007"></a>UC-007
+
+**Related objectives**: [OBJ-DeveloperMantainer-02](/design/00_stakeholders.md#OBJ-DeveloperMantainer-02) [OBJ-DeveloperMantainer-03](/design/00_stakeholders.md#OBJ-DeveloperMantainer-03) [OBJ-DeveloperMantainer-04](/design/00_stakeholders.md#OBJ-DeveloperMantainer-04)
+						
+**Preconditions**: Device is powered off.
+
+**Postconditions**: Device reported status of it's components via debug link. Device is powered off.
+
+**Trigger**: Dev want to test whether device is working.
+
+**Main flow**:
+1. Dev put device in a autotest mode.
+2. Device test itself.
+3. Device report results of test.
+4. Device power off.
+
+
+NOT NEEDED YET.
+We will may need it later when we have multiple instances of the device. When there is one/two instances on the world, auto-test is a bit of overkill.
+
+
+### Design a version of future device
+
+**ID**: <a id="UC-008"></a>UC-008
+
+**Related objectives**: [OBJ-DeveloperMantainer-05](/design/00_stakeholders.md#OBJ-DeveloperMantainer-02) [OBJ-DeveloperMantainer-01](/design/00_stakeholders.md#OBJ-DeveloperMantainer-01) [OBJ-DeveloperMantainer-02](/design/00_stakeholders.md#OBJ-DeveloperMantainer-02) [OBJ-DeveloperMantainer-05](/design/00_stakeholders.md#OBJ-DeveloperMantainer-05) [OBJ-ProjectOwner-07](/design/00_stakeholders.md#OBJ-ProjectOwner-07) [OBJ-ProjectOwner-08](/design/00_stakeholders.md#OBJ-ProjectOwner-08) [OBJ-ProjectOwner-09](/design/00_stakeholders.md#OBJ-ProjectOwner-09) [OBJ-ProjectOwner-11](/design/00_stakeholders.md#OBJ-ProjectOwner-11) [OBJ-ProjectOwner-06](/design/00_stakeholders.md#OBJ-ProjectOwner-06)
+
+**Preconditions**: None.
+
+**Postconditions**: We have a BOM of parts and a formula for calculating cost of the parts.
+
+**Trigger**: None.
+
+**Main flow**:
+1. We wonder how changing a project would affect a margin.
+2. We go to the appropriate place.
+3. We change a part in the formula.
+4. We see new price of the components of the device.
+
+The goal here is not to make all designing decisions and design perfect device but rather to simplify discussion about costs and affordability.
+
+We put here developer mantainer goals, because in the future version of the device we should be able to develop software and hardware comfortably and it may require making decisions regarding modularization of components. Software is not important per se at this point, but rather hardware/software integration. I would love to be able to trace our project to sub-components wich can be build and tested sepertly, but we together integrate them in the product. If we just do one PCB and frew everything at it to make it just work, i won't be satisfied, design should reflect development process.
+
 

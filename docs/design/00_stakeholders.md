@@ -90,7 +90,7 @@ At the current stage, the project is only a prototype. A decision on whether to 
 
 ### Developer / Maintainer
 
-**ID**: <a id="STAKE-DeveloperMaintainer"></a>STAKE-DeveloperMaintainer
+**ID**: <a id="STAKE-DeveloperMantainer"></a>STAKE-DeveloperMantainer
 
 **Role holder**: `@KubaTaba1uga`
 
@@ -98,8 +98,8 @@ A person responsible for implementing, integrating, debugging, modifying, and ma
 
 | ID                         | Expectation                                                                               | Priority |
 |----------------------------|-------------------------------------------------------------------------------------------|----------|
-| EXP-DeveloperMaintainer-01 | Extend the software easily in the future.                                                 | Must     |
-| EXP-DeveloperMaintainer-02 | Isolate, diagnose, and repair hardware and software failures without excessive effort.    | Should   |
+| EXP-DeveloperMantainer-01 | Extend the software easily in the future.                                                 | Must     |
+| EXP-DeveloperMantainer-02 | Isolate, diagnose, and repair hardware and software failures without excessive effort.    | Should   |
 
 
 ### Project Owner
