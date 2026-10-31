@@ -15,6 +15,13 @@ If you're happy with your Kobo, there's probably no reason to replace it. But if
 
 The closest existing device to what I have in mind is PINE64's PineNote.
 
+
+<!-- NOTE NOTE NOTE -->
+<!-- Here is something similiar wich gathered funding: https://www.crowdsupply.com/diptyx/diptyx-e-reader -->
+<!-- And another one https://www.crowdsupply.com/oddly-specific-objects/open-book-touch?utm_source=chatgpt.com -->
+<!-- Maybe we are being to risk averse in pursuing crowdfunding and comercializong? -->
+<!-- NOTE NOTE NOTE -->
+
 ## Who is this project for?
 
 If you just want to read books, a Kobo is probably the better choice for 99% of use cases.
