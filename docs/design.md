@@ -14,9 +14,9 @@ we want to mention this single concept we use links [MARKER-Data](#MARKER-Data).
 So when you see sth like `UPPERCASE` dash `Data` this shouldn't be so strange to you.
 
 Design documents:
-- [Stakeholders](design/00_stakeholders.md)
-- [Concept of operations](design/01_concept_of_operations.md)
-
+- [Stakeholders](/design/00_stakeholders.md)
+- [Concept of operations](/design/01_concept_of_operations.md)
+- [Success criteria](/design/02_success_criteria.md)
 
 
 

@@ -179,6 +179,8 @@ Potential customer need to understand limitations of the e-book reader to perfor
 <a id="NEED-PotentialCustomer-02"></a>
 
 Potential customer need the e-book reader to deliver exceptional value in a narrowly defined use case rather than provide many somehow implemented features.
+There are many ebooks on the market, we need to distinguis ourselves. Linux and hackability is design decision rather than a new feature, we need sth which
+tells the user, you can do sth that other's can't do. We are small and lean we can pivot in direction big companies can't.
 
 <a id="GOAL-PotentialCustomer-02"></a>
 **Goal**

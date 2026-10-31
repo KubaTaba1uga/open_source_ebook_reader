@@ -256,6 +256,6 @@ We will may need it later when we have multiple instances of the device. When th
 
 The goal here is not to make all designing decisions and design perfect device but rather to simplify discussion about costs and affordability.
 
-We put here developer mantainer goals, because in the future version of the device we should be able to develop software and hardware comfortably and it may require making decisions regarding modularization of components. Software is not important per se at this point, but rather hardware/software integration. I would love to be able to trace our project to sub-components wich can be build and tested sepertly, but we together integrate them in the product. If we just do one PCB and frew everything at it to make it just work, i won't be satisfied, design should reflect development process.
+We put here developer mantainer goals, because in the future version of the device we should be able to develop software and hardware comfortably and it may require making decisions regarding modularization of components. Software is not important per se at this point, but rather hardware/software integration. I would love to be able to trace our project to sub-components wich can be build and tested sepertly, but we together integrate them in the product. If we just do one PCB and frew everything at it to make it just work, i won't be satisfied, design should reflect proper development process.
 
 
