@@ -1,6 +1,6 @@
 <mxfile host="Electron" pages="5">
   <diagram name="UC-001" id="Im9gHGDILpyhFva4_Du6">
-    <mxGraphModel dx="3110" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2854" dy="1874" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -18,25 +18,24 @@
             <mxPoint x="-590.0000000000002" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-140" parent="1" style="html=1;whiteSpace=wrap;" value="Device indicate boot&lt;div&gt;progress&lt;/div&gt;" vertex="1">
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-140" parent="1" style="html=1;whiteSpace=wrap;" value="Device check operating conditions" vertex="1">
           <mxGeometry height="60" width="135" x="-658" y="200" as="geometry" />
         </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-151" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-150" value="">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-151" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="iK5blXLD7qxG3w4-N2Q_-31" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-742.5" y="370" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="h_VkGRzU6r2PWAFEg9cS-153" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-152" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-149" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Has boot suceed?" vertex="1">
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-149" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Are operating&amp;nbsp;&lt;div&gt;conditions met?&lt;/div&gt;" vertex="1">
           <mxGeometry height="140" width="135" x="-658" y="300" as="geometry" />
-        </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-150" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Power off the device" vertex="1">
-          <mxGeometry height="60" width="100" x="-842.5" y="340" as="geometry" />
         </mxCell>
         <mxCell id="h_VkGRzU6r2PWAFEg9cS-157" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-156" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-152" parent="1" style="html=1;whiteSpace=wrap;" value="Device check operating conditions" vertex="1">
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-152" parent="1" style="html=1;whiteSpace=wrap;" value="Device indicate boot&lt;div&gt;progress&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="135" x="-658" y="500" as="geometry" />
         </mxCell>
         <mxCell id="h_VkGRzU6r2PWAFEg9cS-154" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="No" vertex="1">
@@ -53,7 +52,7 @@
         <mxCell id="h_VkGRzU6r2PWAFEg9cS-163" edge="1" parent="1" source="h_VkGRzU6r2PWAFEg9cS-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="h_VkGRzU6r2PWAFEg9cS-162" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="h_VkGRzU6r2PWAFEg9cS-156" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Are operating&amp;nbsp;&lt;div&gt;conditions met?&lt;/div&gt;" vertex="1">
+        <mxCell id="h_VkGRzU6r2PWAFEg9cS-156" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" value="Has boot suceed?" vertex="1">
           <mxGeometry height="140" width="135" x="-657.5" y="610" as="geometry" />
         </mxCell>
         <mxCell id="h_VkGRzU6r2PWAFEg9cS-161" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="No" vertex="1">
@@ -79,17 +78,12 @@
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Device OFF&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="-810" y="1080" as="geometry" />
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-7" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;" target="iK5blXLD7qxG3w4-N2Q_-1" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-780" y="1220" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-11" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" target="iK5blXLD7qxG3w4-N2Q_-3" value="">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-460" y="1220" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Device booting" vertex="1">
+        <mxCell id="iK5blXLD7qxG3w4-N2Q_-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Device verifying" vertex="1">
           <mxGeometry height="80" width="80" x="-660" y="1180" as="geometry" />
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-13" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" target="iK5blXLD7qxG3w4-N2Q_-12" value="">
@@ -100,11 +94,11 @@
             <mxPoint x="-310" y="1330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Device verifying" vertex="1">
+        <mxCell id="iK5blXLD7qxG3w4-N2Q_-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Device booting&lt;/span&gt;" vertex="1">
           <mxGeometry height="80" width="80" x="-510" y="1290" as="geometry" />
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Boot failed" vertex="1">
-          <mxGeometry height="30" width="60" x="-740" y="1220" as="geometry" />
+          <mxGeometry height="30" width="60" x="-590" y="1300" as="geometry" />
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="User press the power button" vertex="1">
           <mxGeometry height="50" width="80" x="-650" y="1090" as="geometry" />
@@ -116,14 +110,11 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Verification failure" vertex="1">
+        <mxCell id="iK5blXLD7qxG3w4-N2Q_-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Startup failure" vertex="1">
           <mxGeometry height="80" width="80" x="-730" y="1330" as="geometry" />
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Boot succeded" vertex="1">
-          <mxGeometry height="30" width="60" x="-540" y="1190" as="geometry" />
-        </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Verification failed" vertex="1">
-          <mxGeometry height="30" width="60" x="-610" y="1300" as="geometry" />
+          <mxGeometry height="30" width="60" x="-710" y="1260" as="geometry" />
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;" value="Device ready" vertex="1">
           <mxGeometry height="80" width="80" x="-400" y="1440" as="geometry" />
@@ -152,9 +143,9 @@
             <mxPoint x="-430" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iK5blXLD7qxG3w4-N2Q_-33" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="h_VkGRzU6r2PWAFEg9cS-150" value="">
+        <mxCell id="Qvcu8GzkoyVACm66cXO5-3" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="Qvcu8GzkoyVACm66cXO5-1" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-792.5" y="540" as="targetPoint" />
+            <mxPoint x="-792.5" y="820" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-31" parent="1" style="html=1;whiteSpace=wrap;" value="Inform user&amp;nbsp;&lt;div&gt;about failure reason&amp;nbsp;&lt;/div&gt;" vertex="1">
@@ -162,6 +153,18 @@
         </mxCell>
         <mxCell id="iK5blXLD7qxG3w4-N2Q_-34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Startup&lt;div&gt;process&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="-425" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Qvcu8GzkoyVACm66cXO5-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Power off the device" vertex="1">
+          <mxGeometry height="60" width="100" x="-842.5" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="Qvcu8GzkoyVACm66cXO5-4" edge="1" parent="1" source="iK5blXLD7qxG3w4-N2Q_-2" style="endArrow=classic;html=1;rounded=0;exitX=0.35;exitY=0.988;exitDx=0;exitDy=0;exitPerimeter=0;" target="iK5blXLD7qxG3w4-N2Q_-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-430" y="1170" as="sourcePoint" />
+            <mxPoint x="-380" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qvcu8GzkoyVACm66cXO5-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Verification success" vertex="1">
+          <mxGeometry height="30" width="60" x="-550" y="1190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

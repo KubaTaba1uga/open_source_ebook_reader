@@ -2,7 +2,12 @@ Hardware
 ===========
 
 The ebook reader is composed of:
-- [Display](hardware/display.md)
-- [Buttons](hardware/buttons.md)
-- [Battery](hardware/battery.md)
-- [Enclosure](hardware/enclosure.md)
+```{toctree}
+:maxdepth: 2
+
+hardware/display
+hardware/buttons
+hardware/battery
+hardware/enclosure
+```
+

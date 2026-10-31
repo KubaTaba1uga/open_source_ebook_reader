@@ -58,15 +58,16 @@ def docs_build(c):
     _pr_info("Building docs...")
 
     docs_path = os.path.join(BUILD_PATH, "docs", "html")
-
+            
     try:
         c.run("doxygen docs/Doxyfile")
         with c.cd(DOCS_PATH):
             c.run(f"sphinx-build -b html . {docs_path}")
     except Exception:
+
         _pr_error(f"Building docs failed")
         raise
-
+    
     _pr_info("Building docs completed")
 
 

@@ -70,3 +70,5 @@ trash
 clangd.log
 clangd.sh
 *.zip
+
+docs/design/generated
