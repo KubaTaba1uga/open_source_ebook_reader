@@ -7,7 +7,7 @@ Imagine buying an eBook reader and being able to customize it just like your Lin
 
 **The goal of this project is to make eBook readers as easy to customize as ordinary Linux computers.**
 
-I own a Kobo reader, and I really like it. But I wish it had a bigger screen and the freedom to run whatever software I want. For example, I'd like to translate selected words directly in PDFs or automatically synchronize my books using Git. These features are relatively straightforward to implement on Linux, but existing eBook readers don't make this kind of customization easy.
+I own a Kobo reader, and I really like it. But I wish it had the freedom to run whatever software I want. For example, I'd like to translate selected words directly in PDFs or automatically synchronize my books using Git. These features are relatively straightforward to implement on Linux, but existing eBook readers don't make this kind of customization easy.
 
 The idea is to build an open-source, Linux-based eBook reader with a large E Ink display, physical buttons, a battery, and an enclosure. It should work as an ordinary eBook reader out of the box, while giving users the freedom to replace the reading application, install additional software, or even reflash the entire operating system.
 
