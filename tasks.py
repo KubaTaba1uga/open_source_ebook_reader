@@ -58,24 +58,35 @@ def docs_build(c):
     _pr_info("Building docs...")
 
     docs_path = os.path.join(BUILD_PATH, "docs", "html")
+    assets_paths = _find_docs_assets(os.path.join(ROOT_PATH, "docs"))
+    drawio_paths = [path for path in assets_paths if path.endswith(".drawio")]
+    import pprint
+
+    pprint.pprint(assets_paths)
+    pprint.pprint(drawio_paths)
+    for drawio_path in drawio_paths:
+        print(f"{drawio_path=}")
+        do_loop, i = True, 1
+        while do_loop:
+            res = c.run(f"bash tools/gen_diagram.sh {drawio_path} {i}", warn=True)
+            if not res.ok:
+                do_loop = False
+            i += 1
             
     try:
         c.run("doxygen docs/Doxyfile")
         with c.cd(DOCS_PATH):
             c.run(f"sphinx-build -b html . {docs_path}")
     except Exception:
-
         _pr_error(f"Building docs failed")
         raise
-    
+
     _pr_info("Building docs completed")
 
 
 @task
 def docs_serve(c, port=8000):
     _pr_info("Serving docs...")
-
-    docs_build(c)
 
     c.run(
         " ".join(
@@ -114,9 +125,9 @@ def image_build(c, config="stm32mp135d_odyssey_defconfig"):
 
                 patches_dir = os.path.join(
                     ROOT_PATH,
-                    config_dict["BR2_GLOBAL_PATCH_DIR"].replace(
-                        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
-                    ).replace('"', ""),
+                    config_dict["BR2_GLOBAL_PATCH_DIR"]
+                    .replace("$(BR2_EXTERNAL_EBK_READER_PATH)/", "")
+                    .replace('"', ""),
                     repo,
                 )
                 if not os.path.exists(patches_dir):
@@ -149,8 +160,8 @@ def image_configure(c, config="stm32mp135d_odyssey_defconfig"):
         c.run(f"make " + " ".join(flags))
 
     _pr_info(f"Configuring image completed")
-    
-    
+
+
 @task
 def gdb_run(c, config, phase="linux", in_runetime=False):
     _pr_info(f"Starting gdb...")
@@ -172,18 +183,18 @@ def gdb_run(c, config, phase="linux", in_runetime=False):
 def openocd(c, config, command="run"):
     commands = {
         "run": None,
-        "reboot": None,    
+        "reboot": None,
     }
-    
+
     _pr_info(f"Starting openocd...")
 
     config_path = os.path.join(ROOT_PATH, "configs", config)
     config_dict = _parse_config(config_path)
 
     for cmd in commands:
-        script = config_dict.get(f"BR2_PACKAGE_HOST_OPENOCD_{cmd.upper()}_SCRIPT", "").replace(
-        "$(BR2_EXTERNAL_EBK_READER_PATH)/", ""
-        )
+        script = config_dict.get(
+            f"BR2_PACKAGE_HOST_OPENOCD_{cmd.upper()}_SCRIPT", ""
+        ).replace("$(BR2_EXTERNAL_EBK_READER_PATH)/", "")
         commands[cmd] = script
 
     openocd_script = commands.get(command)
@@ -267,6 +278,23 @@ def _find_repos_in_br_config(config_dict: dict):
             continue
 
         results[repo_name] = {"url": url, "version": version}
+
+    return results
+
+
+def _find_docs_assets(path, results=None):
+    if results is None:
+        results = []
+
+    if not os.path.isdir(path):
+        return results
+
+    for nested_path in os.listdir(path):
+        rel_nested_path = os.path.join(path, nested_path)
+        if os.path.basename(path) == "assets":
+            results.append(rel_nested_path)
+        if os.path.isdir(rel_nested_path):
+            _find_docs_assets(rel_nested_path, results)
 
     return results
 

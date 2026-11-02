@@ -39,7 +39,7 @@ The structure of use case is pretty simple, each use case contain multiple field
 **Trigger**: User presses the power button.
 
 **Main flow**
-![Main Flow](/design/assets/UC-001.png)
+![Main Flow](/design/assets/generated/UC-001.png)
 
 We need to indicate to user that we received his button press, otherwise he may think that nothing is hapenning and that device is not working.
 
@@ -66,7 +66,7 @@ these recovery methods.
 **Trigger**: Application is started.
 
 **Main flow**
-![Main Flow](/design/assets/UC-002.png)
+![Main Flow](/design/assets/generated/UC-002.png)
 
 You can open an book from multiple places, menu, library or in initialization. 
 
@@ -89,7 +89,7 @@ It is important because errors considering books (ex. not supported format) need
 **Trigger**: Book is opened.
 
 **Main flow**:
-![Main Flow](/design/assets/UC-003.png)
+![Main Flow](/design/assets/generated/UC-003.png)
 
 This is one of the most important flows, rendering the page is propably the most CPU consuming and the most frequent operation, so we need to design it carefully.
 When user request next or previous page the change should be well benchmarked and measured, this is where we should focus our optimization on.
@@ -127,7 +127,7 @@ What happen when the device runs out of available memory while processing a PDF?
 **Trigger**: Multiple.
 
 **Main flow**
-![Main Flow](/design/assets/UC-004.png)
+![Main Flow](/design/assets/generated/UC-004.png)
 
 The power off can be initiated for multiple reasons:
  - User can poweroff the device using poweroff button.

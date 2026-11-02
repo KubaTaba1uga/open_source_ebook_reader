@@ -29,8 +29,8 @@ Success criteria describe observable outcomes. Some criteria also serve as funct
 ## [Read and Navigate a PDF](/design/01_concept_of_operations.md#UC-003)
 
 - <a id="MOE-015"></a> `MOE-015`: The user can navigate to the next or previous PDF page within X seconds, measured from the button press until the requested page is displayed.
-- <a id="MOE-016"></a> `MOE-016`: When PDF rendering fails or exceeds the permitted processing time, the device detects the failure and either recovers safely or initiates a controlled shutdown.
-- <a id="MOE-017"></a> `MOE-017`: Before a controlled shutdown caused by a fatal rendering error, the user receives an indication of the failure and its reason, where technically possible.
+- <a id="MOE-016"></a> `MOE-016`: The user can navigate to the last read PDF page within X seconds, after changing book settings.
+
 
 ## [Power Off the Device](/design/01_concept_of_operations.md#UC-004)
 
