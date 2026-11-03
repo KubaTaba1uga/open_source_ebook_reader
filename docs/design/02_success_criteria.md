@@ -15,6 +15,7 @@ Success criteria describe observable outcomes. Some criteria also serve as funct
 - <a id="MOE-005"></a> `MOE-005`: The device prevents normal operation when the battery charge is below X.
 - <a id="MOE-006"></a> `MOE-006`: The device starts the e-book reader application within X seconds of pressing the power button under normal operating conditions.
 
+
 ## [Select and Open a Book](/design/01_concept_of_operations.md#UC-002)
 
 - <a id="MOE-007"></a> `MOE-007`: The user can successfully open and read at least 75% of representative PDF documents (minimum acceptable performance).
@@ -25,6 +26,7 @@ Success criteria describe observable outcomes. Some criteria also serve as funct
 - <a id="MOE-012"></a> `MOE-012`: The user can access the five most recently opened books from the main menu, or all previously opened books if fewer than five exist.
 - <a id="MOE-013"></a> `MOE-013`: The user can browse all books available in the device's library.
 - <a id="MOE-014"></a> `MOE-014`: The user can import a representative book into the device's library within X seconds.
+
 
 ## [Read and Navigate a PDF](/design/01_concept_of_operations.md#UC-003)
 
@@ -39,10 +41,12 @@ Success criteria describe observable outcomes. Some criteria also serve as funct
 - <a id="MOE-020"></a> `MOE-020`: After an unexpected power loss or interrupted shutdown, the device can restart and recover its stored data on a best-effort basis.
 - <a id="MOE-021"></a> `MOE-021`: A normal controlled shutdown does not cause loss or corruption of previously saved user data.
 
+
 ## [Select One Primary Capability to Receive Development Priority](/design/01_concept_of_operations.md#UC-005)
 
 - <a id="MOE-022"></a> `MOE-022`: The selected primary capability is documented in `00_stakeholders.md`, `01_concept_of_operations.md`, and `02_success_criteria.md`.
 - <a id="MOE-023"></a> `MOE-023`: Feedback has been collected from at least X potential customers indicating whether the selected capability is important to them.
+
 
 ## [Create a Project Site to Gather Customer Interest](/design/01_concept_of_operations.md#UC-006)
 
@@ -56,7 +60,8 @@ Success criteria describe observable outcomes. Some criteria also serve as funct
 - <a id="MOE-031"></a> `MOE-031`: Information about the capabilities and characteristics most important to potential customers has been collected and is available for analysis.
 - <a id="MOE-032"></a> `MOE-032`: A publicly accessible list of known unsupported capabilities and technical limitations is available on the project website.
 
-## [Design a Version of the Future Device](/design/01_concept_of_operations.md#UC-008)
+
+## [Validate Commerciality](/design/01_concept_of_operations.md#UC-008)
 
 - <a id="MOE-033"></a> `MOE-033`: Manufacturing cost per device has been estimated for at least three production volumes, including components, PCB manufacturing, assembly, and testing.
 - <a id="MOE-034"></a> `MOE-034`: Development, distribution, customer support, and other relevant non-manufacturing costs have been estimated, with the assumptions documented.

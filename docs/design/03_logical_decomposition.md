@@ -56,8 +56,21 @@ So far, we have gathered expectations, objectives, use cases, and success criter
 ![Poweroff the device](/design/assets/generated/FFBD-006.png)
 
 
-## Inform potential customers about the project
+## Find Potential Customers
 
-## Gather interest from potential customers
+**ID**: <a id="FFBD-007"></a>FFBD-007
 
-## Design a Version of the Future Device
+**Related MOEs:** [MOE-024](/design/02_success_criteria.md#MOE-024), [MOE-025](/design/02_success_criteria.md#MOE-025), [MOE-026](/design/02_success_criteria.md#MOE-026), [MOE-027](/design/02_success_criteria.md#MOE-027), [MOE-028](/design/02_success_criteria.md#MOE-028), [MOE-029](/design/02_success_criteria.md#MOE-029), [MOE-030](/design/02_success_criteria.md#MOE-030), [MOE-031](/design/02_success_criteria.md#MOE-031), [MOE-032](/design/02_success_criteria.md#MOE-032), [MOE-033](/design/02_success_criteria.md#MOE-033)
+
+![Find potential customers and evaluate commercial viability](/design/assets/generated/FFBD-007.png)
+
+
+## Validate Commerciality
+
+**ID**: <a id="FFBD-008"></a>FFBD-008
+
+**Related MOEs:** [MOE-034](/design/02_success_criteria.md#MOE-034), [MOE-035](/design/02_success_criteria.md#MOE-035), [MOE-036](/design/02_success_criteria.md#MOE-036), [MOE-037](/design/02_success_criteria.md#MOE-037)
+
+![Validate Commerciality](/design/assets/generated/FFBD-008.png)
+
+

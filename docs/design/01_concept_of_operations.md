@@ -236,7 +236,7 @@ NOT NEEDED YET.
 We will may need it later when we have multiple instances of the device. When there is one/two instances on the world, auto-test is a bit of overkill.
 
 
-### Design a version of future device
+### Validate Commerciality
 
 **ID**: <a id="UC-008"></a>UC-008
 
