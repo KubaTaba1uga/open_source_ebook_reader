@@ -64,6 +64,13 @@ So far, we have gathered expectations, objectives, use cases, and success criter
 
 ![Find potential customers and evaluate commercial viability](/design/assets/generated/FFBD-007.png)
 
+Ideas for promotion articles:
+- Configure network on linux from scratch, no /etc/interfaces, no netplan.
+- How design SD card storage for battery powered linux device?
+- How selecting io between processes affect bandwith? Is thread always the fastest?
+
+
+
 
 ## Validate Commerciality
 
