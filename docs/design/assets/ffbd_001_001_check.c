@@ -7,6 +7,10 @@
 #include "ffbd_001_001.h"
 
 int main(int argc, char *argv[]) {
+  char expected_chunk[128 * 1024];
+  char chunk[128 * 1024];
+  int byte_i = 0;
+  
   if (argc != 2) {
     printf("Invalid args.\n");
     return EXIT_FAILURE;
@@ -28,11 +32,8 @@ int main(int argc, char *argv[]) {
     goto error_file_cleanup;
   };
 
-  int chunk_i = 0;
-  char chunk[128 * 1024];
-  char expected_chunk[128 * 1024];
   create_chunk(expected_chunk, sizeof(expected_chunk));
-  while (chunk_i < end_offset) {
+  while (byte_i < end_offset) {
     if (read(file_desc, chunk, sizeof(chunk)) == -1) {
       perror("Cannot read");
       goto error_file_cleanup;
@@ -40,24 +41,26 @@ int main(int argc, char *argv[]) {
 
     for (int i = 0; i < sizeof(chunk); i++) {
       if (chunk[i] != expected_chunk[i]) {
-        printf("Integrity error on index %d, should be '%d' and was '%d'\n", i,
+        printf("Integrity error on index %d, should be '%d' and was '%d'\n", byte_i + i,
                expected_chunk[i], chunk[i]);
         goto error_file_cleanup;
       };
     }
 
-    chunk_i += sizeof(chunk);
-    lseek(file_desc, chunk_i, SEEK_SET);
+    byte_i += sizeof(chunk);
+    lseek(file_desc, byte_i, SEEK_SET);
   }
 
   close(file_desc);
 
   printf("All good\n");
+  printf("Valid bytes: %d\n", byte_i);
 
   return EXIT_SUCCESS;
 
 error_file_cleanup:
   close(file_desc);
 
+  printf("Valid bytes: %d\n", byte_i);  
   return EXIT_FAILURE;
 }

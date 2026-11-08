@@ -26,15 +26,16 @@ int main(int argc, char *argv[]) {
   }
 
   char chunk[128 * 1024];
-  create_chunk(chunk,sizeof(chunk));
+  create_chunk(chunk, sizeof(chunk));
 
   if (write(file_desc, chunk, sizeof(chunk)) == -1) {
     printf("Cannot write.\n");
     goto error_file_cleanup;
   };
 
+  /* fsync(file_desc); */
   close(file_desc);
-  
+
   return EXIT_SUCCESS;
 
 error_file_cleanup:
