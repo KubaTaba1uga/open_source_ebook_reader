@@ -15,9 +15,11 @@ import random
 from spd3303x import SPD3303X
 from common import uart_cmd_spawn, uart_cmd, uart_cmd_destroy
 
+IS_F2FS=True
 TEST_DURATION_S = 60 * 15
 POWER_OFF_S = 2.0
 POST_RM_SLEEP_S = 5.0
+PSU_IP = "192.168.2.9"
 UART_DEVICE = "/dev/ttyUSB0"
 FILE_PATH = "/mnt/the_file"
 CHECK_CMD = f"/mnt/ffbd_001_check {FILE_PATH}"
@@ -30,7 +32,7 @@ def main():
     total_power_on = 0.0
     start = time.time()
 
-    with SPD3303X.ethernet_device("192.168.2.7") as dev:
+    with SPD3303X.ethernet_device(PSU_IP) as dev:
         dev.CH1.set_output(False)
         dev.CH1.set_voltage(5.0)
         dev.CH1.set_current(0.5)
@@ -67,13 +69,14 @@ def run_test_iteration(dev):
     One full iteration. Returns (corrupted, valid_bytes, power_on_seconds).
     Sequence matches the original: spawn -> check -> rm/wait/writer -> on -> off -> destroy.
     """
-    power_on_seconds = random.uniform(5.0, 10.0)
+    power_on_seconds = random.uniform(10.0, 20.0)
 
     # Power on, give the system time to boot / reach a stable state.
     dev.CH1.set_output(True)
     time.sleep(1)
 
     uart_cmd_spawn(UART_DEVICE)
+    time.sleep(1)            
     try:
         status, valid_bytes = check_file()
         
@@ -91,6 +94,11 @@ def run_test_iteration(dev):
 
 
 def prepare_and_start_writer():
+    if IS_F2FS:
+        # uart_cmd(f"echo 60 > /sys/fs/f2fs/mmcblk0p6/cp_interval")
+        uart_cmd(f"echo 100 > /sys/fs/f2fs/mmcblk0p6/max_roll_forward_node_blocks")    
+
+
     uart_cmd(f"rm -f {FILE_PATH}")
     time.sleep(POST_RM_SLEEP_S)
     uart_cmd(WRITE_CMD)

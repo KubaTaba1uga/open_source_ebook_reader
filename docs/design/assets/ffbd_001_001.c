@@ -10,6 +10,7 @@ Check content of the file at index 131070:
 
 #include "ffbd_001_001.h"
 
+
 int main(int argc, char *argv[]) {
   if (argc != 2) {
     printf("Invalid args.\n");
@@ -33,7 +34,10 @@ int main(int argc, char *argv[]) {
     goto error_file_cleanup;
   };
 
-  /* fsync(file_desc); */
+#ifdef USE_FSYNC
+  fsync(file_desc);
+#endif
+  
   close(file_desc);
 
   return EXIT_SUCCESS;

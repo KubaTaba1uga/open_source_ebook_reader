@@ -83,7 +83,7 @@ def uart_cmd_destroy():
     ctx = {"status": "none", "dev": None}
 
 
-def uart_cmd(command, timeout=5.0):
+def uart_cmd(command, timeout=120):
     """
     Spawns tio, sends a command, and captures the output.
     """
@@ -91,13 +91,13 @@ def uart_cmd(command, timeout=5.0):
     if ctx["status"] == "none":
         raise ValueError()
     elif ctx["status"] == "logged_in":
-        shell.expect([r"#", pexpect.TIMEOUT], timeout=5)
+        shell.expect([r"#", pexpect.TIMEOUT], timeout=timeout)
         shell.sendline(command)
-        shell.expect([r"#", pexpect.TIMEOUT], timeout=5)
+        shell.expect([r"#", pexpect.TIMEOUT], timeout=timeout)
         ctx["status"] = "in_program"
     elif ctx["status"] == "in_program":
         shell.sendline(command)
-        shell.expect([r"#", pexpect.TIMEOUT], timeout=5)
+        shell.expect([r"#", pexpect.TIMEOUT], timeout=timeout)
 
     time.sleep(0.5)        
     try:
