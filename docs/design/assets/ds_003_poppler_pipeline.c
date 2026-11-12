@@ -1,7 +1,13 @@
 /*
   Compile:
   export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig/:$PKG_CONFIG_PATH
+  gcc docs/design/assets/ds_003_poppler_pipeline.c `MagickWand-config --cflags
+  --cppflags`  $(pkg-config --cflags --libs poppler-glib cairo glib-2.0 gio-2.0)
+  `MagickWand-config --ldflags --libs` -o pdf_poppler
 
+  Cross compile:
+  source build/buildroot/host/environment-setup
+  arm-linux-gcc -O3 -pipe -mcpu=cortex-a7 -mfpu=neon -mfloat-abi=hard -mthumb ~/Github/open_source_ebook_reader/docs/design/assets/ds_003_poppler_pipeline.c  $(pkg-config --cflags --libs poppler-glib cairo glib-2.0 gio-2.0 MagickWand) -o pdf_poppler
 
 */
 #include <cairo.h>
@@ -12,25 +18,25 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* #include <MagickCore/exception.h> */
-/* #include <MagickCore/transform.h> */
 #include <MagickWand/MagickWand.h>
 
 static void help_print(int argc, char *argv[]);
 static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
-                   float scale_no, float upscale_no);
+                   float upscale_no, int thresh_x, int thresh_y);
 
 int main(int argc, char *argv[]) {
   const struct option long_options[] = {
       {"help", no_argument, NULL, 'h'},
       {"verbose", no_argument, NULL, 'v'},
       {"page", required_argument, NULL, 'p'},
-      {"scale", required_argument, NULL, 's'},
       {"upscale", required_argument, NULL, 'u'},
+      {"thresh_x", required_argument, NULL, 'x'},
+      {"thresh_y", required_argument, NULL, 'y'},
       {NULL, 0, NULL, 0}};
-  bool verbose = false;
   double upscale = 2.0;
-  double scale = 1.0;
+  bool verbose = false;
+  int thresh_x = 25;
+  int thresh_y = 50;
   int page = 0;
   int opt;
 
@@ -39,7 +45,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  while ((opt = getopt_long(argc, argv, "hvpsu:", long_options, NULL)) != -1) {
+  while ((opt = getopt_long(argc, argv, "hvpuxy:", long_options, NULL)) != -1) {
     switch (opt) {
     case 'h':
       help_print(argc, argv);
@@ -50,11 +56,14 @@ int main(int argc, char *argv[]) {
     case 'p':
       page = atoi(optarg);
       break;
-    case 's':
-      scale = atof(optarg);
-      break;
     case 'u':
       upscale = atof(optarg);
+      break;
+    case 'x':
+      thresh_x = atoi(optarg);
+      break;
+    case 'y':
+      thresh_y = atoi(optarg);
       break;
     default:
       return 1;
@@ -73,12 +82,12 @@ int main(int argc, char *argv[]) {
     printf("Input: %s\n", input_pdf);
     printf("Output: %s\n", output_png);
     printf("Verbose: %s\n", verbose ? "yes" : "no");
-    printf("Scale: %f\n", scale);
+    printf("Thresh: x=%d,y=%d\n", thresh_x, thresh_y);
     printf("Upscale: %f\n", upscale);
     printf("Page: %d\n", page);
   }
 
-  return gen_pdf(input_pdf, output_png, page, scale, upscale);
+  return gen_pdf(input_pdf, output_png, page, upscale, thresh_x, thresh_y);
 }
 
 static void help_print(int argc, char *argv[]) {
@@ -101,7 +110,7 @@ static void help_print(int argc, char *argv[]) {
 }
 
 static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
-                   float scale_no, float upscale_no) {
+                   float upscale_no, int thresh_x, int thresh_y) {
   struct timespec start, end;
   clock_gettime(CLOCK_REALTIME, &start);
 
@@ -164,7 +173,7 @@ static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
   MagickWand *wand = NewMagickWand();
 
   MagickConstituteImage(wand, width, height, "RGB", CharPixel, rgb_buffer);
-  MagickAdaptiveThresholdImage(wand, 25, 50, -50);
+  MagickAdaptiveThresholdImage(wand, thresh_x, thresh_y, -50);
   MagickAutoThresholdImage(wand, OTSUThresholdMethod);
 
   clock_gettime(CLOCK_REALTIME, &end);

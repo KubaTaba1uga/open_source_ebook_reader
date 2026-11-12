@@ -68,8 +68,9 @@ Ideas for promotion articles:
 - Configure network on linux from scratch, no /etc/interfaces, no netplan.
 - How design SD card storage for battery powered linux device?
 - How selecting io between processes affect bandwith? Is thread always the fastest?
-
-
+- Use ImageMagicka wand api in C.
+- Use GTK in C.
+- Use LVGL in C.
 
 
 ## Validate Commerciality
