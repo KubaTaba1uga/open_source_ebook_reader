@@ -21,5 +21,5 @@ design/00_stakeholders
 design/generated/01_concept_of_operations
 design/02_success_criteria
 design/generated/03_logical_decomposition
-design/04_design_solution_definition/index.md
+design/04_design_solution_definition
 ```
