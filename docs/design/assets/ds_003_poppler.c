@@ -129,11 +129,6 @@ static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
   cairo_set_source_rgb(cr, 1, 1, 1);
   cairo_paint(cr);
 
-cairo_font_options_t *options = cairo_font_options_create();
-cairo_font_options_set_antialias(options, CAIRO_ANTIALIAS_GRAY);
-cairo_set_font_options(cr, options);
-cairo_font_options_destroy(options);
-  /* poppler_page_set_render_antialias(page, CAIRO_ANTIALIAS_GRAY);   */
   poppler_page_render(page,
                       cr); // Poppler draws in points, Cairo scales to pixels
 

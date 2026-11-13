@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
       {NULL, 0, NULL, 0}};
   double upscale = 2.0;
   bool verbose = false;
-  int thresh_x = 25;
-  int thresh_y = 50;
+  int thresh_x = 10;
+  int thresh_y = 40;
   int page = 0;
   int opt;
 

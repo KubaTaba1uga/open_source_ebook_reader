@@ -8,6 +8,5 @@ The ebook reader is composed of:
 hardware/display
 hardware/buttons
 hardware/battery
-hardware/enclosure
 ```
 
