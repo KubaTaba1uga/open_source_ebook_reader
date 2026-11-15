@@ -60,10 +60,7 @@ def docs_build(c):
     docs_path = os.path.join(BUILD_PATH, "docs", "html")
     assets_paths = _find_docs_assets(os.path.join(ROOT_PATH, "docs"))
     drawio_paths = [path for path in assets_paths if path.endswith(".drawio")]
-    import pprint
-
-    pprint.pprint(assets_paths)
-    pprint.pprint(drawio_paths)
+    
     for drawio_path in drawio_paths:
         print(f"{drawio_path=}")
         do_loop, i = True, 1

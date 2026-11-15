@@ -2,6 +2,7 @@
 #include <getopt.h>
 #include <poppler.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -52,14 +53,13 @@ int main(int argc, char *argv[]) {
 
   const char *input_pdf = argv[optind];
   const char *output_png = argv[optind + 1];
-  
+
   if (verbose) {
     printf("Input: %s\n", input_pdf);
     printf("Output: %s\n", output_png);
     printf("Verbose: %s\n", verbose ? "yes" : "no");
     printf("Scale: %f\n", scale);
     printf("Page: %d\n", page);
-    
   }
 
   return gen_pdf(input_pdf, output_png, page, scale);
@@ -125,12 +125,39 @@ static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
   cairo_t *cr = cairo_create(surface);
 
   cairo_scale(cr, scale_no, scale_no);
-
   cairo_set_source_rgb(cr, 1, 1, 1);
+
+  /* cairo_set_operator(cr, CAIRO_OPERATOR_HSL_SATURATION); */
   cairo_paint(cr);
 
   poppler_page_render(page,
                       cr); // Poppler draws in points, Cairo scales to pixels
+
+  cairo_destroy(cr);
+  cairo_surface_flush(surface);
+  unsigned char *data = cairo_image_surface_get_data(surface);
+  int w = cairo_image_surface_get_width(surface);
+  int h = cairo_image_surface_get_height(surface);
+  int s = cairo_image_surface_get_stride(surface);
+  
+  for (int y = 0; y < h; y++) {
+    uint32_t *row = (uint32_t *)(data + y * s);
+    for (int x = 0; x < w; x++) {
+      uint32_t pixel = row[x];
+      // ARGB32 (little-endian typically B,G,R,A)
+      unsigned char b = (pixel >> 0) & 0xFF;
+      unsigned char g = (pixel >> 8) & 0xFF;
+      unsigned char r = (pixel >> 16) & 0xFF;
+      unsigned char a = (pixel >> 24) & 0xFF;
+
+      unsigned char gray = (unsigned char)(0.3 * r + 0.59 * g + 0.11 * b);
+
+      unsigned char gray16level = (gray / (unsigned char)16) * (unsigned char)16;
+      // Preserve alpha channel, set RGB all to gray
+      row[x] = (a << 24) | (gray16level << 16) | (gray16level << 8) | gray16level;
+    }
+  }
+  cairo_surface_mark_dirty(surface);
 
   clock_gettime(CLOCK_REALTIME, &end);
   long long ns = ((long long)end.tv_sec * 1000000000LL + end.tv_nsec) -
@@ -146,7 +173,7 @@ static int gen_pdf(const char *pdf_path, const char *png_path, int page_no,
   }
 
   // 7. Cleanup
-  cairo_destroy(cr);
+  /* cairo_destroy(cr); */
   cairo_surface_destroy(surface);
   g_object_unref(page);
   g_object_unref(doc);
